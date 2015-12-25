@@ -1,6 +1,10 @@
 ;; vim: set ft=clojure:
 
+(ns-unmap *ns* 'namespace)
+
 (require
+  '[boot.file :as file]
+  '[clojure.java.io :as io]
   '[clojure.string :as string :refer [join split trimr]])
 
 (defn filter-vals
@@ -89,6 +93,50 @@
          (concat (emit-toc s))
          (concat (emit-ns m))
          (apply str))))
+
+(def ^:dynamic *doc-ns-sym*)
+
+(defn section*
+  [title intro & syms]
+  (let [id (gensym)
+        ns *doc-ns-sym*
+        n  (find-ns ns)
+        m  {:title title :intro intro}]
+    (alter-meta! n update-in [:doc/toc] assoc id m)
+    (doseq [s syms]
+      (alter-meta! (ns-resolve n s) assoc :doc/section id))))
+
+(defmacro section
+  [title intro & syms]
+  `(section* ~title ~intro ~@(map (partial list 'quote) syms)))
+
+(defn write-docs
+  [ns out src-path ns-doc]
+  (let [ns *doc-ns-sym*
+        n  (find-ns ns)]
+    (alter-meta! n assoc :doc ns-doc)
+    (spit out (-> (.getParent (io/file out))
+                  (file/relative-to src-path)
+                  (str "/")
+                  (parse-ns ns)))))
+
+(defmacro namespace
+  [ns out src-path ns-doc & sections]
+  `(binding [*doc-ns-sym* '~ns]
+     (do ~@sections)
+     (write-docs '~ns ~out ~src-path ~ns-doc)))
+
+(namespace
+  boot.core
+  "doc/boot.core.md"
+  (format "../%s/boot/core/src/" *boot-version*)
+  "The Boot core namespace, containing most of Boot's public API."
+  (section
+    "Configuration"
+    "These vars contain various Boot-related configuration. You shouldn't
+    need to modify them but you may want to read their values."
+    *boot-version*
+    *bot-script*))
 
 (comment
 
