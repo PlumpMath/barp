@@ -2,9 +2,6 @@
 
 The Boot core namespace, containing most of Boot's public API.
 
-* [`*app-version*`](#*app-version*)
-* [`*boot-opts*`](#*boot-opts*)
-* [`*warnings*`](#*warnings*)
 * [`add-asset`](#add-asset)
 * [`add-cached-asset`](#add-cached-asset)
 * [`add-cached-resource`](#add-cached-resource)
@@ -13,7 +10,6 @@ The Boot core namespace, containing most of Boot's public API.
 * [`add-resource`](#add-resource)
 * [`add-source`](#add-source)
 * [`boot`](#boot)
-* [`bootignore`](#bootignore)
 * [`by-ext`](#by-ext)
 * [`by-name`](#by-name)
 * [`by-path`](#by-path)
@@ -43,7 +39,6 @@ The Boot core namespace, containing most of Boot's public API.
 * [`input-fileset`](#input-fileset)
 * [`json-generate`](#json-generate)
 * [`json-parse`](#json-parse)
-* [`last-file-change`](#last-file-change)
 * [`launch-nrepl`](#launch-nrepl)
 * [`load-data-readers!`](#load-data-readers!)
 * [`ls`](#ls)
@@ -52,7 +47,6 @@ The Boot core namespace, containing most of Boot's public API.
 * [`mv-asset`](#mv-asset)
 * [`mv-resource`](#mv-resource)
 * [`mv-source`](#mv-source)
-* [`new-build-at`](#new-build-at)
 * [`new-fileset`](#new-fileset)
 * [`not-by-ext`](#not-by-ext)
 * [`not-by-name`](#not-by-name)
@@ -93,47 +87,6 @@ The Boot core namespace, containing most of Boot's public API.
 * [`with-pre-wrap`](#with-pre-wrap)
 * [`yaml-generate`](#yaml-generate)
 * [`yaml-parse`](#yaml-parse)
-
-#### Configuration
-
-
-#### Configuration
-
-
-#### Configuration
-
-* [`*boot-script*`](#*boot-script*)
-* [`*boot-version*`](#*boot-version*)
-
-### [`*app-version*`](../../2.5.2/boot/core/src/boot/core.clj#L29)
-
-_dynamic_
-
-```
-The running version of boot app.
-```
-
-<hr>
-
-### [`*boot-opts*`](../../2.5.2/boot/core/src/boot/core.clj#L32)
-
-_dynamic_
-
-```
-Command line options for boot itself.
-```
-
-<hr>
-
-### [`*warnings*`](../../2.5.2/boot/core/src/boot/core.clj#L33)
-
-_dynamic_
-
-```
-Count of warnings during build.
-```
-
-<hr>
 
 ### [`add-asset`](../../2.5.2/boot/core/src/boot/core.clj#L419)
 
@@ -248,16 +201,6 @@ _function_
 The REPL equivalent to the command line 'boot'. If all arguments are
 strings then they are treated as if they were given on the command line.
 Otherwise they are assumed to evaluate to task middleware.
-```
-
-<hr>
-
-### [`bootignore`](../../2.5.2/boot/core/src/boot/core.clj#L37)
-
-_var_
-
-```
-Set of regexes source file paths must not match.
 ```
 
 <hr>
@@ -709,16 +652,6 @@ Same as cheshire.core/parse-string.
 
 <hr>
 
-### [`last-file-change`](../../2.5.2/boot/core/src/boot/core.clj#L36)
-
-_var_
-
-```
-Last source file watcher update time.
-```
-
-<hr>
-
 ### [`launch-nrepl`](../../2.5.2/boot/core/src/boot/core.clj#L1037)
 
 _function_
@@ -831,16 +764,6 @@ _function_
 
 ```
 FIXME: document
-```
-
-<hr>
-
-### [`new-build-at`](../../2.5.2/boot/core/src/boot/core.clj#L35)
-
-_var_
-
-```
-Latest build occured at time.
 ```
 
 <hr>
@@ -1463,41 +1386,6 @@ _function_
 
 ```
 Same as clj-yaml.core/parse-string.
-```
-
-<hr>
-
-## Configuration
-
-These vars contain various Boot-related configuration. You shouldn't
-need to modify them but you may want to read their values.
-
-## Configuration
-
-These vars contain various Boot-related configuration. You shouldn't
-need to modify them but you may want to read their values.
-
-## Configuration
-
-These vars contain various Boot-related configuration. You shouldn't
-need to modify them but you may want to read their values.
-
-### [`*boot-script*`](../../2.5.2/boot/core/src/boot/core.clj#L30)
-
-_dynamic_
-
-```
-The script's name (when run as script).
-```
-
-<hr>
-
-### [`*boot-version*`](../../2.5.2/boot/core/src/boot/core.clj#L31)
-
-_dynamic_
-
-```
-The running version of boot core.
 ```
 
 <hr>
