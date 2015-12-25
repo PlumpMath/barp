@@ -1,5 +1,25 @@
 # boot.task.built-in
 
+* [add-repo](#add-repo)
+* [aot](#aot)
+* [checkout](#checkout)
+* [help](#help)
+* [install](#install)
+* [jar](#jar)
+* [javac](#javac)
+* [pom](#pom)
+* [push](#push)
+* [repl](#repl)
+* [show](#show)
+* [sift](#sift)
+* [speak](#speak)
+* [target](#target)
+* [uber](#uber)
+* [wait](#wait)
+* [war](#war)
+* [watch](#watch)
+* [web](#web)
+* [zip](#zip)
 ### [`add-repo`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L406)
 
 _function_
