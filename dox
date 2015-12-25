@@ -17,8 +17,8 @@
 (defn emit-arglists
   [name arglists]
   (->> arglists
-       (map #(format "```\n%s\n```\n\n" (pr-str (list* name %))))
-       (apply str)))
+       (map #(pr-str (list* name %)))
+       (join " ")))
 
 (defn emit-var
   [link-path {:keys [name doc arglists macro file line]}]
@@ -77,7 +77,7 @@
 
   (do (remove-ns 'foo.bar) (require 'foo.bar :reload))
 
-  (->> 'foo.bar (parse-ns "../boot/pod/src/") print)
+  (->> 'foo.bar (parse-ns "../boot/pod/src/") (spit "doc/foo.md"))
 
   (print (emit-var "../" "boot/pod/src/" a))
   (->> a :md print)
