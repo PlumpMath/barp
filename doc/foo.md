@@ -1,6 +1,6 @@
 # boot.core
 
-### [*app-version*](../boot/core/src/boot/core.clj#L29)
+### [`*app-version*`](../boot/core/src/boot/core.clj#L29)
 
 ```clojure
 
@@ -10,7 +10,7 @@
 The running version of boot app.
 ```
 
-### [*boot-opts*](../boot/core/src/boot/core.clj#L32)
+### [`*boot-opts*`](../boot/core/src/boot/core.clj#L32)
 
 ```clojure
 
@@ -20,7 +20,7 @@ The running version of boot app.
 Command line options for boot itself.
 ```
 
-### [*boot-script*](../boot/core/src/boot/core.clj#L30)
+### [`*boot-script*`](../boot/core/src/boot/core.clj#L30)
 
 ```clojure
 
@@ -30,7 +30,7 @@ Command line options for boot itself.
 The script's name (when run as script).
 ```
 
-### [*boot-version*](../boot/core/src/boot/core.clj#L31)
+### [`*boot-version*`](../boot/core/src/boot/core.clj#L31)
 
 ```clojure
 
@@ -40,7 +40,7 @@ The script's name (when run as script).
 The running version of boot core.
 ```
 
-### [*warnings*](../boot/core/src/boot/core.clj#L33)
+### [`*warnings*`](../boot/core/src/boot/core.clj#L33)
 
 ```clojure
 
@@ -50,7 +50,7 @@ The running version of boot core.
 Count of warnings during build.
 ```
 
-### [add-asset](../boot/core/src/boot/core.clj#L419)
+### [`add-asset`](../boot/core/src/boot/core.clj#L419)
 
 ```clojure
 (add-asset fileset dir & {:keys [mergers include exclude], :as opts})
@@ -60,7 +60,7 @@ Count of warnings during build.
 Add the contents of the java.io.File dir to the fileset's assets.
 ```
 
-### [add-cached-asset](../boot/core/src/boot/core.clj#L424)
+### [`add-cached-asset`](../boot/core/src/boot/core.clj#L424)
 
 ```clojure
 (add-cached-asset fileset cache-key cache-fn & {:keys [mergers include exclude], :as opts})
@@ -70,7 +70,7 @@ Add the contents of the java.io.File dir to the fileset's assets.
 FIXME: document
 ```
 
-### [add-cached-resource](../boot/core/src/boot/core.clj#L454)
+### [`add-cached-resource`](../boot/core/src/boot/core.clj#L454)
 
 ```clojure
 (add-cached-resource fileset cache-key cache-fn & {:keys [mergers include exclude], :as opts})
@@ -80,7 +80,7 @@ FIXME: document
 FIXME: document
 ```
 
-### [add-cached-source](../boot/core/src/boot/core.clj#L439)
+### [`add-cached-source`](../boot/core/src/boot/core.clj#L439)
 
 ```clojure
 (add-cached-source fileset cache-key cache-fn & {:keys [mergers include exclude], :as opts})
@@ -90,7 +90,7 @@ FIXME: document
 FIXME: document
 ```
 
-### [add-meta](../boot/core/src/boot/core.clj#L464)
+### [`add-meta`](../boot/core/src/boot/core.clj#L464)
 
 ```clojure
 (add-meta fileset meta-map)
@@ -103,7 +103,7 @@ string paths as keys and maps of metadata as values. These metadata maps
 will be merged into the TmpFile objects associated with the paths.
 ```
 
-### [add-resource](../boot/core/src/boot/core.clj#L449)
+### [`add-resource`](../boot/core/src/boot/core.clj#L449)
 
 ```clojure
 (add-resource fileset dir & {:keys [mergers include exclude], :as opts})
@@ -113,7 +113,7 @@ will be merged into the TmpFile objects associated with the paths.
 Add the contents of the java.io.File dir to the fileset's resources.
 ```
 
-### [add-source](../boot/core/src/boot/core.clj#L434)
+### [`add-source`](../boot/core/src/boot/core.clj#L434)
 
 ```clojure
 (add-source fileset dir & {:keys [mergers include exclude], :as opts})
@@ -123,7 +123,7 @@ Add the contents of the java.io.File dir to the fileset's resources.
 Add the contents of the java.io.File dir to the fileset's sources.
 ```
 
-### [boot](../boot/core/src/boot/core.clj#L793)
+### [`boot`](../boot/core/src/boot/core.clj#L793)
 
 ```clojure
 (boot & argv)
@@ -135,7 +135,7 @@ strings then they are treated as if they were given on the command line.
 Otherwise they are assumed to evaluate to task middleware.
 ```
 
-### [bootignore](../boot/core/src/boot/core.clj#L37)
+### [`bootignore`](../boot/core/src/boot/core.clj#L37)
 
 ```clojure
 
@@ -145,7 +145,7 @@ Otherwise they are assumed to evaluate to task middleware.
 Set of regexes source file paths must not match.
 ```
 
-### [by-ext](../boot/core/src/boot/core.clj#L1009)
+### [`by-ext`](../boot/core/src/boot/core.clj#L1009)
 
 ```clojure
 (by-ext exts files & [negate?])
@@ -158,7 +158,7 @@ file objects. Returns a seq of the files in `files` which have file extensions
 listed in `exts`.
 ```
 
-### [by-name](../boot/core/src/boot/core.clj#L983)
+### [`by-name`](../boot/core/src/boot/core.clj#L983)
 
 ```clojure
 (by-name names files & [negate?])
@@ -171,7 +171,7 @@ a seq of file objects. Returns a seq of the files in `files` which have file
 names listed in `names`.
 ```
 
-### [by-path](../boot/core/src/boot/core.clj#L996)
+### [`by-path`](../boot/core/src/boot/core.clj#L996)
 
 ```clojure
 (by-path paths files & [negate?])
@@ -184,7 +184,7 @@ a seq of file objects. Returns a seq of the files in `files` which have file
 paths listed in `paths`.
 ```
 
-### [by-re](../boot/core/src/boot/core.clj#L1022)
+### [`by-re`](../boot/core/src/boot/core.clj#L1022)
 
 ```clojure
 (by-re res files & [negate?])
@@ -197,7 +197,7 @@ file objects. Returns a seq of the files in `files` whose paths match one of
 the regex patterns in `res`.
 ```
 
-### [cache-dir!](../boot/core/src/boot/core.clj#L279)
+### [`cache-dir!`](../boot/core/src/boot/core.clj#L279)
 
 ```clojure
 (cache-dir! key & {:keys [global]})
@@ -210,7 +210,7 @@ directory is shared by all projects. The default behavior returns different
 directories for the same key when run in different projects.
 ```
 
-### [cleanup](../boot/core/src/boot/core.clj#L717)
+### [`cleanup`](../boot/core/src/boot/core.clj#L717)
 
 ```clojure
 (cleanup & body)
@@ -222,7 +222,7 @@ from inside a task definition, and is provided as a means to shutdown or
 clean up persistent resources created by the task (eg. threads, files, etc.)
 ```
 
-### [commit!](../boot/core/src/boot/core.clj#L378)
+### [`commit!`](../boot/core/src/boot/core.clj#L378)
 
 ```clojure
 (commit! fileset)
@@ -233,7 +233,7 @@ Make the underlying temp directories correspond to the immutable fileset
 tree structure.
 ```
 
-### [configure-repositories!](../boot/core/src/boot/core.clj#L633)
+### [`configure-repositories!`](../boot/core/src/boot/core.clj#L633)
 
 ```clojure
 (configure-repositories!) (configure-repositories! f)
@@ -246,7 +246,7 @@ the repository map with any additional configuration (like credentials, for
 example).
 ```
 
-### [cp](../boot/core/src/boot/core.clj#L410)
+### [`cp`](../boot/core/src/boot/core.clj#L410)
 
 ```clojure
 (cp fileset src-file dest-tmpfile)
@@ -257,7 +257,7 @@ Given a fileset and a dest-tmpfile from that fileset, overwrites the dest
 tmpfile with the contents of the java.io.File src-file.
 ```
 
-### [deftask](../boot/core/src/boot/core.clj#L695)
+### [`deftask`](../boot/core/src/boot/core.clj#L695)
 
 ```clojure
 (deftask sym & forms)
@@ -267,7 +267,7 @@ tmpfile with the contents of the java.io.File src-file.
 Define a boot task.
 ```
 
-### [disable-task!](../boot/core/src/boot/core.clj#L895)
+### [`disable-task!`](../boot/core/src/boot/core.clj#L895)
 
 ```clojure
 (disable-task! & tasks)
@@ -281,7 +281,7 @@ Disables the given tasks by replacing them with the identity task.
       (disable-task! repl jar)
 ```
 
-### [empty-dir!](../boot/core/src/boot/core.clj#L508)
+### [`empty-dir!`](../boot/core/src/boot/core.clj#L508)
 
 ```clojure
 (empty-dir! & dirs)
@@ -292,7 +292,7 @@ For each directory in dirs, recursively deletes all files and subdirectories.
 The directories in dirs themselves are not deleted.
 ```
 
-### [file-filter](../boot/core/src/boot/core.clj#L974)
+### [`file-filter`](../boot/core/src/boot/core.clj#L974)
 
 ```clojure
 (file-filter mkpred)
@@ -302,7 +302,7 @@ The directories in dirs themselves are not deleted.
 A file filtering function factory. FIXME: more documenting here.
 ```
 
-### [fileset-added](../boot/core/src/boot/core.clj#L485)
+### [`fileset-added`](../boot/core/src/boot/core.clj#L485)
 
 ```clojure
 (fileset-added before after & props)
@@ -312,7 +312,7 @@ A file filtering function factory. FIXME: more documenting here.
 Returns a new fileset containing only files that were added.
 ```
 
-### [fileset-changed](../boot/core/src/boot/core.clj#L495)
+### [`fileset-changed`](../boot/core/src/boot/core.clj#L495)
 
 ```clojure
 (fileset-changed before after & props)
@@ -322,7 +322,7 @@ Returns a new fileset containing only files that were added.
 Returns a new fileset containing only files that were changed.
 ```
 
-### [fileset-diff](../boot/core/src/boot/core.clj#L477)
+### [`fileset-diff`](../boot/core/src/boot/core.clj#L477)
 
 ```clojure
 (fileset-diff before after & props)
@@ -335,7 +335,7 @@ files are not considered. The optional props arguments can be any of :time,
 or content md5 hash of the files (the default is both).
 ```
 
-### [fileset-namespaces](../boot/core/src/boot/core.clj#L500)
+### [`fileset-namespaces`](../boot/core/src/boot/core.clj#L500)
 
 ```clojure
 (fileset-namespaces fileset)
@@ -345,7 +345,7 @@ or content md5 hash of the files (the default is both).
 Returns a set of symbols: the namespaces defined in this fileset.
 ```
 
-### [fileset-reduce](../boot/core/src/boot/core.clj#L869)
+### [`fileset-reduce`](../boot/core/src/boot/core.clj#L869)
 
 ```clojure
 (fileset-reduce fileset get-files & reducers)
@@ -358,7 +358,7 @@ the previous reduction and the result of get-files applied to it are passed
 through to the next reducing function.
 ```
 
-### [fileset-removed](../boot/core/src/boot/core.clj#L490)
+### [`fileset-removed`](../boot/core/src/boot/core.clj#L490)
 
 ```clojure
 (fileset-removed before after & props)
@@ -368,7 +368,7 @@ through to the next reducing function.
 Returns a new fileset containing only files that were removed.
 ```
 
-### [get-env](../boot/core/src/boot/core.clj#L641)
+### [`get-env`](../boot/core/src/boot/core.clj#L641)
 
 ```clojure
 (get-env & [k not-found])
@@ -380,7 +380,7 @@ Returns the value associated with the key `k` in the boot environment, or
 given. Calling this function with no arguments returns the environment map.
 ```
 
-### [get-sys-env](../boot/core/src/boot/core.clj#L673)
+### [`get-sys-env`](../boot/core/src/boot/core.clj#L673)
 
 ```clojure
 (get-sys-env) (get-sys-env k) (get-sys-env k not-found)
@@ -393,7 +393,7 @@ keyword :required, an exception will be thrown when there is no value for
 either the system property or environment variable k.
 ```
 
-### [git-files](../boot/core/src/boot/core.clj#L968)
+### [`git-files`](../boot/core/src/boot/core.clj#L968)
 
 ```clojure
 (git-files & {:keys [untracked]})
@@ -404,7 +404,7 @@ Returns a list of files roughly equivalent to what you'd get with the git
 command line `git ls-files`. The :untracked option includes untracked files.
 ```
 
-### [gpg-decrypt](../boot/core/src/boot/core.clj#L933)
+### [`gpg-decrypt`](../boot/core/src/boot/core.clj#L933)
 
 ```clojure
 (gpg-decrypt path-or-file & {:keys [as]})
@@ -415,7 +415,7 @@ Uses gpg(1) to decrypt a file and returns its contents as a string. The
 :as :edn option can be passed to read the contents as an EDN form.
 ```
 
-### [init!](../boot/core/src/boot/core.clj#L555)
+### [`init!`](../boot/core/src/boot/core.clj#L555)
 
 ```clojure
 (init!)
@@ -426,7 +426,7 @@ Initialize the boot environment. This is normally run once by boot at
 startup. There should be no need to call this function directly.
 ```
 
-### [input-dirs](../boot/core/src/boot/core.clj#L338)
+### [`input-dirs`](../boot/core/src/boot/core.clj#L338)
 
 ```clojure
 (input-dirs fileset)
@@ -436,7 +436,7 @@ startup. There should be no need to call this function directly.
 Get a list of directories containing files with input roles.
 ```
 
-### [input-files](../boot/core/src/boot/core.clj#L353)
+### [`input-files`](../boot/core/src/boot/core.clj#L353)
 
 ```clojure
 (input-files fileset)
@@ -446,7 +446,7 @@ Get a list of directories containing files with input roles.
 Get a set of TmpFile objects corresponding to files with input role.
 ```
 
-### [input-fileset](../boot/core/src/boot/core.clj#L358)
+### [`input-fileset`](../boot/core/src/boot/core.clj#L358)
 
 ```clojure
 (input-fileset fileset)
@@ -456,7 +456,7 @@ Get a set of TmpFile objects corresponding to files with input role.
 FIXME: document
 ```
 
-### [json-generate](../boot/core/src/boot/core.clj#L939)
+### [`json-generate`](../boot/core/src/boot/core.clj#L939)
 
 ```clojure
 (json-generate x & [opt-map])
@@ -466,7 +466,7 @@ FIXME: document
 Same as cheshire.core/generate-string.
 ```
 
-### [json-parse](../boot/core/src/boot/core.clj#L945)
+### [`json-parse`](../boot/core/src/boot/core.clj#L945)
 
 ```clojure
 (json-parse x & [key-fn])
@@ -476,7 +476,7 @@ Same as cheshire.core/generate-string.
 Same as cheshire.core/parse-string.
 ```
 
-### [last-file-change](../boot/core/src/boot/core.clj#L36)
+### [`last-file-change`](../boot/core/src/boot/core.clj#L36)
 
 ```clojure
 
@@ -486,7 +486,7 @@ Same as cheshire.core/parse-string.
 Last source file watcher update time.
 ```
 
-### [launch-nrepl](../boot/core/src/boot/core.clj#L1037)
+### [`launch-nrepl`](../boot/core/src/boot/core.clj#L1037)
 
 ```clojure
 (launch-nrepl & {:keys [pod], :as opts})
@@ -496,7 +496,7 @@ Last source file watcher update time.
 Launches an nREPL server in a pod. See the repl task for options.
 ```
 
-### [load-data-readers!](../boot/core/src/boot/core.clj#L181)
+### [`load-data-readers!`](../boot/core/src/boot/core.clj#L181)
 
 ```clojure
 (load-data-readers!)
@@ -506,7 +506,7 @@ Launches an nREPL server in a pod. See the repl task for options.
 Refresh *data-readers* with readers from newly acquired dependencies.
 ```
 
-### [ls](../boot/core/src/boot/core.clj#L373)
+### [`ls`](../boot/core/src/boot/core.clj#L373)
 
 ```clojure
 (ls fileset)
@@ -516,7 +516,7 @@ Refresh *data-readers* with readers from newly acquired dependencies.
 Get a set of TmpFile objects for all files in the fileset.
 ```
 
-### [merge-env!](../boot/core/src/boot/core.clj#L663)
+### [`merge-env!`](../boot/core/src/boot/core.clj#L663)
 
 ```clojure
 (merge-env! & kvs)
@@ -529,7 +529,7 @@ clojure.core/into for keys whose values are collections and simply replaces
 Keys whose values aren't collections).
 ```
 
-### [mv](../boot/core/src/boot/core.clj#L404)
+### [`mv`](../boot/core/src/boot/core.clj#L404)
 
 ```clojure
 (mv fileset from-path to-path)
@@ -540,7 +540,7 @@ Given a fileset and two paths in the fileset, from-path and to-path, moves
 the tmpfile at from-path to to-path, returning a new fileset.
 ```
 
-### [mv-asset](../boot/core/src/boot/core.clj#L429)
+### [`mv-asset`](../boot/core/src/boot/core.clj#L429)
 
 ```clojure
 (mv-asset fileset tmpfiles)
@@ -550,7 +550,7 @@ the tmpfile at from-path to to-path, returning a new fileset.
 FIXME: document
 ```
 
-### [mv-resource](../boot/core/src/boot/core.clj#L459)
+### [`mv-resource`](../boot/core/src/boot/core.clj#L459)
 
 ```clojure
 (mv-resource fileset tmpfiles)
@@ -560,7 +560,7 @@ FIXME: document
 FIXME: document
 ```
 
-### [mv-source](../boot/core/src/boot/core.clj#L444)
+### [`mv-source`](../boot/core/src/boot/core.clj#L444)
 
 ```clojure
 (mv-source fileset tmpfiles)
@@ -570,7 +570,7 @@ FIXME: document
 FIXME: document
 ```
 
-### [new-build-at](../boot/core/src/boot/core.clj#L35)
+### [`new-build-at`](../boot/core/src/boot/core.clj#L35)
 
 ```clojure
 
@@ -580,7 +580,7 @@ FIXME: document
 Latest build occured at time.
 ```
 
-### [new-fileset](../boot/core/src/boot/core.clj#L80)
+### [`new-fileset`](../boot/core/src/boot/core.clj#L80)
 
 ```clojure
 
@@ -590,7 +590,7 @@ Latest build occured at time.
 FIXME: document this
 ```
 
-### [not-by-ext](../boot/core/src/boot/core.clj#L1017)
+### [`not-by-ext`](../boot/core/src/boot/core.clj#L1017)
 
 ```clojure
 (not-by-ext exts files)
@@ -600,7 +600,7 @@ FIXME: document this
 This function is the same as `by-ext` but negated.
 ```
 
-### [not-by-name](../boot/core/src/boot/core.clj#L991)
+### [`not-by-name`](../boot/core/src/boot/core.clj#L991)
 
 ```clojure
 (not-by-name names files)
@@ -610,7 +610,7 @@ This function is the same as `by-ext` but negated.
 This function is the same as `by-name` but negated.
 ```
 
-### [not-by-path](../boot/core/src/boot/core.clj#L1004)
+### [`not-by-path`](../boot/core/src/boot/core.clj#L1004)
 
 ```clojure
 (not-by-path paths files)
@@ -620,7 +620,7 @@ This function is the same as `by-name` but negated.
 This function is the same as `by-path` but negated.
 ```
 
-### [not-by-re](../boot/core/src/boot/core.clj#L1030)
+### [`not-by-re`](../boot/core/src/boot/core.clj#L1030)
 
 ```clojure
 (not-by-re res files)
@@ -630,7 +630,7 @@ This function is the same as `by-path` but negated.
 This function is the same as `by-re` but negated.
 ```
 
-### [output-dirs](../boot/core/src/boot/core.clj#L343)
+### [`output-dirs`](../boot/core/src/boot/core.clj#L343)
 
 ```clojure
 (output-dirs fileset)
@@ -640,7 +640,7 @@ This function is the same as `by-re` but negated.
 FIXME: document this
 ```
 
-### [output-files](../boot/core/src/boot/core.clj#L363)
+### [`output-files`](../boot/core/src/boot/core.clj#L363)
 
 ```clojure
 (output-files fileset)
@@ -650,7 +650,7 @@ FIXME: document this
 Get a set of TmpFile objects corresponding to files with output role.
 ```
 
-### [output-fileset](../boot/core/src/boot/core.clj#L368)
+### [`output-fileset`](../boot/core/src/boot/core.clj#L368)
 
 ```clojure
 (output-fileset fileset)
@@ -660,7 +660,7 @@ Get a set of TmpFile objects corresponding to files with output role.
 FIXME: document
 ```
 
-### [post-env!](../boot/core/src/boot/core.clj#L586)
+### [`post-env!`](../boot/core/src/boot/core.clj#L586)
 
 ```clojure
 
@@ -673,7 +673,7 @@ the env atom. For example, when `:src-paths` is modified the handler adds
 the new directories to the classpath.
 ```
 
-### [pre-env!](../boot/core/src/boot/core.clj#L600)
+### [`pre-env!`](../boot/core/src/boot/core.clj#L600)
 
 ```clojure
 
@@ -685,7 +685,7 @@ atom when `set-env!` is called. This function's result will become the new
 value associated with the given `key` in the env atom.
 ```
 
-### [rebuild!](../boot/core/src/boot/core.clj#L550)
+### [`rebuild!`](../boot/core/src/boot/core.clj#L550)
 
 ```clojure
 (rebuild!)
@@ -695,7 +695,7 @@ value associated with the given `key` in the env atom.
 Manually trigger build watch.
 ```
 
-### [replace-task!](../boot/core/src/boot/core.clj#L882)
+### [`replace-task!`](../boot/core/src/boot/core.clj#L882)
 
 ```clojure
 (replace-task! & replacements)
@@ -712,7 +712,7 @@ Example:
   [j jar]  (fn [& xs] (apply j :manifest {"howdy" "world"} xs)))
 ```
 
-### [reset-build!](../boot/core/src/boot/core.clj#L737)
+### [`reset-build!`](../boot/core/src/boot/core.clj#L737)
 
 ```clojure
 (reset-build!)
@@ -724,7 +724,7 @@ warning counters etc., state that is relevant to a single build cycle. This
 function should be called before each build iteration.
 ```
 
-### [reset-fileset](../boot/core/src/boot/core.clj#L724)
+### [`reset-fileset`](../boot/core/src/boot/core.clj#L724)
 
 ```clojure
 (reset-fileset & [fileset])
@@ -736,7 +736,7 @@ returning a new immutable fileset. When called with no args returns a new
 fileset containing only the latest project files.
 ```
 
-### [rm](../boot/core/src/boot/core.clj#L385)
+### [`rm`](../boot/core/src/boot/core.clj#L385)
 
 ```clojure
 (rm fileset files)
@@ -747,7 +747,7 @@ Removes files from the fileset tree, returning a new fileset object. This
 does not affect the underlying filesystem in any way.
 ```
 
-### [set-env!](../boot/core/src/boot/core.clj#L648)
+### [`set-env!`](../boot/core/src/boot/core.clj#L648)
 
 ```clojure
 (set-env! & kvs)
@@ -762,7 +762,7 @@ value of that key and the result will become the new value (similar to how
 clojure.core/update-in works.
 ```
 
-### [set-sys-env!](../boot/core/src/boot/core.clj#L685)
+### [`set-sys-env!`](../boot/core/src/boot/core.clj#L685)
 
 ```clojure
 (set-sys-env! & kvs)
@@ -774,7 +774,7 @@ is set. Keys and values must be strings, but the value can be nil or false
 to remove the system property.
 ```
 
-### [sync!](../boot/core/src/boot/core.clj#L514)
+### [`sync!`](../boot/core/src/boot/core.clj#L514)
 
 ```clojure
 (sync! dest & srcs)
@@ -787,7 +787,7 @@ timestamps to decide which version of files to emit to dest. Uses hardlinks
 instead of copying file contents. File modification times are preserved.
 ```
 
-### [task-options!](../boot/core/src/boot/core.clj#L905)
+### [`task-options!`](../boot/core/src/boot/core.clj#L905)
 
 ```clojure
 (task-options! & task-option-pairs)
@@ -810,7 +810,7 @@ be used as the new one. For example:
       jar  #(assoc-in % [:manifest "ILike"] "Turtles"))
 ```
 
-### [temp-dir!](../boot/core/src/boot/core.clj#L277)
+### [`temp-dir!`](../boot/core/src/boot/core.clj#L277)
 
 ```clojure
 (temp-dir! & args__594__auto__)
@@ -820,7 +820,7 @@ be used as the new one. For example:
 #'boot.core/temp-dir! was deprecated, please use #'boot.core/tmp-dir! instead
 ```
 
-### [tmp-dir](../boot/core/src/boot/core.clj#L304)
+### [`tmp-dir`](../boot/core/src/boot/core.clj#L304)
 
 ```clojure
 (tmp-dir tmpfile)
@@ -830,7 +830,7 @@ be used as the new one. For example:
 Returns the temporary directory containing the tmpfile.
 ```
 
-### [tmp-dir!](../boot/core/src/boot/core.clj#L273)
+### [`tmp-dir!`](../boot/core/src/boot/core.clj#L273)
 
 ```clojure
 (tmp-dir!)
@@ -840,7 +840,7 @@ Returns the temporary directory containing the tmpfile.
 Creates a boot-managed temporary directory, returning a java.io.File.
 ```
 
-### [tmp-file](../boot/core/src/boot/core.clj#L310)
+### [`tmp-file`](../boot/core/src/boot/core.clj#L310)
 
 ```clojure
 (tmp-file tmpfile)
@@ -850,7 +850,7 @@ Creates a boot-managed temporary directory, returning a java.io.File.
 Returns the java.io.File object for the tmpfile.
 ```
 
-### [tmp-get](../boot/core/src/boot/core.clj#L324)
+### [`tmp-get`](../boot/core/src/boot/core.clj#L324)
 
 ```clojure
 (tmp-get fileset path & [not-found])
@@ -862,7 +862,7 @@ not-found argument is specified and the TmpFile is not in the fileset then
 not-found is returned, otherwise nil.
 ```
 
-### [tmp-path](../boot/core/src/boot/core.clj#L298)
+### [`tmp-path`](../boot/core/src/boot/core.clj#L298)
 
 ```clojure
 (tmp-path tmpfile)
@@ -872,7 +872,7 @@ not-found is returned, otherwise nil.
 Returns the tmpfile's path relative to the fileset root.
 ```
 
-### [tmp-time](../boot/core/src/boot/core.clj#L316)
+### [`tmp-time`](../boot/core/src/boot/core.clj#L316)
 
 ```clojure
 (tmp-time tmpfile)
@@ -882,7 +882,7 @@ Returns the tmpfile's path relative to the fileset root.
 Returns the last modified timestamp for the tmpfile.
 ```
 
-### [tmpdir](../boot/core/src/boot/core.clj#L308)
+### [`tmpdir`](../boot/core/src/boot/core.clj#L308)
 
 ```clojure
 (tmpdir & args__594__auto__)
@@ -892,7 +892,7 @@ Returns the last modified timestamp for the tmpfile.
 #'boot.core/tmpdir was deprecated, please use #'boot.core/tmp-dir instead
 ```
 
-### [tmpfile](../boot/core/src/boot/core.clj#L314)
+### [`tmpfile`](../boot/core/src/boot/core.clj#L314)
 
 ```clojure
 (tmpfile & args__594__auto__)
@@ -902,7 +902,7 @@ Returns the last modified timestamp for the tmpfile.
 #'boot.core/tmpfile was deprecated, please use #'boot.core/tmp-file instead
 ```
 
-### [tmpget](../boot/core/src/boot/core.clj#L330)
+### [`tmpget`](../boot/core/src/boot/core.clj#L330)
 
 ```clojure
 (tmpget & args__594__auto__)
@@ -912,7 +912,7 @@ Returns the last modified timestamp for the tmpfile.
 #'boot.core/tmpget was deprecated, please use #'boot.core/tmp-get instead
 ```
 
-### [tmppath](../boot/core/src/boot/core.clj#L302)
+### [`tmppath`](../boot/core/src/boot/core.clj#L302)
 
 ```clojure
 (tmppath & args__594__auto__)
@@ -922,7 +922,7 @@ Returns the last modified timestamp for the tmpfile.
 #'boot.core/tmppath was deprecated, please use #'boot.core/tmp-path instead
 ```
 
-### [tmptime](../boot/core/src/boot/core.clj#L320)
+### [`tmptime`](../boot/core/src/boot/core.clj#L320)
 
 ```clojure
 (tmptime & args__594__auto__)
@@ -932,7 +932,7 @@ Returns the last modified timestamp for the tmpfile.
 #'boot.core/tmptime was deprecated, please use #'boot.core/tmp-time instead
 ```
 
-### [touch](../boot/core/src/boot/core.clj#L963)
+### [`touch`](../boot/core/src/boot/core.clj#L963)
 
 ```clojure
 (touch f)
@@ -942,7 +942,7 @@ Returns the last modified timestamp for the tmpfile.
 Same as the Unix touch(1) program.
 ```
 
-### [user-dirs](../boot/core/src/boot/core.clj#L332)
+### [`user-dirs`](../boot/core/src/boot/core.clj#L332)
 
 ```clojure
 (user-dirs fileset)
@@ -953,7 +953,7 @@ Get a list of directories containing files that originated in the project's
 source, resource, or asset paths.
 ```
 
-### [user-files](../boot/core/src/boot/core.clj#L347)
+### [`user-files`](../boot/core/src/boot/core.clj#L347)
 
 ```clojure
 (user-files fileset)
@@ -964,7 +964,7 @@ Get a set of TmpFile objects corresponding to files that originated in
 the project's source, resource, or asset paths.
 ```
 
-### [watch-dirs](../boot/core/src/boot/core.clj#L524)
+### [`watch-dirs`](../boot/core/src/boot/core.clj#L524)
 
 ```clojure
 (watch-dirs callback dirs & {:keys [debounce]})
@@ -980,7 +980,7 @@ debounce option is provided (in ms, default 10) which can be used to
 tune the watcher sensitivity.
 ```
 
-### [with-pass-thru](../boot/core/src/boot/core.clj#L859)
+### [`with-pass-thru`](../boot/core/src/boot/core.clj#L859)
 
 ```clojure
 (with-pass-thru bind & body)
@@ -993,7 +993,7 @@ to binding. The current fileset is then passed to the next handler and the
 result is then returned up the handler stack.
 ```
 
-### [with-post-wrap](../boot/core/src/boot/core.clj#L833)
+### [`with-post-wrap`](../boot/core/src/boot/core.clj#L833)
 
 ```clojure
 (with-post-wrap bind & body)
@@ -1014,7 +1014,7 @@ bound fileset is returned up the handler stack. Roughly equivalent to:
 where ... are the given body expressions.
 ```
 
-### [with-pre-wrap](../boot/core/src/boot/core.clj#L809)
+### [`with-pre-wrap`](../boot/core/src/boot/core.clj#L809)
 
 ```clojure
 (with-pre-wrap bind & body)
@@ -1034,7 +1034,7 @@ evaluate to a fileset object. Roughly equivalent to:
 where ... are the given body expressions.
 ```
 
-### [yaml-generate](../boot/core/src/boot/core.clj#L951)
+### [`yaml-generate`](../boot/core/src/boot/core.clj#L951)
 
 ```clojure
 (yaml-generate x)
@@ -1044,7 +1044,7 @@ where ... are the given body expressions.
 Same as clj-yaml.core/generate-string.
 ```
 
-### [yaml-parse](../boot/core/src/boot/core.clj#L957)
+### [`yaml-parse`](../boot/core/src/boot/core.clj#L957)
 
 ```clojure
 (yaml-parse x)
