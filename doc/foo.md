@@ -6,6 +6,7 @@
 (add-repo & {:keys [help untracked ref], :as *opts*})
 ```
 
+```
 Add all files in project git repo to fileset.
 
 The ref option (default HEAD) facilitates pulling files from tags or specific
@@ -15,6 +16,7 @@ Keyword Args:
   :help       bool  Print this help info.
   :untracked  bool  Add untracked (but not ignored) files.
   :ref        str   The git reference for the desired file tree.
+```
 
 <hr>
 
@@ -24,12 +26,14 @@ Keyword Args:
 (aot & {:keys [help all namespace], :as *opts*})
 ```
 
+```
 Perform AOT compilation of Clojure namespaces.
 
 Keyword Args:
   :help       bool    Print this help info.
   :all        bool    Compile all namespaces.
   :namespace  #{sym}  The set of namespaces to compile.
+```
 
 <hr>
 
@@ -39,6 +43,7 @@ Keyword Args:
 (checkout & {:keys [help dependencies], :as *opts*})
 ```
 
+```
 Checkout dependencies task.
 
 This task facilitates working on a project and its dependencies at the same
@@ -59,6 +64,7 @@ to build the project with the checkout dependency [foo/bar "1.2.3"].
 Keyword Args:
   :help          bool         Print this help info.
   :dependencies  [[sym str]]  The vector of checkout dependencies.
+```
 
 <hr>
 
@@ -68,10 +74,12 @@ Keyword Args:
 (help & {:keys [help], :as *opts*})
 ```
 
+```
 Print usage info and list available tasks.
 
 Keyword Args:
   :help  bool  Print this help info.
+```
 
 <hr>
 
@@ -81,6 +89,7 @@ Keyword Args:
 (install & {:keys [help file pom], :as *opts*})
 ```
 
+```
 Install project jar to local Maven repository.
 
 The --file option allows installation of arbitrary jar files. If no
@@ -119,6 +128,7 @@ Keyword Args:
   :help  bool  Print this help info.
   :file  str   The jar file to install.
   :pom   str   The pom.xml file to use.
+```
 
 <hr>
 
@@ -128,6 +138,7 @@ Keyword Args:
 (jar & {:keys [help file manifest main], :as *opts*})
 ```
 
+```
 Build a jar file for the project.
 
 Keyword Args:
@@ -135,6 +146,7 @@ Keyword Args:
   :file      str        The target jar file name.
   :manifest  {str str}  The jar manifest map.
   :main      sym        The namespace containing the -main function.
+```
 
 <hr>
 
@@ -144,11 +156,13 @@ Keyword Args:
 (javac & {:keys [help options], :as *opts*})
 ```
 
+```
 Compile java sources.
 
 Keyword Args:
   :help     bool   Print this help info.
   :options  [str]  List of options passed to the java compiler.
+```
 
 <hr>
 
@@ -158,6 +172,7 @@ Keyword Args:
 (pom & {:keys [help project version description url scm license developers dependencies], :as *opts*})
 ```
 
+```
 Create project pom.xml file.
 
 The project and version must be specified to make a pom.xml.
@@ -172,6 +187,7 @@ Keyword Args:
   :license       {str str}    The map {name url} of project licenses.
   :developers    {str str}    The map {name email} of project developers.
   :dependencies  [[sym str]]  The project dependencies vector (overrides boot env dependencies).
+```
 
 <hr>
 
@@ -181,6 +197,7 @@ Keyword Args:
 (push & {:keys [help file pom file-regex gpg-sign gpg-user-id gpg-keyring gpg-passphrase repo repo-map tag ensure-branch ensure-clean ensure-release ensure-snapshot ensure-tag ensure-version], :as *opts*})
 ```
 
+```
 Deploy jar file to a Maven repository.
 
 If the file option is not specified the task will look for jar files
@@ -210,6 +227,7 @@ Keyword Args:
   :ensure-snapshot  bool      Ensure that the current version is a snapshot.
   :ensure-tag       str       The SHA1 of the commit the pom's scm tag must contain.
   :ensure-version   str       The version the jar's pom must contain.
+```
 
 <hr>
 
@@ -219,6 +237,7 @@ Keyword Args:
 (repl & {:keys [help server client eval bind host init skip-init port pod init-ns middleware handler], :as *opts*})
 ```
 
+```
 Start a REPL session for the current project.
 
 If no bind/host is specified the REPL server will listen on 127.0.0.1 and
@@ -246,6 +265,7 @@ Keyword Args:
   :init-ns     sym    The initial REPL namespace.
   :middleware  [sym]  The REPL middleware vector.
   :handler     sym    The REPL handler (overrides middleware options).
+```
 
 <hr>
 
@@ -255,6 +275,7 @@ Keyword Args:
 (show & {:keys [help fake-classpath classpath deps env fileset list-pods pedantic pods update-snapshots updates], :as *opts*})
 ```
 
+```
 Print project/build info (e.g. dependency graph, etc).
 
 Keyword Args:
@@ -269,6 +290,7 @@ Keyword Args:
   :pods              regex  The name filter used to select which pods to inspect.
   :update-snapshots  bool   Include snapshot versions in updates searches.
   :updates           bool   Print newer releases of outdated dependencies.
+```
 
 <hr>
 
@@ -278,6 +300,7 @@ Keyword Args:
 (sift & {:keys [help to-asset to-resource to-source add-asset add-resource add-source add-jar with-meta add-meta move include invert], :as *opts*})
 ```
 
+```
 Transform the fileset, matching paths against regexes.
 
 The --to-asset, --to-resource, and --to-source options move matching paths
@@ -330,6 +353,7 @@ Keyword Args:
   :move          {regex str}  The map of regex to replacement path strings.
   :include       #{regex}     The set of regexes that paths must match.
   :invert        bool         Invert the sense of matching.
+```
 
 <hr>
 
@@ -339,6 +363,7 @@ Keyword Args:
 (speak & {:keys [help theme success warning failure], :as *opts*})
 ```
 
+```
 Audible notifications during build.
 
 Default themes: system (the default), ordinance, and woodblock. New themes
@@ -358,6 +383,7 @@ Keyword Args:
   :success  str   The sound file to play when the build is successful.
   :warning  str   The sound file to play when there are warnings reported.
   :failure  str   The sound file to play when the build fails.
+```
 
 <hr>
 
@@ -367,6 +393,7 @@ Keyword Args:
 (target & {:keys [help dir no-link no-clean], :as *opts*})
 ```
 
+```
 Writes output files to the given directory on the filesystem.
 
 Keyword Args:
@@ -374,6 +401,7 @@ Keyword Args:
   :dir       #{str}  The set of directories to write to (target).
   :no-link   bool    Don't create hard links.
   :no-clean  bool    Don't clean target before writing project files.
+```
 
 <hr>
 
@@ -383,6 +411,7 @@ Keyword Args:
 (uber & {:keys [help as-jars include-scope exclude-scope include exclude merge], :as *opts*})
 ```
 
+```
 Add jar entries from dependencies to fileset.
 
 Use this task before the packaging task (jar, war, etc.) to create
@@ -439,6 +468,7 @@ Keyword Args:
   :include        #{regex}        The set of regexes that paths must match.
   :exclude        #{regex}        The set of regexes that paths must not match.
   :merge          [[regex code]]  The list of duplicate file mergers.
+```
 
 <hr>
 
@@ -448,6 +478,7 @@ Keyword Args:
 (wait & {:keys [help time], :as *opts*})
 ```
 
+```
 Wait before calling the next handler.
 
 Waits forever if the --time option is not specified.
@@ -455,6 +486,7 @@ Waits forever if the --time option is not specified.
 Keyword Args:
   :help  bool  Print this help info.
   :time  int   The interval in milliseconds.
+```
 
 <hr>
 
@@ -464,11 +496,13 @@ Keyword Args:
 (war & {:keys [help file], :as *opts*})
 ```
 
+```
 Create war file for web deployment.
 
 Keyword Args:
   :help  bool  Print this help info.
   :file  str   The target war file name.
+```
 
 <hr>
 
@@ -478,6 +512,7 @@ Keyword Args:
 (watch & {:keys [help quiet verbose manual], :as *opts*})
 ```
 
+```
 Call the next handler when source files change.
 
 Debouncing time is 10ms by default.
@@ -487,6 +522,7 @@ Keyword Args:
   :quiet    bool  Suppress all output from running jobs.
   :verbose  bool  Print which files have changed.
   :manual   bool  Use a manual trigger instead of a file watcher.
+```
 
 <hr>
 
@@ -496,6 +532,7 @@ Keyword Args:
 (web & {:keys [help serve create destroy context-create context-destroy], :as *opts*})
 ```
 
+```
 Create project web.xml file.
 
 The --serve option is required. The others are optional.
@@ -507,6 +544,7 @@ Keyword Args:
   :destroy          sym   The 'destroy' callback function.
   :context-create   sym   The context 'create' callback function, called when the servlet is first loaded by the container.
   :context-destroy  sym   The context 'destroyed' callback function, called when the servlet is unloaded by the container.
+```
 
 <hr>
 
@@ -516,11 +554,13 @@ Keyword Args:
 (zip & {:keys [help file], :as *opts*})
 ```
 
+```
 Build a zip file for the project.
 
 Keyword Args:
   :help  bool  Print this help info.
   :file  str   The target zip file name.
+```
 
 <hr>
 
