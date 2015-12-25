@@ -7,9 +7,11 @@
   [pred m]
   (reduce-kv #(if-not (pred %3) %1 (assoc %1 %2 %3)) {} m))
 
+(def fixme "FIXME: document this")
+
 (defn strip-indent
   [x]
-  (let [[head & [z & _ :as tail]] (string/split x #"\n")
+  (let [[head & [z & _ :as tail]] (split (or x fixme) #"\n")
         indent (or (some->> z (re-find #"^ *") count) 0)
         strip  #(try (subs % indent) (catch Throwable _))]
     (->> tail (map strip) (list* head) (join "\n"))))
@@ -78,7 +80,10 @@
 
   (do (remove-ns 'foo.bar) (require 'foo.bar :reload))
 
-  (->> 'foo.bar (parse-ns "../boot/pod/src/") (spit "doc/foo.md"))
+  (require 'boot.core)
+  (clojure.repl/pst)
+  (->> 'boot.core (parse-ns "../boot/core/src/"))
+  (->> 'boot.core (parse-ns "../boot/core/src/") (spit "doc/foo.md"))
 
   (print (emit-var "../" "boot/pod/src/" a))
   (->> a :md print)
