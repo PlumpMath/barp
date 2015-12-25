@@ -1,5 +1,86 @@
 ;; vim: set ft=clojure:
 
-(defn parse-ns [ns]
-  (let [n (the-ns ns)]
-    (assoc (meta n) :name ns :vars (->> n ns-publics vals (mapv meta)))))
+(require
+  '[clojure.string :as string :refer [join split trimr]])
+
+(defn filter-vals
+  [pred m]
+  (reduce-kv #(if-not (pred %3) %1 (assoc %1 %2 %3)) {} m))
+
+(defn strip-indent
+  [x]
+  (let [[head & [z & _ :as tail]] (string/split x #"\n")
+        indent (or (some->> z (re-find #"^ *") count) 0)
+        strip  #(try (subs % indent) (catch Throwable _))]
+    (->> tail (map strip) (list* head) (join "\n"))))
+
+(defn emit-arglists
+  [name arglists]
+  (->> arglists
+       (map #(format "```\n%s\n```\n\n" (pr-str (list* name %))))
+       (apply str)))
+
+(defn emit-var
+  [link-path {:keys [name doc arglists macro file line]}]
+  (let [src-link (format "%s%s#L%d" link-path file line)]
+    (str (format "### [%s](%s)\n\n" name src-link)
+         (emit-arglists name arglists)
+         (format "```\n%s\n```\n\n" (trimr (strip-indent doc))))))
+
+(defn emit-section
+  [{:keys [title intro vars]}]
+  (let [t (when title (format "## %s\n\n" title))
+        i (when intro (format "%s\n\n" (trimr (strip-indent intro))))]
+    (remove nil? (list* t i (map (comp :md second) vars)))))
+
+(defn emit-ns
+  [{:keys [name doc]}]
+  (remove nil? [(when name (format "# %s\n\n" name))
+                (when doc  (format "%s\n\n" (trimr (strip-indent doc))))]))
+
+(defn wrap-toc
+  [x]
+  (->> (assoc (:doc/toc x) nil {})
+       (into (sorted-map))
+       (reduce (fn [xs [k v]]
+                 (->> (:vars x)
+                      (filter-vals #(= k (:doc/section %)))
+                      (into (sorted-map))
+                      (assoc v :vars)
+                      (conj xs)))
+               [])))
+
+(defn parse-ns
+  [link-path x]
+  (let [n (the-ns x)
+        e #(let [m (meta %)]
+             (assoc m :md (emit-var link-path m)))
+        m (assoc (meta n)
+                 :name x
+                 :vars (->> (ns-publics n)
+                            (reduce-kv #(assoc %1 %2 (e %3)) {})))]
+    (->> (wrap-toc m)
+         (mapcat emit-section)
+         (concat (emit-ns m))
+         (apply str))))
+
+(comment
+
+  (def test-str  "asdf qwer
+                 zxcv poiu")
+
+  (print test-str)
+
+  (print (strip-indent test-str))
+
+  (use 'clojure.pprint)
+
+  (do (remove-ns 'foo.bar) (require 'foo.bar :reload))
+
+  (->> 'foo.bar (parse-ns "../boot/pod/src/") print)
+
+  (print (emit-var "../" "boot/pod/src/" a))
+  (->> a :md print)
+
+  )
+
