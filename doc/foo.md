@@ -1,1012 +1,526 @@
-# boot.core
+# boot.task.built-in
 
-### [`*app-version*`](../boot/core/src/boot/core.clj#L29)
-
-The running version of boot app.
-
-<hr>
-
-### [`*boot-opts*`](../boot/core/src/boot/core.clj#L32)
-
-Command line options for boot itself.
-
-<hr>
-
-### [`*boot-script*`](../boot/core/src/boot/core.clj#L30)
-
-The script's name (when run as script).
-
-<hr>
-
-### [`*boot-version*`](../boot/core/src/boot/core.clj#L31)
-
-The running version of boot core.
-
-<hr>
-
-### [`*warnings*`](../boot/core/src/boot/core.clj#L33)
-
-Count of warnings during build.
-
-<hr>
-
-### [`add-asset`](../boot/core/src/boot/core.clj#L419)
+### [`add-repo`](../boot/core/src/boot/task/built_in.clj#L406)
 
 ```clojure
-(add-asset fileset dir & {:keys [mergers include exclude], :as opts})
+(add-repo & {:keys [help untracked ref], :as *opts*})
 ```
 
-Add the contents of the java.io.File dir to the fileset's assets.
+Add all files in project git repo to fileset.
+
+The ref option (default HEAD) facilitates pulling files from tags or specific
+commits.
+
+Keyword Args:
+  :help       bool  Print this help info.
+  :untracked  bool  Add untracked (but not ignored) files.
+  :ref        str   The git reference for the desired file tree.
 
 <hr>
 
-### [`add-cached-asset`](../boot/core/src/boot/core.clj#L424)
+### [`aot`](../boot/core/src/boot/task/built_in.clj#L546)
 
 ```clojure
-(add-cached-asset fileset cache-key cache-fn & {:keys [mergers include exclude], :as opts})
+(aot & {:keys [help all namespace], :as *opts*})
 ```
 
-FIXME: document
+Perform AOT compilation of Clojure namespaces.
+
+Keyword Args:
+  :help       bool    Print this help info.
+  :all        bool    Compile all namespaces.
+  :namespace  #{sym}  The set of namespaces to compile.
 
 <hr>
 
-### [`add-cached-resource`](../boot/core/src/boot/core.clj#L454)
+### [`checkout`](../boot/core/src/boot/task/built_in.clj#L69)
 
 ```clojure
-(add-cached-resource fileset cache-key cache-fn & {:keys [mergers include exclude], :as opts})
+(checkout & {:keys [help dependencies], :as *opts*})
 ```
 
-FIXME: document
+Checkout dependencies task.
+
+This task facilitates working on a project and its dependencies at the same
+time, by extracting the dependency jar contents into the fileset. Transitive
+dependencies will be added to the class path automatically.
+
+You'll need at least two boot instances---one to build the dependency jar and
+the other to build the project. For example:
+
+    $ boot watch pom -p foo/bar -v 1.2.3-SNAPSHOT jar install
+
+to build the dependency jar, and
+
+    $ boot repl -s watch checkout -d foo/bar:1.2.3-SNAPSHOT cljs serve
+
+to build the project with the checkout dependency [foo/bar "1.2.3"].
+
+Keyword Args:
+  :help          bool         Print this help info.
+  :dependencies  [[sym str]]  The vector of checkout dependencies.
 
 <hr>
 
-### [`add-cached-source`](../boot/core/src/boot/core.clj#L439)
+### [`help`](../boot/core/src/boot/task/built_in.clj#L30)
 
 ```clojure
-(add-cached-source fileset cache-key cache-fn & {:keys [mergers include exclude], :as opts})
+(help & {:keys [help], :as *opts*})
 ```
 
-FIXME: document
+Print usage info and list available tasks.
+
+Keyword Args:
+  :help  bool  Print this help info.
 
 <hr>
 
-### [`add-meta`](../boot/core/src/boot/core.clj#L464)
+### [`install`](../boot/core/src/boot/task/built_in.clj#L678)
 
 ```clojure
-(add-meta fileset meta-map)
+(install & {:keys [help file pom], :as *opts*})
 ```
 
-Adds metadata about the files in the filesystem to their corresponding
-TmpFile objects in the fileset. The meta-map is expected to be a map with
-string paths as keys and maps of metadata as values. These metadata maps
-will be merged into the TmpFile objects associated with the paths.
-
-<hr>
-
-### [`add-resource`](../boot/core/src/boot/core.clj#L449)
-
-```clojure
-(add-resource fileset dir & {:keys [mergers include exclude], :as opts})
-```
-
-Add the contents of the java.io.File dir to the fileset's resources.
-
-<hr>
-
-### [`add-source`](../boot/core/src/boot/core.clj#L434)
-
-```clojure
-(add-source fileset dir & {:keys [mergers include exclude], :as opts})
-```
-
-Add the contents of the java.io.File dir to the fileset's sources.
-
-<hr>
-
-### [`boot`](../boot/core/src/boot/core.clj#L793)
-
-```clojure
-(boot & argv)
-```
-
-The REPL equivalent to the command line 'boot'. If all arguments are
-strings then they are treated as if they were given on the command line.
-Otherwise they are assumed to evaluate to task middleware.
-
-<hr>
-
-### [`bootignore`](../boot/core/src/boot/core.clj#L37)
-
-Set of regexes source file paths must not match.
-
-<hr>
-
-### [`by-ext`](../boot/core/src/boot/core.clj#L1009)
-
-```clojure
-(by-ext exts files & [negate?])
-```
-
-This function takes two arguments: `exts` and `files`, where `exts` is a seq
-of file extension strings like `[".clj" ".cljs"]` and `files` is a seq of
-file objects. Returns a seq of the files in `files` which have file extensions
-listed in `exts`.
-
-<hr>
-
-### [`by-name`](../boot/core/src/boot/core.clj#L983)
-
-```clojure
-(by-name names files & [negate?])
-```
-
-This function takes two arguments: `names` and `files`, where `names` is
-a seq of file name strings like `["foo.clj" "bar.xml"]` and `files` is
-a seq of file objects. Returns a seq of the files in `files` which have file
-names listed in `names`.
-
-<hr>
-
-### [`by-path`](../boot/core/src/boot/core.clj#L996)
-
-```clojure
-(by-path paths files & [negate?])
-```
-
-This function takes two arguments: `paths` and `files`, where `path` is
-a seq of path strings like `["a/b/c/foo.clj" "bar.xml"]` and `files` is
-a seq of file objects. Returns a seq of the files in `files` which have file
-paths listed in `paths`.
-
-<hr>
-
-### [`by-re`](../boot/core/src/boot/core.clj#L1022)
-
-```clojure
-(by-re res files & [negate?])
-```
-
-This function takes two arguments: `res` and `files`, where `res` is a seq
-of regex patterns like `[#"clj$" #"cljs$"]` and `files` is a seq of
-file objects. Returns a seq of the files in `files` whose paths match one of
-the regex patterns in `res`.
-
-<hr>
-
-### [`cache-dir!`](../boot/core/src/boot/core.clj#L279)
-
-```clojure
-(cache-dir! key & {:keys [global]})
-```
-
-Returns a directory which is managed by boot but whose contents will not be
-deleted after the build is complete. The :global option specifies that the
-directory is shared by all projects. The default behavior returns different
-directories for the same key when run in different projects.
-
-<hr>
-
-### [`cleanup`](../boot/core/src/boot/core.clj#L717)
-
-```clojure
-(cleanup & body)
-```
-
-Evaluate body after tasks have been run. This macro is meant to be called
-from inside a task definition, and is provided as a means to shutdown or
-clean up persistent resources created by the task (eg. threads, files, etc.)
-
-<hr>
-
-### [`commit!`](../boot/core/src/boot/core.clj#L378)
-
-```clojure
-(commit! fileset)
-```
-
-Make the underlying temp directories correspond to the immutable fileset
-tree structure.
-
-<hr>
-
-### [`configure-repositories!`](../boot/core/src/boot/core.clj#L633)
-
-```clojure
-(configure-repositories!) (configure-repositories! f)
-```
-
-Get or set the repository configuration callback function. The function
-will be applied to all repositories added to the boot env, it should return
-the repository map with any additional configuration (like credentials, for
-example).
-
-<hr>
-
-### [`cp`](../boot/core/src/boot/core.clj#L410)
-
-```clojure
-(cp fileset src-file dest-tmpfile)
-```
-
-Given a fileset and a dest-tmpfile from that fileset, overwrites the dest
-tmpfile with the contents of the java.io.File src-file.
-
-<hr>
-
-### [`deftask`](../boot/core/src/boot/core.clj#L695)
-
-```clojure
-(deftask sym & forms)
-```
-
-Define a boot task.
-
-<hr>
-
-### [`disable-task!`](../boot/core/src/boot/core.clj#L895)
-
-```clojure
-(disable-task! & tasks)
-```
-
-Disables the given tasks by replacing them with the identity task.
-
-  Example:
-
-      (disable-task! repl jar)
-
-<hr>
-
-### [`empty-dir!`](../boot/core/src/boot/core.clj#L508)
-
-```clojure
-(empty-dir! & dirs)
-```
-
-For each directory in dirs, recursively deletes all files and subdirectories.
-The directories in dirs themselves are not deleted.
-
-<hr>
-
-### [`file-filter`](../boot/core/src/boot/core.clj#L974)
-
-```clojure
-(file-filter mkpred)
-```
-
-A file filtering function factory. FIXME: more documenting here.
-
-<hr>
-
-### [`fileset-added`](../boot/core/src/boot/core.clj#L485)
-
-```clojure
-(fileset-added before after & props)
-```
-
-Returns a new fileset containing only files that were added.
-
-<hr>
-
-### [`fileset-changed`](../boot/core/src/boot/core.clj#L495)
-
-```clojure
-(fileset-changed before after & props)
-```
-
-Returns a new fileset containing only files that were changed.
-
-<hr>
-
-### [`fileset-diff`](../boot/core/src/boot/core.clj#L477)
-
-```clojure
-(fileset-diff before after & props)
-```
-
-Returns a new fileset containing files that were added or modified. Removed
-files are not considered. The optional props arguments can be any of :time,
-:hash, or both, specifying whether to consider changes to last modified time
-or content md5 hash of the files (the default is both).
-
-<hr>
-
-### [`fileset-namespaces`](../boot/core/src/boot/core.clj#L500)
-
-```clojure
-(fileset-namespaces fileset)
-```
-
-Returns a set of symbols: the namespaces defined in this fileset.
-
-<hr>
-
-### [`fileset-reduce`](../boot/core/src/boot/core.clj#L869)
-
-```clojure
-(fileset-reduce fileset get-files & reducers)
-```
-
-Given a fileset, a function get-files that selects files from the fileset,
-and a number of reducing functions, composes the reductions. The result of
-the previous reduction and the result of get-files applied to it are passed
-through to the next reducing function.
-
-<hr>
-
-### [`fileset-removed`](../boot/core/src/boot/core.clj#L490)
-
-```clojure
-(fileset-removed before after & props)
-```
-
-Returns a new fileset containing only files that were removed.
-
-<hr>
-
-### [`get-env`](../boot/core/src/boot/core.clj#L641)
-
-```clojure
-(get-env & [k not-found])
-```
-
-Returns the value associated with the key `k` in the boot environment, or
-`not-found` if the environment doesn't contain key `k` and `not-found` was
-given. Calling this function with no arguments returns the environment map.
-
-<hr>
-
-### [`get-sys-env`](../boot/core/src/boot/core.clj#L673)
-
-```clojure
-(get-sys-env) (get-sys-env k) (get-sys-env k not-found)
-```
-
-Returns the value associated with the system property k, the environment
-variable k, or not-found if neither of those are set. If not-found is the
-keyword :required, an exception will be thrown when there is no value for
-either the system property or environment variable k.
-
-<hr>
-
-### [`git-files`](../boot/core/src/boot/core.clj#L968)
-
-```clojure
-(git-files & {:keys [untracked]})
-```
-
-Returns a list of files roughly equivalent to what you'd get with the git
-command line `git ls-files`. The :untracked option includes untracked files.
-
-<hr>
-
-### [`gpg-decrypt`](../boot/core/src/boot/core.clj#L933)
-
-```clojure
-(gpg-decrypt path-or-file & {:keys [as]})
-```
-
-Uses gpg(1) to decrypt a file and returns its contents as a string. The
-:as :edn option can be passed to read the contents as an EDN form.
-
-<hr>
-
-### [`init!`](../boot/core/src/boot/core.clj#L555)
-
-```clojure
-(init!)
-```
-
-Initialize the boot environment. This is normally run once by boot at
-startup. There should be no need to call this function directly.
-
-<hr>
-
-### [`input-dirs`](../boot/core/src/boot/core.clj#L338)
-
-```clojure
-(input-dirs fileset)
-```
-
-Get a list of directories containing files with input roles.
-
-<hr>
-
-### [`input-files`](../boot/core/src/boot/core.clj#L353)
-
-```clojure
-(input-files fileset)
-```
-
-Get a set of TmpFile objects corresponding to files with input role.
-
-<hr>
-
-### [`input-fileset`](../boot/core/src/boot/core.clj#L358)
-
-```clojure
-(input-fileset fileset)
-```
-
-FIXME: document
-
-<hr>
-
-### [`json-generate`](../boot/core/src/boot/core.clj#L939)
-
-```clojure
-(json-generate x & [opt-map])
-```
-
-Same as cheshire.core/generate-string.
-
-<hr>
-
-### [`json-parse`](../boot/core/src/boot/core.clj#L945)
-
-```clojure
-(json-parse x & [key-fn])
-```
-
-Same as cheshire.core/parse-string.
-
-<hr>
-
-### [`last-file-change`](../boot/core/src/boot/core.clj#L36)
-
-Last source file watcher update time.
-
-<hr>
-
-### [`launch-nrepl`](../boot/core/src/boot/core.clj#L1037)
-
-```clojure
-(launch-nrepl & {:keys [pod], :as opts})
-```
-
-Launches an nREPL server in a pod. See the repl task for options.
-
-<hr>
-
-### [`load-data-readers!`](../boot/core/src/boot/core.clj#L181)
-
-```clojure
-(load-data-readers!)
-```
-
-Refresh *data-readers* with readers from newly acquired dependencies.
-
-<hr>
-
-### [`ls`](../boot/core/src/boot/core.clj#L373)
-
-```clojure
-(ls fileset)
-```
-
-Get a set of TmpFile objects for all files in the fileset.
-
-<hr>
-
-### [`merge-env!`](../boot/core/src/boot/core.clj#L663)
-
-```clojure
-(merge-env! & kvs)
-```
-
-Merges the new values into the current values for the given keys in the env
-map. Uses a merging strategy that is appropriate for the given key (eg. uses
-clojure.core/into for keys whose values are collections and simply replaces
-Keys whose values aren't collections).
-
-<hr>
-
-### [`mv`](../boot/core/src/boot/core.clj#L404)
-
-```clojure
-(mv fileset from-path to-path)
-```
-
-Given a fileset and two paths in the fileset, from-path and to-path, moves
-the tmpfile at from-path to to-path, returning a new fileset.
-
-<hr>
-
-### [`mv-asset`](../boot/core/src/boot/core.clj#L429)
-
-```clojure
-(mv-asset fileset tmpfiles)
-```
-
-FIXME: document
-
-<hr>
-
-### [`mv-resource`](../boot/core/src/boot/core.clj#L459)
-
-```clojure
-(mv-resource fileset tmpfiles)
-```
-
-FIXME: document
-
-<hr>
-
-### [`mv-source`](../boot/core/src/boot/core.clj#L444)
-
-```clojure
-(mv-source fileset tmpfiles)
-```
-
-FIXME: document
-
-<hr>
-
-### [`new-build-at`](../boot/core/src/boot/core.clj#L35)
-
-Latest build occured at time.
-
-<hr>
-
-### [`new-fileset`](../boot/core/src/boot/core.clj#L80)
-
-FIXME: document this
-
-<hr>
-
-### [`not-by-ext`](../boot/core/src/boot/core.clj#L1017)
-
-```clojure
-(not-by-ext exts files)
-```
-
-This function is the same as `by-ext` but negated.
-
-<hr>
-
-### [`not-by-name`](../boot/core/src/boot/core.clj#L991)
-
-```clojure
-(not-by-name names files)
-```
-
-This function is the same as `by-name` but negated.
-
-<hr>
-
-### [`not-by-path`](../boot/core/src/boot/core.clj#L1004)
-
-```clojure
-(not-by-path paths files)
-```
-
-This function is the same as `by-path` but negated.
-
-<hr>
-
-### [`not-by-re`](../boot/core/src/boot/core.clj#L1030)
-
-```clojure
-(not-by-re res files)
-```
-
-This function is the same as `by-re` but negated.
-
-<hr>
-
-### [`output-dirs`](../boot/core/src/boot/core.clj#L343)
-
-```clojure
-(output-dirs fileset)
-```
-
-FIXME: document this
-
-<hr>
-
-### [`output-files`](../boot/core/src/boot/core.clj#L363)
-
-```clojure
-(output-files fileset)
-```
-
-Get a set of TmpFile objects corresponding to files with output role.
-
-<hr>
-
-### [`output-fileset`](../boot/core/src/boot/core.clj#L368)
-
-```clojure
-(output-fileset fileset)
-```
-
-FIXME: document
-
-<hr>
-
-### [`post-env!`](../boot/core/src/boot/core.clj#L586)
-
-Event handler called when the env atom is modified. This handler is for
-performing side-effects associated with maintaining the application state in
-the env atom. For example, when `:src-paths` is modified the handler adds
-the new directories to the classpath.
-
-<hr>
-
-### [`pre-env!`](../boot/core/src/boot/core.clj#L600)
-
-This multimethod is used to modify how new values are merged into the boot
-atom when `set-env!` is called. This function's result will become the new
-value associated with the given `key` in the env atom.
-
-<hr>
-
-### [`rebuild!`](../boot/core/src/boot/core.clj#L550)
-
-```clojure
-(rebuild!)
-```
-
-Manually trigger build watch.
-
-<hr>
-
-### [`replace-task!`](../boot/core/src/boot/core.clj#L882)
-
-```clojure
-(replace-task! & replacements)
-```
-
-Given a number of binding form and function pairs, this macro alters the
-root bindings of task vars, replacing their values with the given functions.
+Install project jar to local Maven repository.
+
+The --file option allows installation of arbitrary jar files. If no
+file option is given then any jar artifacts created during the build
+will be installed.
+
+The pom.xml file that's required when installing a jar can usually be
+found in the jar itself. However, sometimes a jar might contain more
+than one pom.xml file or may not contain one at all.
+
+The --pom option can be used in these situations to specify which
+pom.xml file to use. The optarg denotes either the path to a pom.xml
+file in the filesystem or a subdir of the META-INF/maven/ dir in which
+the pom.xml contained in the jar resides.
 
 Example:
 
-(replace-task!
-  [r repl] (fn [& xs] (apply r :port 12345 xs))
-  [j jar]  (fn [& xs] (apply j :manifest {"howdy" "world"} xs)))
+  Given a jar file (warp-0.1.0.jar) with the following contents:
+
+      .
+      ├── META-INF
+      │   ├── MANIFEST.MF
+      │   └── maven
+      │       └── tailrecursion
+      │           └── warp
+      │               ├── pom.properties
+      │               └── pom.xml
+      └── tailrecursion
+          └── warp.clj
+
+  The jar could be installed with the following boot command:
+
+      $ boot install -f warp-0.1.0.jar -p tailrecursion/warp
+
+Keyword Args:
+  :help  bool  Print this help info.
+  :file  str   The jar file to install.
+  :pom   str   The pom.xml file to use.
 
 <hr>
 
-### [`reset-build!`](../boot/core/src/boot/core.clj#L737)
+### [`jar`](../boot/core/src/boot/task/built_in.clj#L608)
 
 ```clojure
-(reset-build!)
+(jar & {:keys [help file manifest main], :as *opts*})
 ```
 
-Resets mutable build state to default values. This includes such things as
-warning counters etc., state that is relevant to a single build cycle. This
-function should be called before each build iteration.
+Build a jar file for the project.
+
+Keyword Args:
+  :help      bool       Print this help info.
+  :file      str        The target jar file name.
+  :manifest  {str str}  The jar manifest map.
+  :main      sym        The namespace containing the -main function.
 
 <hr>
 
-### [`reset-fileset`](../boot/core/src/boot/core.clj#L724)
+### [`javac`](../boot/core/src/boot/task/built_in.clj#L566)
 
 ```clojure
-(reset-fileset & [fileset])
+(javac & {:keys [help options], :as *opts*})
 ```
 
-Updates the user directories in the fileset with the latest project files,
-returning a new immutable fileset. When called with no args returns a new
-fileset containing only the latest project files.
+Compile java sources.
+
+Keyword Args:
+  :help     bool   Print this help info.
+  :options  [str]  List of options passed to the java compiler.
 
 <hr>
 
-### [`rm`](../boot/core/src/boot/core.clj#L385)
+### [`pom`](../boot/core/src/boot/task/built_in.clj#L315)
 
 ```clojure
-(rm fileset files)
+(pom & {:keys [help project version description url scm license developers dependencies], :as *opts*})
 ```
 
-Removes files from the fileset tree, returning a new fileset object. This
-does not affect the underlying filesystem in any way.
+Create project pom.xml file.
+
+The project and version must be specified to make a pom.xml.
+
+Keyword Args:
+  :help          bool         Print this help info.
+  :project       sym          The project id (eg. foo/bar).
+  :version       str          The project version.
+  :description   str          The project description.
+  :url           str          The project homepage url.
+  :scm           {kw str}     The project scm map (KEY is one of url, tag, connection, developerConnection).
+  :license       {str str}    The map {name url} of project licenses.
+  :developers    {str str}    The map {name email} of project developers.
+  :dependencies  [[sym str]]  The project dependencies vector (overrides boot env dependencies).
 
 <hr>
 
-### [`set-env!`](../boot/core/src/boot/core.clj#L648)
+### [`push`](../boot/core/src/boot/task/built_in.clj#L727)
 
 ```clojure
-(set-env! & kvs)
+(push & {:keys [help file pom file-regex gpg-sign gpg-user-id gpg-keyring gpg-passphrase repo repo-map tag ensure-branch ensure-clean ensure-release ensure-snapshot ensure-tag ensure-version], :as *opts*})
 ```
 
-Update the boot environment atom `this` with the given key-value pairs given
-in `kvs`. See also `post-env!` and `pre-env!`. The values in the env map must
-be both printable by the Clojure printer and readable by its reader. If the
-value for a key is a function, that function will be applied to the current
-value of that key and the result will become the new value (similar to how
-clojure.core/update-in works.
+Deploy jar file to a Maven repository.
+
+If the file option is not specified the task will look for jar files
+created by the build pipeline. The jar file(s) must contain pom.xml
+entries.
+
+The repo option is required. The repo option is used to get repository
+map from Boot envinronment. Additional repo-map option can be used to
+add options, like credentials, or to provide complete repo-map if Boot
+envinronment doesn't hold the named repository.
+
+Keyword Args:
+  :help             bool      Print this help info.
+  :file             str       The jar file to deploy.
+  :pom              str       The pom.xml file to use (see install task).
+  :file-regex       #{regex}  The set of regexes of paths to deploy.
+  :gpg-sign         bool      Sign jar using GPG private key.
+  :gpg-user-id      str       The name or key-id used to select the signing key.
+  :gpg-keyring      str       DEPRECATED: The path to secring.gpg file to use for signing.
+  :gpg-passphrase   str       The passphrase to unlock GPG signing key.
+  :repo             str       The name of the deploy repository.
+  :repo-map         edn       The repository map of the deploy repository.
+  :tag              bool      Create git tag for this version.
+  :ensure-branch    str       The required current git branch.
+  :ensure-clean     bool      Ensure that the project git repo is clean.
+  :ensure-release   bool      Ensure that the current version is not a snapshot.
+  :ensure-snapshot  bool      Ensure that the current version is a snapshot.
+  :ensure-tag       str       The SHA1 of the commit the pom's scm tag must contain.
+  :ensure-version   str       The version the jar's pom must contain.
 
 <hr>
 
-### [`set-sys-env!`](../boot/core/src/boot/core.clj#L685)
+### [`repl`](../boot/core/src/boot/task/built_in.clj#L270)
 
 ```clojure
-(set-sys-env! & kvs)
+(repl & {:keys [help server client eval bind host init skip-init port pod init-ns middleware handler], :as *opts*})
 ```
 
-For each key value pair in kvs the system property corresponding to the key
-is set. Keys and values must be strings, but the value can be nil or false
-to remove the system property.
+Start a REPL session for the current project.
+
+If no bind/host is specified the REPL server will listen on 127.0.0.1 and
+the client will connect to 127.0.0.1.
+
+If no port is specified the server will choose a random one and the client
+will read the .nrepl-port file and use that.
+
+The *default-middleware* and *default-dependencies* atoms in the boot.repl
+namespace contain vectors of default REPL middleware and REPL dependencies to
+be loaded when starting the server. You may modify these in your build.boot
+file.
+
+Keyword Args:
+  :help        bool   Print this help info.
+  :server      bool   Start REPL server only.
+  :client      bool   Start REPL client only.
+  :eval        edn    The form the client will evaluate in the boot.user ns.
+  :bind        str    The address server listens on.
+  :host        str    The host client connects to.
+  :init        str    The file to evaluate in the boot.user ns.
+  :skip-init   bool   Skip default client initialization code.
+  :port        int    The port to listen on and/or connect to.
+  :pod         str    The name of the pod to start nREPL server in (core).
+  :init-ns     sym    The initial REPL namespace.
+  :middleware  [sym]  The REPL middleware vector.
+  :handler     sym    The REPL handler (overrides middleware options).
 
 <hr>
 
-### [`sync!`](../boot/core/src/boot/core.clj#L514)
+### [`show`](../boot/core/src/boot/task/built_in.clj#L164)
 
 ```clojure
-(sync! dest & srcs)
+(show & {:keys [help fake-classpath classpath deps env fileset list-pods pedantic pods update-snapshots updates], :as *opts*})
 ```
 
-Given a dest directory and one or more srcs directories, overlays srcs on
-dest, removing files in dest that are not in srcs. Uses file modification
-timestamps to decide which version of files to emit to dest. Uses hardlinks
-instead of copying file contents. File modification times are preserved.
+Print project/build info (e.g. dependency graph, etc).
+
+Keyword Args:
+  :help              bool   Print this help info.
+  :fake-classpath    bool   Print the project's fake classpath.
+  :classpath         bool   Print the project's full classpath.
+  :deps              bool   Print project dependency graph.
+  :env               bool   Print the boot env map.
+  :fileset           bool   Print the build fileset object.
+  :list-pods         bool   Print the names of all active pods.
+  :pedantic          bool   Print graph of dependency conflicts.
+  :pods              regex  The name filter used to select which pods to inspect.
+  :update-snapshots  bool   Include snapshot versions in updates searches.
+  :updates           bool   Print newer releases of outdated dependencies.
 
 <hr>
 
-### [`task-options!`](../boot/core/src/boot/core.clj#L905)
+### [`sift`](../boot/core/src/boot/task/built_in.clj#L346)
 
 ```clojure
-(task-options! & task-option-pairs)
+(sift & {:keys [help to-asset to-resource to-source add-asset add-resource add-source add-jar with-meta add-meta move include invert], :as *opts*})
 ```
 
-Given a number of task/map-of-curried-arguments pairs, replaces the root
-bindings of the tasks with their curried values. For example:
+Transform the fileset, matching paths against regexes.
 
-    (task-options!
-      repl {:port     12345}
-      jar  {:manifest {:howdy "world"}})
+The --to-asset, --to-resource, and --to-source options move matching paths
+to the corresponding section of the fileset. This can be used to make source
+files into resource files, for example, etc. If --invert is also specified
+the transformation is done to paths that DO NOT match.
 
-You can update options, too, by providing a function instead of an option
-map. This function will be passed the current option map and its result will
-be used as the new one. For example:
+The --add-asset, --add-resource, and --add-source options add the contents
+of a directory to the fileset as assets, resources, or sources, respectively.
+The --invert option has no effect on these options.
 
-    (task-options!
-      repl #(update-in % [:port] (fnil inc 1234))
-      jar  #(assoc-in % [:manifest "ILike"] "Turtles"))
+The --add-jar option extracts the contents of a jar file on the classpath
+and adds them to the fileset. The PROJECT part of the argument specifies the
+group-id/artifact-id symbol associated with the jar, and the MATCH portion
+selects which entries in the jar will be extracted. If --invert is also
+specified then entries whose paths DO NOT match the regex will be extracted.
+
+The --with-meta option specifies a set of metadata keys files in the fileset
+must have. Files without one of these keys will be filtered out. If --invert
+is also specified then files that DO have one of these keys will be filtered
+out, instead.
+
+The --add-meta option adds a key to the metadata map associated with paths
+matching the regex portion of the argument. For example:
+
+    boot sift --add-meta 'foo$':bar
+
+merges {:bar true} into the metadata map associated with all paths that end
+with 'foo'. If --invert is also specified the metadata is added to paths
+that DO NOT match the regex portion.
+
+The --move option applies a find/replace transformation on all paths in the
+output fileset. The --invert option has no effect on this operation.
+
+The --include option specifies a set of regexes that will be used to filter
+the fileset. Only paths matching one of these will be kept. If --invert is
+also specified then only paths NOT matching one of the regexes will be kept.
+
+Keyword Args:
+  :help          bool         Print this help info.
+  :to-asset      #{regex}     The set of regexes of paths to move to assets.
+  :to-resource   #{regex}     The set of regexes of paths to move to resources.
+  :to-source     #{regex}     The set of regexes of paths to move to sources.
+  :add-asset     #{str}       The set of directory paths to add to assets.
+  :add-resource  #{str}       The set of directory paths to add to resources.
+  :add-source    #{str}       The set of directory paths to add to sources.
+  :add-jar       {sym regex}  The map of jar to path regex of entries in jar to unpack.
+  :with-meta     #{kw}        The set of metadata keys files must have.
+  :add-meta      {regex kw}   The map of path regex to meta key to add.
+  :move          {regex str}  The map of regex to replacement path strings.
+  :include       #{regex}     The set of regexes that paths must match.
+  :invert        bool         Invert the sense of matching.
 
 <hr>
 
-### [`temp-dir!`](../boot/core/src/boot/core.clj#L277)
+### [`speak`](../boot/core/src/boot/task/built_in.clj#L121)
 
 ```clojure
-(temp-dir! & args__594__auto__)
+(speak & {:keys [help theme success warning failure], :as *opts*})
 ```
 
-#'boot.core/temp-dir! was deprecated, please use #'boot.core/tmp-dir! instead
+Audible notifications during build.
+
+Default themes: system (the default), ordinance, and woodblock. New themes
+can be included via jar dependency with the sound files as resources:
+
+    boot
+    └── notify
+        ├── <theme-name>_failure.mp3
+        ├── <theme-name>_success.mp3
+        └── <theme-name>_warning.mp3
+
+Sound files specified individually take precedence over theme sounds.
+
+Keyword Args:
+  :help     bool  Print this help info.
+  :theme    str   The notification sound theme.
+  :success  str   The sound file to play when the build is successful.
+  :warning  str   The sound file to play when there are warnings reported.
+  :failure  str   The sound file to play when the build fails.
 
 <hr>
 
-### [`tmp-dir`](../boot/core/src/boot/core.clj#L304)
+### [`target`](../boot/core/src/boot/task/built_in.clj#L214)
 
 ```clojure
-(tmp-dir tmpfile)
+(target & {:keys [help dir no-link no-clean], :as *opts*})
 ```
 
-Returns the temporary directory containing the tmpfile.
+Writes output files to the given directory on the filesystem.
+
+Keyword Args:
+  :help      bool    Print this help info.
+  :dir       #{str}  The set of directories to write to (target).
+  :no-link   bool    Don't create hard links.
+  :no-clean  bool    Don't clean target before writing project files.
 
 <hr>
 
-### [`tmp-dir!`](../boot/core/src/boot/core.clj#L273)
+### [`uber`](../boot/core/src/boot/task/built_in.clj#L423)
 
 ```clojure
-(tmp-dir!)
+(uber & {:keys [help as-jars include-scope exclude-scope include exclude merge], :as *opts*})
 ```
 
-Creates a boot-managed temporary directory, returning a java.io.File.
+Add jar entries from dependencies to fileset.
+
+Use this task before the packaging task (jar, war, etc.) to create
+uberjars, uberwars, etc. This provides the means to package the project
+with all of its dependencies included.
+
+By default, entries from dependencies with the following scopes will be
+copied to the fileset: compile, runtime, and provided. The --include-scope
+and --exclude-scope options may be used to add or remove scope(s) from this
+set.
+
+The --as-jars option pulls in dependency jars without exploding them such
+that the jarfiles themselves are copied into the fileset. When using the
+--as-jars option you need a special classloader like a servlet container
+(e.g. Tomcat, Jetty) that will add the jars to the application classloader.
+
+When jars are exploded, the --include and --exclude options control which
+paths are added to the uberjar; a path is only added if it matches an
+--include regex and does not match any --exclude regexes.
+
+The --exclude option default is:
+
+    #{ #"(?i)^META-INF/INDEX.LIST$"
+       #"(?i)^META-INF/[^/]*\.(MF|SF|RSA|DSA)$" }
+
+And --include option default is:
+
+    #{ #".*" }
+
+If exploding the jars results in duplicate entries, they will be merged
+using the rules specified by the --merge option. A merge rule is a
+[regex fn] pair, where fn takes three parameters:
+
+  - an InputStream for the previous entry,
+  - an InputStream of the new entry,
+  - and an OutputStream that will replace the entry.
+
+The --merge option default is:
+
+    [[ #"data_readers.clj$"    into-merger       ]
+     [ #"META-INF/services/.*" concat-merger     ]
+     [ #".*"                   first-wins-merger ]]
+
+The merge rule regular expressions are tested in order, and the fn from
+the first match is applied.
+
+Setting the --include, --exclude, or --merge options replaces the default.
+
+Keyword Args:
+  :help           bool            Print this help info.
+  :as-jars        bool            Copy entire jar files instead of exploding them.
+  :include-scope  #{str}          The set of scopes to add.
+  :exclude-scope  #{str}          The set of scopes to remove.
+  :include        #{regex}        The set of regexes that paths must match.
+  :exclude        #{regex}        The set of regexes that paths must not match.
+  :merge          [[regex code]]  The list of duplicate file mergers.
 
 <hr>
 
-### [`tmp-file`](../boot/core/src/boot/core.clj#L310)
+### [`wait`](../boot/core/src/boot/task/built_in.clj#L203)
 
 ```clojure
-(tmp-file tmpfile)
+(wait & {:keys [help time], :as *opts*})
 ```
 
-Returns the java.io.File object for the tmpfile.
+Wait before calling the next handler.
+
+Waits forever if the --time option is not specified.
+
+Keyword Args:
+  :help  bool  Print this help info.
+  :time  int   The interval in milliseconds.
 
 <hr>
 
-### [`tmp-get`](../boot/core/src/boot/core.clj#L324)
+### [`war`](../boot/core/src/boot/task/built_in.clj#L639)
 
 ```clojure
-(tmp-get fileset path & [not-found])
+(war & {:keys [help file], :as *opts*})
 ```
 
-Given a fileset and a path, returns the associated TmpFile record. If the
-not-found argument is specified and the TmpFile is not in the fileset then
-not-found is returned, otherwise nil.
+Create war file for web deployment.
+
+Keyword Args:
+  :help  bool  Print this help info.
+  :file  str   The target war file name.
 
 <hr>
 
-### [`tmp-path`](../boot/core/src/boot/core.clj#L298)
+### [`watch`](../boot/core/src/boot/task/built_in.clj#L225)
 
 ```clojure
-(tmp-path tmpfile)
+(watch & {:keys [help quiet verbose manual], :as *opts*})
 ```
 
-Returns the tmpfile's path relative to the fileset root.
+Call the next handler when source files change.
+
+Debouncing time is 10ms by default.
+
+Keyword Args:
+  :help     bool  Print this help info.
+  :quiet    bool  Suppress all output from running jobs.
+  :verbose  bool  Print which files have changed.
+  :manual   bool  Use a manual trigger instead of a file watcher.
 
 <hr>
 
-### [`tmp-time`](../boot/core/src/boot/core.clj#L316)
+### [`web`](../boot/core/src/boot/task/built_in.clj#L512)
 
 ```clojure
-(tmp-time tmpfile)
+(web & {:keys [help serve create destroy context-create context-destroy], :as *opts*})
 ```
 
-Returns the last modified timestamp for the tmpfile.
+Create project web.xml file.
+
+The --serve option is required. The others are optional.
+
+Keyword Args:
+  :help             bool  Print this help info.
+  :serve            sym   The 'serve' callback function.
+  :create           sym   The 'create' callback function.
+  :destroy          sym   The 'destroy' callback function.
+  :context-create   sym   The context 'create' callback function, called when the servlet is first loaded by the container.
+  :context-destroy  sym   The context 'destroyed' callback function, called when the servlet is unloaded by the container.
 
 <hr>
 
-### [`tmpdir`](../boot/core/src/boot/core.clj#L308)
+### [`zip`](../boot/core/src/boot/task/built_in.clj#L663)
 
 ```clojure
-(tmpdir & args__594__auto__)
+(zip & {:keys [help file], :as *opts*})
 ```
 
-#'boot.core/tmpdir was deprecated, please use #'boot.core/tmp-dir instead
+Build a zip file for the project.
 
-<hr>
-
-### [`tmpfile`](../boot/core/src/boot/core.clj#L314)
-
-```clojure
-(tmpfile & args__594__auto__)
-```
-
-#'boot.core/tmpfile was deprecated, please use #'boot.core/tmp-file instead
-
-<hr>
-
-### [`tmpget`](../boot/core/src/boot/core.clj#L330)
-
-```clojure
-(tmpget & args__594__auto__)
-```
-
-#'boot.core/tmpget was deprecated, please use #'boot.core/tmp-get instead
-
-<hr>
-
-### [`tmppath`](../boot/core/src/boot/core.clj#L302)
-
-```clojure
-(tmppath & args__594__auto__)
-```
-
-#'boot.core/tmppath was deprecated, please use #'boot.core/tmp-path instead
-
-<hr>
-
-### [`tmptime`](../boot/core/src/boot/core.clj#L320)
-
-```clojure
-(tmptime & args__594__auto__)
-```
-
-#'boot.core/tmptime was deprecated, please use #'boot.core/tmp-time instead
-
-<hr>
-
-### [`touch`](../boot/core/src/boot/core.clj#L963)
-
-```clojure
-(touch f)
-```
-
-Same as the Unix touch(1) program.
-
-<hr>
-
-### [`user-dirs`](../boot/core/src/boot/core.clj#L332)
-
-```clojure
-(user-dirs fileset)
-```
-
-Get a list of directories containing files that originated in the project's
-source, resource, or asset paths.
-
-<hr>
-
-### [`user-files`](../boot/core/src/boot/core.clj#L347)
-
-```clojure
-(user-files fileset)
-```
-
-Get a set of TmpFile objects corresponding to files that originated in
-the project's source, resource, or asset paths.
-
-<hr>
-
-### [`watch-dirs`](../boot/core/src/boot/core.clj#L524)
-
-```clojure
-(watch-dirs callback dirs & {:keys [debounce]})
-```
-
-Watches dirs for changes and calls callback with set of changed files
-when file(s) in these directories are modified. Returns a thunk which
-will stop the watcher.
-
-The watcher uses the somewhat quirky native filesystem event APIs. A
-debounce option is provided (in ms, default 10) which can be used to
-tune the watcher sensitivity.
-
-<hr>
-
-### [`with-pass-thru`](../boot/core/src/boot/core.clj#L859)
-
-```clojure
-(with-pass-thru bind & body)
-```
-
-Given a binding and body expressions, constructs a task handler. The body
-expressions are evaluated for side effects with the current fileset bound
-to binding. The current fileset is then passed to the next handler and the
-result is then returned up the handler stack.
-
-<hr>
-
-### [`with-post-wrap`](../boot/core/src/boot/core.clj#L833)
-
-```clojure
-(with-post-wrap bind & body)
-```
-
-Given a binding and body expressions, constructs a task handler. The next
-handler is called with the current fileset, and the result is bound to
-binding. The body expressions are then evaluated for side effects and the
-bound fileset is returned up the handler stack. Roughly equivalent to:
-
-    (fn [next-handler]
-      (fn [fileset]
-        (let [binding (next-handler fileset)]
-          (do ... ...)
-          binding)))
-
-where ... are the given body expressions.
-
-<hr>
-
-### [`with-pre-wrap`](../boot/core/src/boot/core.clj#L809)
-
-```clojure
-(with-pre-wrap bind & body)
-```
-
-Given a binding and body expressions, constructs a task handler. The body
-expressions are evaluated with the current fileset bound to binding, and the
-result is passed to the next handler in the pipeline. The fileset obtained
-from the next handler is then returned up the handler stack. The body must
-evaluate to a fileset object. Roughly equivalent to:
-
-    (fn [next-handler]
-      (fn [binding]
-        (next-handler (do ... ...))))
-
-where ... are the given body expressions.
-
-<hr>
-
-### [`yaml-generate`](../boot/core/src/boot/core.clj#L951)
-
-```clojure
-(yaml-generate x)
-```
-
-Same as clj-yaml.core/generate-string.
-
-<hr>
-
-### [`yaml-parse`](../boot/core/src/boot/core.clj#L957)
-
-```clojure
-(yaml-parse x)
-```
-
-Same as clj-yaml.core/parse-string.
+Keyword Args:
+  :help  bool  Print this help info.
+  :file  str   The target zip file name.
 
 <hr>
 
