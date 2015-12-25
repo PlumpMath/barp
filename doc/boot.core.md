@@ -88,6 +88,17 @@ The Boot core namespace, containing most of Boot's public API.
 * [`yaml-generate`](#yaml-generate)
 * [`yaml-parse`](#yaml-parse)
 
+#### Configuration
+
+* [`*app-version*`](#*app-version*)
+* [`*boot-opts*`](#*boot-opts*)
+* [`*boot-script*`](#*boot-script*)
+* [`*boot-version*`](#*boot-version*)
+* [`*warnings*`](#*warnings*)
+* [`bootignore`](#bootignore)
+* [`last-file-change`](#last-file-change)
+* [`new-build-at`](#new-build-at)
+
 ### [`add-asset`](../../2.5.2/boot/core/src/boot/core.clj#L419)
 
 _function_
@@ -1386,6 +1397,91 @@ _function_
 
 ```
 Same as clj-yaml.core/parse-string.
+```
+
+<hr>
+
+## Configuration
+
+These vars contain various Boot-related configuration. You shouldn't
+need to modify them but you may want to read their values.
+
+### [`*app-version*`](../../2.5.2/boot/core/src/boot/core.clj#L29)
+
+_dynamic_
+
+```
+The running version of boot app.
+```
+
+<hr>
+
+### [`*boot-opts*`](../../2.5.2/boot/core/src/boot/core.clj#L32)
+
+_dynamic_
+
+```
+Command line options for boot itself.
+```
+
+<hr>
+
+### [`*boot-script*`](../../2.5.2/boot/core/src/boot/core.clj#L30)
+
+_dynamic_
+
+```
+The script's name (when run as script).
+```
+
+<hr>
+
+### [`*boot-version*`](../../2.5.2/boot/core/src/boot/core.clj#L31)
+
+_dynamic_
+
+```
+The running version of boot core.
+```
+
+<hr>
+
+### [`*warnings*`](../../2.5.2/boot/core/src/boot/core.clj#L33)
+
+_dynamic_
+
+```
+Count of warnings during build.
+```
+
+<hr>
+
+### [`bootignore`](../../2.5.2/boot/core/src/boot/core.clj#L37)
+
+_var_
+
+```
+Set of regexes source file paths must not match.
+```
+
+<hr>
+
+### [`last-file-change`](../../2.5.2/boot/core/src/boot/core.clj#L36)
+
+_var_
+
+```
+Last source file watcher update time.
+```
+
+<hr>
+
+### [`new-build-at`](../../2.5.2/boot/core/src/boot/core.clj#L35)
+
+_var_
+
+```
+Latest build occured at time.
 ```
 
 <hr>

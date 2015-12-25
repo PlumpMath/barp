@@ -115,7 +115,6 @@
   (let [ns *doc-ns-sym*
         n  (find-ns ns)]
     (alter-meta! n assoc :doc ns-doc)
-    (alter-meta! n assoc :doc/toc nil)
     (spit out (-> (.getParent (io/file out))
                   (file/relative-to src-path)
                   (str "/")
@@ -124,6 +123,7 @@
 (defmacro namespace
   [ns ns-doc out src-path & sections]
   `(binding [*doc-ns-sym* '~ns]
+     (alter-meta! (find-ns '~ns) assoc :doc/toc nil)
      (do ~@sections)
      (write-docs '~ns ~out ~src-path ~ns-doc)))
 
