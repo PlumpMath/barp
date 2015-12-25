@@ -62,7 +62,7 @@
   [xs]
   (->> xs (mapcat (fn [{:keys [title vars]}]
                     (-> (->> vars
-                             (map #(format "* [%s](#%s)\n" (first %) (first %)))
+                             (map #(format "* `[%s](#%s)`\n" (first %) (first %)))
                              (cons (when title (format "#### %s\n\n" title)))
                              (remove nil?))
                         (concat ["\n"]))))))
@@ -126,24 +126,27 @@
      (do ~@sections)
      (write-docs '~ns ~out ~src-path ~ns-doc)))
 
+(comment
+
+  (def test-str  "asdf qwer
+                 zxcv poiu")
+
 (namespace
   boot.core
   "doc/boot.core.md"
-  (format "../%s/boot/core/src/" *boot-version*)
+  (format "../%s/boot/core/src/" boot.core/*boot-version*)
   "The Boot core namespace, containing most of Boot's public API."
   (section
     "Configuration"
     "These vars contain various Boot-related configuration. You shouldn't
     need to modify them but you may want to read their values."
     *boot-version*
-    *bot-script*))
-
-(comment
-
-  (def test-str  "asdf qwer
-                 zxcv poiu")
+    *boot-script*))
 
   (print test-str)
+
+  (macroexpand '(section "asdf" "wqer" *boot-version*))
+  (macroexpand '(namespace boo.asdf "asdf" "wqer" "asdfqwer"))
 
   (print (strip-indent test-str))
 
