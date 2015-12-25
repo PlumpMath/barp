@@ -62,7 +62,7 @@
   [xs]
   (->> xs (mapcat (fn [{:keys [title vars]}]
                     (-> (->> vars
-                             (map #(format "* `[%s](#%s)`\n" (first %) (first %)))
+                             (map #(format "* [`%s`](#%s)\n" (first %) (first %)))
                              (cons (when title (format "#### %s\n\n" title)))
                              (remove nil?))
                         (concat ["\n"]))))))
