@@ -26,7 +26,7 @@
 (defn emit-var
   [link-path {:keys [name doc arglists macro file line]}]
   (let [src-link (format "%s%s#L%d" link-path file line)]
-    (str (format "### [`%s`](%s)\n\n" name src-link)
+    (str (format "### [<pre>%s</pre>](%s)\n\n" name src-link)
          (emit-arglists name arglists)
          (format "%s\n\n<hr>\n\n" (trimr (strip-indent doc))))))
 
