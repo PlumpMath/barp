@@ -57,10 +57,11 @@
 (defn emit-toc
   [xs]
   (->> xs (mapcat (fn [{:keys [title vars]}]
-                    (->> vars
-                         (map #(format "* %s\n" (first %)))
-                         (cons (when title (format "#### %s\n\n" title)))
-                         (remove nil?))))))
+                    (-> (->> vars
+                             (map #(format "* [%s](#%s)\n" (first %) (first %)))
+                             (cons (when title (format "#### %s\n\n" title)))
+                             (remove nil?))
+                        (concat ["\n"]))))))
 
 (defn sections
   [x]
@@ -84,8 +85,8 @@
                  :vars (->> (ns-publics n)
                             (reduce-kv #(assoc %1 %2 (e (var-get (ns-resolve n %2)) %3)) {})))
         s (sections m)]
-    s
-    #_(->> (mapcat emit-section s)
+    (->> (mapcat emit-section s)
+         (concat (emit-toc s))
          (concat (emit-ns m))
          (apply str))))
 
@@ -108,8 +109,8 @@
 
   (require 'boot.core)
   (clojure.repl/pst)
-  (->> 'foo.bar (parse-ns "../boot/core/src/") emit-toc pprint)
-  (->> 'boot.core (parse-ns "../boot/core/src/") (spit "doc/foo.md"))
+  (->> 'foo.bar (parse-ns "../boot/core/src/") emit-toc (apply str) print)
+  (->> 'foo.bar (parse-ns "../boot/core/src/") (spit "doc/foo.md"))
   (->> 'boot.core (parse-ns "../../2.5.2/boot/core/src/") (spit "doc/foo.md"))
   (->> 'boot.task.built-in (parse-ns "../../2.5.2/boot/core/src/") (spit "doc/foo.md"))
 
