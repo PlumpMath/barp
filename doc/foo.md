@@ -1,6 +1,6 @@
 # boot.task.built-in
 
-### [`add-repo`](../boot/core/src/boot/task/built_in.clj#L406)
+### [`add-repo`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L406)
 
 ```clojure
 (add-repo & {:keys [help untracked ref], :as *opts*})
@@ -20,7 +20,7 @@ Keyword Args:
 
 <hr>
 
-### [`aot`](../boot/core/src/boot/task/built_in.clj#L546)
+### [`aot`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L546)
 
 ```clojure
 (aot & {:keys [help all namespace], :as *opts*})
@@ -37,7 +37,7 @@ Keyword Args:
 
 <hr>
 
-### [`checkout`](../boot/core/src/boot/task/built_in.clj#L69)
+### [`checkout`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L69)
 
 ```clojure
 (checkout & {:keys [help dependencies], :as *opts*})
@@ -68,7 +68,7 @@ Keyword Args:
 
 <hr>
 
-### [`help`](../boot/core/src/boot/task/built_in.clj#L30)
+### [`help`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L30)
 
 ```clojure
 (help & {:keys [help], :as *opts*})
@@ -83,7 +83,7 @@ Keyword Args:
 
 <hr>
 
-### [`install`](../boot/core/src/boot/task/built_in.clj#L678)
+### [`install`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L678)
 
 ```clojure
 (install & {:keys [help file pom], :as *opts*})
@@ -132,7 +132,7 @@ Keyword Args:
 
 <hr>
 
-### [`jar`](../boot/core/src/boot/task/built_in.clj#L608)
+### [`jar`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L608)
 
 ```clojure
 (jar & {:keys [help file manifest main], :as *opts*})
@@ -150,7 +150,7 @@ Keyword Args:
 
 <hr>
 
-### [`javac`](../boot/core/src/boot/task/built_in.clj#L566)
+### [`javac`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L566)
 
 ```clojure
 (javac & {:keys [help options], :as *opts*})
@@ -166,7 +166,7 @@ Keyword Args:
 
 <hr>
 
-### [`pom`](../boot/core/src/boot/task/built_in.clj#L315)
+### [`pom`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L315)
 
 ```clojure
 (pom & {:keys [help project version description url scm license developers dependencies], :as *opts*})
@@ -191,7 +191,7 @@ Keyword Args:
 
 <hr>
 
-### [`push`](../boot/core/src/boot/task/built_in.clj#L727)
+### [`push`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L727)
 
 ```clojure
 (push & {:keys [help file pom file-regex gpg-sign gpg-user-id gpg-keyring gpg-passphrase repo repo-map tag ensure-branch ensure-clean ensure-release ensure-snapshot ensure-tag ensure-version], :as *opts*})
@@ -231,7 +231,7 @@ Keyword Args:
 
 <hr>
 
-### [`repl`](../boot/core/src/boot/task/built_in.clj#L270)
+### [`repl`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L270)
 
 ```clojure
 (repl & {:keys [help server client eval bind host init skip-init port pod init-ns middleware handler], :as *opts*})
@@ -269,7 +269,7 @@ Keyword Args:
 
 <hr>
 
-### [`show`](../boot/core/src/boot/task/built_in.clj#L164)
+### [`show`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L164)
 
 ```clojure
 (show & {:keys [help fake-classpath classpath deps env fileset list-pods pedantic pods update-snapshots updates], :as *opts*})
@@ -294,7 +294,7 @@ Keyword Args:
 
 <hr>
 
-### [`sift`](../boot/core/src/boot/task/built_in.clj#L346)
+### [`sift`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L346)
 
 ```clojure
 (sift & {:keys [help to-asset to-resource to-source add-asset add-resource add-source add-jar with-meta add-meta move include invert], :as *opts*})
@@ -357,7 +357,7 @@ Keyword Args:
 
 <hr>
 
-### [`speak`](../boot/core/src/boot/task/built_in.clj#L121)
+### [`speak`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L121)
 
 ```clojure
 (speak & {:keys [help theme success warning failure], :as *opts*})
@@ -387,7 +387,7 @@ Keyword Args:
 
 <hr>
 
-### [`target`](../boot/core/src/boot/task/built_in.clj#L214)
+### [`target`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L214)
 
 ```clojure
 (target & {:keys [help dir no-link no-clean], :as *opts*})
@@ -405,7 +405,7 @@ Keyword Args:
 
 <hr>
 
-### [`uber`](../boot/core/src/boot/task/built_in.clj#L423)
+### [`uber`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L423)
 
 ```clojure
 (uber & {:keys [help as-jars include-scope exclude-scope include exclude merge], :as *opts*})
@@ -472,7 +472,7 @@ Keyword Args:
 
 <hr>
 
-### [`wait`](../boot/core/src/boot/task/built_in.clj#L203)
+### [`wait`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L203)
 
 ```clojure
 (wait & {:keys [help time], :as *opts*})
@@ -490,7 +490,7 @@ Keyword Args:
 
 <hr>
 
-### [`war`](../boot/core/src/boot/task/built_in.clj#L639)
+### [`war`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L639)
 
 ```clojure
 (war & {:keys [help file], :as *opts*})
@@ -506,7 +506,7 @@ Keyword Args:
 
 <hr>
 
-### [`watch`](../boot/core/src/boot/task/built_in.clj#L225)
+### [`watch`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L225)
 
 ```clojure
 (watch & {:keys [help quiet verbose manual], :as *opts*})
@@ -526,7 +526,7 @@ Keyword Args:
 
 <hr>
 
-### [`web`](../boot/core/src/boot/task/built_in.clj#L512)
+### [`web`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L512)
 
 ```clojure
 (web & {:keys [help serve create destroy context-create context-destroy], :as *opts*})
@@ -548,7 +548,7 @@ Keyword Args:
 
 <hr>
 
-### [`zip`](../boot/core/src/boot/task/built_in.clj#L663)
+### [`zip`](../../2.5.2/boot/core/src/boot/task/built_in.clj#L663)
 
 ```clojure
 (zip & {:keys [help file], :as *opts*})

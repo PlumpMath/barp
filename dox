@@ -84,7 +84,7 @@
   (clojure.repl/pst)
   (->> 'boot.core (parse-ns "../boot/core/src/"))
   (->> 'boot.core (parse-ns "../boot/core/src/") (spit "doc/foo.md"))
-  (->> 'boot.task.built-in (parse-ns "../boot/core/src/") (spit "doc/foo.md"))
+  (->> 'boot.task.built-in (parse-ns "../../2.5.2/boot/core/src/") (spit "doc/foo.md"))
 
   (print (emit-var "../" "boot/pod/src/" a))
   (->> a :md print)
