@@ -1,0 +1,5 @@
+;; vim: set ft=clojure:
+
+(defn parse-ns [ns]
+  (let [n (the-ns ns)]
+    (assoc (meta n) :name ns :vars (->> n ns-publics vals (mapv meta)))))
