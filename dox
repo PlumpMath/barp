@@ -16,6 +16,12 @@
         strip  #(try (subs % indent) (catch Throwable _))]
     (->> tail (map strip) (list* head) (join "\n"))))
 
+(defn emit-doc
+  [x]
+  (->> (-> x strip-indent trimr (split #"\n"))
+       (map #(str "> " %))
+       (join "\n")))
+
 (defn emit-arglists
   [name arglists]
   (some->> arglists
@@ -28,7 +34,7 @@
   (let [src-link (format "%s%s#L%d" link-path file line)]
     (str (format "### [`%s`](%s)\n\n" name src-link)
          (emit-arglists name arglists)
-         (format "%s\n\n" (trimr (strip-indent doc))))))
+         (format "%s\n\n" (emit-doc doc)))))
 
 (defn emit-section
   [{:keys [title intro vars]}]
