@@ -74,7 +74,7 @@
         m (assoc (meta n)
                  :name x
                  :vars (->> (ns-publics n)
-                            (reduce-kv #(assoc %1 %2 (e %2 %3)) {})))]
+                            (reduce-kv #(assoc %1 %2 (e (var-get (ns-resolve n %2)) %3)) {})))]
     (->> (wrap-toc m)
          (mapcat emit-section)
          (concat (emit-ns m))
