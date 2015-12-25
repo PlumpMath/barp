@@ -6,7 +6,7 @@ This is the foo.bar doc.
 
 Various functions to do various things.
 
-### baf <small>hi</small> [source](../boot/pod/src/foo/bar.clj#L15)
+### [baf](../boot/pod/src/foo/bar.clj#L15)
 
 ```
 (baf x & xs)
@@ -16,7 +16,7 @@ Various functions to do various things.
 This is another thing.
 ```
 
-### baz <small>hi</small> [source](../boot/pod/src/foo/bar.clj#L10)
+### [baz](../boot/pod/src/foo/bar.clj#L10)
 
 ```
 (baz x & xs)
@@ -26,7 +26,7 @@ This is another thing.
 This is a thing.
 ```
 
-### quux <small>hi</small> [source](../boot/pod/src/foo/bar.clj#L20)
+### [quux](../boot/pod/src/foo/bar.clj#L20)
 
 ```
 (quux) (quux x) (quux x y)
