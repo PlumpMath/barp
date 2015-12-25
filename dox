@@ -18,10 +18,10 @@
 
 (defn emit-arglists
   [name arglists]
-  (->> arglists
-       (map #(pr-str (list* name %)))
-       (join " ")
-       (format "```clojure\n%s\n```\n\n")))
+  (some->> arglists
+           (map #(pr-str (list* name %)))
+           (join " ")
+           (format "```clojure\n%s\n```\n\n")))
 
 (defn emit-var
   [link-path {:keys [name doc arglists macro file line]}]

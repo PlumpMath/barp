@@ -2,41 +2,21 @@
 
 ### [`*app-version*`](../boot/core/src/boot/core.clj#L29)
 
-```clojure
-
-```
-
 The running version of boot app.
 
 ### [`*boot-opts*`](../boot/core/src/boot/core.clj#L32)
-
-```clojure
-
-```
 
 Command line options for boot itself.
 
 ### [`*boot-script*`](../boot/core/src/boot/core.clj#L30)
 
-```clojure
-
-```
-
 The script's name (when run as script).
 
 ### [`*boot-version*`](../boot/core/src/boot/core.clj#L31)
 
-```clojure
-
-```
-
 The running version of boot core.
 
 ### [`*warnings*`](../boot/core/src/boot/core.clj#L33)
-
-```clojure
-
-```
 
 Count of warnings during build.
 
@@ -110,10 +90,6 @@ strings then they are treated as if they were given on the command line.
 Otherwise they are assumed to evaluate to task middleware.
 
 ### [`bootignore`](../boot/core/src/boot/core.clj#L37)
-
-```clojure
-
-```
 
 Set of regexes source file paths must not match.
 
@@ -392,10 +368,6 @@ Same as cheshire.core/parse-string.
 
 ### [`last-file-change`](../boot/core/src/boot/core.clj#L36)
 
-```clojure
-
-```
-
 Last source file watcher update time.
 
 ### [`launch-nrepl`](../boot/core/src/boot/core.clj#L1037)
@@ -468,17 +440,9 @@ FIXME: document
 
 ### [`new-build-at`](../boot/core/src/boot/core.clj#L35)
 
-```clojure
-
-```
-
 Latest build occured at time.
 
 ### [`new-fileset`](../boot/core/src/boot/core.clj#L80)
-
-```clojure
-
-```
 
 FIXME: document this
 
@@ -540,20 +504,12 @@ FIXME: document
 
 ### [`post-env!`](../boot/core/src/boot/core.clj#L586)
 
-```clojure
-
-```
-
 Event handler called when the env atom is modified. This handler is for
 performing side-effects associated with maintaining the application state in
 the env atom. For example, when `:src-paths` is modified the handler adds
 the new directories to the classpath.
 
 ### [`pre-env!`](../boot/core/src/boot/core.clj#L600)
-
-```clojure
-
-```
 
 This multimethod is used to modify how new values are merged into the boot
 atom when `set-env!` is called. This function's result will become the new
