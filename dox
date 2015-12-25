@@ -16,6 +16,18 @@
         strip  #(try (subs % indent) (catch Throwable _))]
     (->> tail (map strip) (list* head) (join "\n"))))
 
+(defn multifn?
+  [obj]
+  (instance? clojure.lang.MultiFn obj))
+
+(defn typeof
+  [obj {:keys [dynamic macro]}]
+  (cond dynamic        "dynamic"
+        macro          "macro"
+        (fn? obj)      "function"
+        (multifn? obj) "multimethod"
+        :else          "var"))
+
 (defn emit-arglists
   [name arglists]
   (some->> arglists
@@ -24,9 +36,10 @@
            (format "```clojure\n%s\n```\n\n")))
 
 (defn emit-var
-  [link-path {:keys [name doc arglists macro file line]}]
+  [link-path obj {:keys [name doc arglists argspecs file line] :as meta}]
   (let [src-link (format "%s%s#L%d" link-path file line)]
     (str (format "### [`%s`](%s)\n\n" name src-link)
+         (format "_%s_\n\n" (typeof obj meta))
          (emit-arglists name arglists)
          (format "```\n%s\n```\n\n<hr>\n\n" (trimr (strip-indent doc))))))
 
@@ -56,12 +69,12 @@
 (defn parse-ns
   [link-path x]
   (let [n (the-ns x)
-        e #(let [m (meta %)]
-             (assoc m :md (emit-var link-path m)))
+        e #(let [m (meta %2)]
+             (assoc m :md (emit-var link-path %1 m)))
         m (assoc (meta n)
                  :name x
                  :vars (->> (ns-publics n)
-                            (reduce-kv #(assoc %1 %2 (e %3)) {})))]
+                            (reduce-kv #(assoc %1 %2 (e %2 %3)) {})))]
     (->> (wrap-toc m)
          (mapcat emit-section)
          (concat (emit-ns m))
@@ -79,6 +92,10 @@
   (use 'clojure.pprint)
 
   (do (remove-ns 'foo.bar) (require 'foo.bar :reload))
+
+  (defn link-path
+    [src-path]
+    (format "../../%s/%s" *boot-version* src-path))
 
   (require 'boot.core)
   (clojure.repl/pst)
