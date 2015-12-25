@@ -6,9 +6,7 @@
 
 ```
 
-```
 The running version of boot app.
-```
 
 ### [`*boot-opts*`](../boot/core/src/boot/core.clj#L32)
 
@@ -16,9 +14,7 @@ The running version of boot app.
 
 ```
 
-```
 Command line options for boot itself.
-```
 
 ### [`*boot-script*`](../boot/core/src/boot/core.clj#L30)
 
@@ -26,9 +22,7 @@ Command line options for boot itself.
 
 ```
 
-```
 The script's name (when run as script).
-```
 
 ### [`*boot-version*`](../boot/core/src/boot/core.clj#L31)
 
@@ -36,9 +30,7 @@ The script's name (when run as script).
 
 ```
 
-```
 The running version of boot core.
-```
 
 ### [`*warnings*`](../boot/core/src/boot/core.clj#L33)
 
@@ -46,9 +38,7 @@ The running version of boot core.
 
 ```
 
-```
 Count of warnings during build.
-```
 
 ### [`add-asset`](../boot/core/src/boot/core.clj#L419)
 
@@ -56,9 +46,7 @@ Count of warnings during build.
 (add-asset fileset dir & {:keys [mergers include exclude], :as opts})
 ```
 
-```
 Add the contents of the java.io.File dir to the fileset's assets.
-```
 
 ### [`add-cached-asset`](../boot/core/src/boot/core.clj#L424)
 
@@ -66,9 +54,7 @@ Add the contents of the java.io.File dir to the fileset's assets.
 (add-cached-asset fileset cache-key cache-fn & {:keys [mergers include exclude], :as opts})
 ```
 
-```
 FIXME: document
-```
 
 ### [`add-cached-resource`](../boot/core/src/boot/core.clj#L454)
 
@@ -76,9 +62,7 @@ FIXME: document
 (add-cached-resource fileset cache-key cache-fn & {:keys [mergers include exclude], :as opts})
 ```
 
-```
 FIXME: document
-```
 
 ### [`add-cached-source`](../boot/core/src/boot/core.clj#L439)
 
@@ -86,9 +70,7 @@ FIXME: document
 (add-cached-source fileset cache-key cache-fn & {:keys [mergers include exclude], :as opts})
 ```
 
-```
 FIXME: document
-```
 
 ### [`add-meta`](../boot/core/src/boot/core.clj#L464)
 
@@ -96,12 +78,10 @@ FIXME: document
 (add-meta fileset meta-map)
 ```
 
-```
 Adds metadata about the files in the filesystem to their corresponding
 TmpFile objects in the fileset. The meta-map is expected to be a map with
 string paths as keys and maps of metadata as values. These metadata maps
 will be merged into the TmpFile objects associated with the paths.
-```
 
 ### [`add-resource`](../boot/core/src/boot/core.clj#L449)
 
@@ -109,9 +89,7 @@ will be merged into the TmpFile objects associated with the paths.
 (add-resource fileset dir & {:keys [mergers include exclude], :as opts})
 ```
 
-```
 Add the contents of the java.io.File dir to the fileset's resources.
-```
 
 ### [`add-source`](../boot/core/src/boot/core.clj#L434)
 
@@ -119,9 +97,7 @@ Add the contents of the java.io.File dir to the fileset's resources.
 (add-source fileset dir & {:keys [mergers include exclude], :as opts})
 ```
 
-```
 Add the contents of the java.io.File dir to the fileset's sources.
-```
 
 ### [`boot`](../boot/core/src/boot/core.clj#L793)
 
@@ -129,11 +105,9 @@ Add the contents of the java.io.File dir to the fileset's sources.
 (boot & argv)
 ```
 
-```
 The REPL equivalent to the command line 'boot'. If all arguments are
 strings then they are treated as if they were given on the command line.
 Otherwise they are assumed to evaluate to task middleware.
-```
 
 ### [`bootignore`](../boot/core/src/boot/core.clj#L37)
 
@@ -141,9 +115,7 @@ Otherwise they are assumed to evaluate to task middleware.
 
 ```
 
-```
 Set of regexes source file paths must not match.
-```
 
 ### [`by-ext`](../boot/core/src/boot/core.clj#L1009)
 
@@ -151,12 +123,10 @@ Set of regexes source file paths must not match.
 (by-ext exts files & [negate?])
 ```
 
-```
 This function takes two arguments: `exts` and `files`, where `exts` is a seq
 of file extension strings like `[".clj" ".cljs"]` and `files` is a seq of
 file objects. Returns a seq of the files in `files` which have file extensions
 listed in `exts`.
-```
 
 ### [`by-name`](../boot/core/src/boot/core.clj#L983)
 
@@ -164,12 +134,10 @@ listed in `exts`.
 (by-name names files & [negate?])
 ```
 
-```
 This function takes two arguments: `names` and `files`, where `names` is
 a seq of file name strings like `["foo.clj" "bar.xml"]` and `files` is
 a seq of file objects. Returns a seq of the files in `files` which have file
 names listed in `names`.
-```
 
 ### [`by-path`](../boot/core/src/boot/core.clj#L996)
 
@@ -177,12 +145,10 @@ names listed in `names`.
 (by-path paths files & [negate?])
 ```
 
-```
 This function takes two arguments: `paths` and `files`, where `path` is
 a seq of path strings like `["a/b/c/foo.clj" "bar.xml"]` and `files` is
 a seq of file objects. Returns a seq of the files in `files` which have file
 paths listed in `paths`.
-```
 
 ### [`by-re`](../boot/core/src/boot/core.clj#L1022)
 
@@ -190,12 +156,10 @@ paths listed in `paths`.
 (by-re res files & [negate?])
 ```
 
-```
 This function takes two arguments: `res` and `files`, where `res` is a seq
 of regex patterns like `[#"clj$" #"cljs$"]` and `files` is a seq of
 file objects. Returns a seq of the files in `files` whose paths match one of
 the regex patterns in `res`.
-```
 
 ### [`cache-dir!`](../boot/core/src/boot/core.clj#L279)
 
@@ -203,12 +167,10 @@ the regex patterns in `res`.
 (cache-dir! key & {:keys [global]})
 ```
 
-```
 Returns a directory which is managed by boot but whose contents will not be
 deleted after the build is complete. The :global option specifies that the
 directory is shared by all projects. The default behavior returns different
 directories for the same key when run in different projects.
-```
 
 ### [`cleanup`](../boot/core/src/boot/core.clj#L717)
 
@@ -216,11 +178,9 @@ directories for the same key when run in different projects.
 (cleanup & body)
 ```
 
-```
 Evaluate body after tasks have been run. This macro is meant to be called
 from inside a task definition, and is provided as a means to shutdown or
 clean up persistent resources created by the task (eg. threads, files, etc.)
-```
 
 ### [`commit!`](../boot/core/src/boot/core.clj#L378)
 
@@ -228,10 +188,8 @@ clean up persistent resources created by the task (eg. threads, files, etc.)
 (commit! fileset)
 ```
 
-```
 Make the underlying temp directories correspond to the immutable fileset
 tree structure.
-```
 
 ### [`configure-repositories!`](../boot/core/src/boot/core.clj#L633)
 
@@ -239,12 +197,10 @@ tree structure.
 (configure-repositories!) (configure-repositories! f)
 ```
 
-```
 Get or set the repository configuration callback function. The function
 will be applied to all repositories added to the boot env, it should return
 the repository map with any additional configuration (like credentials, for
 example).
-```
 
 ### [`cp`](../boot/core/src/boot/core.clj#L410)
 
@@ -252,10 +208,8 @@ example).
 (cp fileset src-file dest-tmpfile)
 ```
 
-```
 Given a fileset and a dest-tmpfile from that fileset, overwrites the dest
 tmpfile with the contents of the java.io.File src-file.
-```
 
 ### [`deftask`](../boot/core/src/boot/core.clj#L695)
 
@@ -263,9 +217,7 @@ tmpfile with the contents of the java.io.File src-file.
 (deftask sym & forms)
 ```
 
-```
 Define a boot task.
-```
 
 ### [`disable-task!`](../boot/core/src/boot/core.clj#L895)
 
@@ -273,13 +225,11 @@ Define a boot task.
 (disable-task! & tasks)
 ```
 
-```
 Disables the given tasks by replacing them with the identity task.
 
   Example:
 
       (disable-task! repl jar)
-```
 
 ### [`empty-dir!`](../boot/core/src/boot/core.clj#L508)
 
@@ -287,10 +237,8 @@ Disables the given tasks by replacing them with the identity task.
 (empty-dir! & dirs)
 ```
 
-```
 For each directory in dirs, recursively deletes all files and subdirectories.
 The directories in dirs themselves are not deleted.
-```
 
 ### [`file-filter`](../boot/core/src/boot/core.clj#L974)
 
@@ -298,9 +246,7 @@ The directories in dirs themselves are not deleted.
 (file-filter mkpred)
 ```
 
-```
 A file filtering function factory. FIXME: more documenting here.
-```
 
 ### [`fileset-added`](../boot/core/src/boot/core.clj#L485)
 
@@ -308,9 +254,7 @@ A file filtering function factory. FIXME: more documenting here.
 (fileset-added before after & props)
 ```
 
-```
 Returns a new fileset containing only files that were added.
-```
 
 ### [`fileset-changed`](../boot/core/src/boot/core.clj#L495)
 
@@ -318,9 +262,7 @@ Returns a new fileset containing only files that were added.
 (fileset-changed before after & props)
 ```
 
-```
 Returns a new fileset containing only files that were changed.
-```
 
 ### [`fileset-diff`](../boot/core/src/boot/core.clj#L477)
 
@@ -328,12 +270,10 @@ Returns a new fileset containing only files that were changed.
 (fileset-diff before after & props)
 ```
 
-```
 Returns a new fileset containing files that were added or modified. Removed
 files are not considered. The optional props arguments can be any of :time,
 :hash, or both, specifying whether to consider changes to last modified time
 or content md5 hash of the files (the default is both).
-```
 
 ### [`fileset-namespaces`](../boot/core/src/boot/core.clj#L500)
 
@@ -341,9 +281,7 @@ or content md5 hash of the files (the default is both).
 (fileset-namespaces fileset)
 ```
 
-```
 Returns a set of symbols: the namespaces defined in this fileset.
-```
 
 ### [`fileset-reduce`](../boot/core/src/boot/core.clj#L869)
 
@@ -351,12 +289,10 @@ Returns a set of symbols: the namespaces defined in this fileset.
 (fileset-reduce fileset get-files & reducers)
 ```
 
-```
 Given a fileset, a function get-files that selects files from the fileset,
 and a number of reducing functions, composes the reductions. The result of
 the previous reduction and the result of get-files applied to it are passed
 through to the next reducing function.
-```
 
 ### [`fileset-removed`](../boot/core/src/boot/core.clj#L490)
 
@@ -364,9 +300,7 @@ through to the next reducing function.
 (fileset-removed before after & props)
 ```
 
-```
 Returns a new fileset containing only files that were removed.
-```
 
 ### [`get-env`](../boot/core/src/boot/core.clj#L641)
 
@@ -374,11 +308,9 @@ Returns a new fileset containing only files that were removed.
 (get-env & [k not-found])
 ```
 
-```
 Returns the value associated with the key `k` in the boot environment, or
 `not-found` if the environment doesn't contain key `k` and `not-found` was
 given. Calling this function with no arguments returns the environment map.
-```
 
 ### [`get-sys-env`](../boot/core/src/boot/core.clj#L673)
 
@@ -386,12 +318,10 @@ given. Calling this function with no arguments returns the environment map.
 (get-sys-env) (get-sys-env k) (get-sys-env k not-found)
 ```
 
-```
 Returns the value associated with the system property k, the environment
 variable k, or not-found if neither of those are set. If not-found is the
 keyword :required, an exception will be thrown when there is no value for
 either the system property or environment variable k.
-```
 
 ### [`git-files`](../boot/core/src/boot/core.clj#L968)
 
@@ -399,10 +329,8 @@ either the system property or environment variable k.
 (git-files & {:keys [untracked]})
 ```
 
-```
 Returns a list of files roughly equivalent to what you'd get with the git
 command line `git ls-files`. The :untracked option includes untracked files.
-```
 
 ### [`gpg-decrypt`](../boot/core/src/boot/core.clj#L933)
 
@@ -410,10 +338,8 @@ command line `git ls-files`. The :untracked option includes untracked files.
 (gpg-decrypt path-or-file & {:keys [as]})
 ```
 
-```
 Uses gpg(1) to decrypt a file and returns its contents as a string. The
 :as :edn option can be passed to read the contents as an EDN form.
-```
 
 ### [`init!`](../boot/core/src/boot/core.clj#L555)
 
@@ -421,10 +347,8 @@ Uses gpg(1) to decrypt a file and returns its contents as a string. The
 (init!)
 ```
 
-```
 Initialize the boot environment. This is normally run once by boot at
 startup. There should be no need to call this function directly.
-```
 
 ### [`input-dirs`](../boot/core/src/boot/core.clj#L338)
 
@@ -432,9 +356,7 @@ startup. There should be no need to call this function directly.
 (input-dirs fileset)
 ```
 
-```
 Get a list of directories containing files with input roles.
-```
 
 ### [`input-files`](../boot/core/src/boot/core.clj#L353)
 
@@ -442,9 +364,7 @@ Get a list of directories containing files with input roles.
 (input-files fileset)
 ```
 
-```
 Get a set of TmpFile objects corresponding to files with input role.
-```
 
 ### [`input-fileset`](../boot/core/src/boot/core.clj#L358)
 
@@ -452,9 +372,7 @@ Get a set of TmpFile objects corresponding to files with input role.
 (input-fileset fileset)
 ```
 
-```
 FIXME: document
-```
 
 ### [`json-generate`](../boot/core/src/boot/core.clj#L939)
 
@@ -462,9 +380,7 @@ FIXME: document
 (json-generate x & [opt-map])
 ```
 
-```
 Same as cheshire.core/generate-string.
-```
 
 ### [`json-parse`](../boot/core/src/boot/core.clj#L945)
 
@@ -472,9 +388,7 @@ Same as cheshire.core/generate-string.
 (json-parse x & [key-fn])
 ```
 
-```
 Same as cheshire.core/parse-string.
-```
 
 ### [`last-file-change`](../boot/core/src/boot/core.clj#L36)
 
@@ -482,9 +396,7 @@ Same as cheshire.core/parse-string.
 
 ```
 
-```
 Last source file watcher update time.
-```
 
 ### [`launch-nrepl`](../boot/core/src/boot/core.clj#L1037)
 
@@ -492,9 +404,7 @@ Last source file watcher update time.
 (launch-nrepl & {:keys [pod], :as opts})
 ```
 
-```
 Launches an nREPL server in a pod. See the repl task for options.
-```
 
 ### [`load-data-readers!`](../boot/core/src/boot/core.clj#L181)
 
@@ -502,9 +412,7 @@ Launches an nREPL server in a pod. See the repl task for options.
 (load-data-readers!)
 ```
 
-```
 Refresh *data-readers* with readers from newly acquired dependencies.
-```
 
 ### [`ls`](../boot/core/src/boot/core.clj#L373)
 
@@ -512,9 +420,7 @@ Refresh *data-readers* with readers from newly acquired dependencies.
 (ls fileset)
 ```
 
-```
 Get a set of TmpFile objects for all files in the fileset.
-```
 
 ### [`merge-env!`](../boot/core/src/boot/core.clj#L663)
 
@@ -522,12 +428,10 @@ Get a set of TmpFile objects for all files in the fileset.
 (merge-env! & kvs)
 ```
 
-```
 Merges the new values into the current values for the given keys in the env
 map. Uses a merging strategy that is appropriate for the given key (eg. uses
 clojure.core/into for keys whose values are collections and simply replaces
 Keys whose values aren't collections).
-```
 
 ### [`mv`](../boot/core/src/boot/core.clj#L404)
 
@@ -535,10 +439,8 @@ Keys whose values aren't collections).
 (mv fileset from-path to-path)
 ```
 
-```
 Given a fileset and two paths in the fileset, from-path and to-path, moves
 the tmpfile at from-path to to-path, returning a new fileset.
-```
 
 ### [`mv-asset`](../boot/core/src/boot/core.clj#L429)
 
@@ -546,9 +448,7 @@ the tmpfile at from-path to to-path, returning a new fileset.
 (mv-asset fileset tmpfiles)
 ```
 
-```
 FIXME: document
-```
 
 ### [`mv-resource`](../boot/core/src/boot/core.clj#L459)
 
@@ -556,9 +456,7 @@ FIXME: document
 (mv-resource fileset tmpfiles)
 ```
 
-```
 FIXME: document
-```
 
 ### [`mv-source`](../boot/core/src/boot/core.clj#L444)
 
@@ -566,9 +464,7 @@ FIXME: document
 (mv-source fileset tmpfiles)
 ```
 
-```
 FIXME: document
-```
 
 ### [`new-build-at`](../boot/core/src/boot/core.clj#L35)
 
@@ -576,9 +472,7 @@ FIXME: document
 
 ```
 
-```
 Latest build occured at time.
-```
 
 ### [`new-fileset`](../boot/core/src/boot/core.clj#L80)
 
@@ -586,9 +480,7 @@ Latest build occured at time.
 
 ```
 
-```
 FIXME: document this
-```
 
 ### [`not-by-ext`](../boot/core/src/boot/core.clj#L1017)
 
@@ -596,9 +488,7 @@ FIXME: document this
 (not-by-ext exts files)
 ```
 
-```
 This function is the same as `by-ext` but negated.
-```
 
 ### [`not-by-name`](../boot/core/src/boot/core.clj#L991)
 
@@ -606,9 +496,7 @@ This function is the same as `by-ext` but negated.
 (not-by-name names files)
 ```
 
-```
 This function is the same as `by-name` but negated.
-```
 
 ### [`not-by-path`](../boot/core/src/boot/core.clj#L1004)
 
@@ -616,9 +504,7 @@ This function is the same as `by-name` but negated.
 (not-by-path paths files)
 ```
 
-```
 This function is the same as `by-path` but negated.
-```
 
 ### [`not-by-re`](../boot/core/src/boot/core.clj#L1030)
 
@@ -626,9 +512,7 @@ This function is the same as `by-path` but negated.
 (not-by-re res files)
 ```
 
-```
 This function is the same as `by-re` but negated.
-```
 
 ### [`output-dirs`](../boot/core/src/boot/core.clj#L343)
 
@@ -636,9 +520,7 @@ This function is the same as `by-re` but negated.
 (output-dirs fileset)
 ```
 
-```
 FIXME: document this
-```
 
 ### [`output-files`](../boot/core/src/boot/core.clj#L363)
 
@@ -646,9 +528,7 @@ FIXME: document this
 (output-files fileset)
 ```
 
-```
 Get a set of TmpFile objects corresponding to files with output role.
-```
 
 ### [`output-fileset`](../boot/core/src/boot/core.clj#L368)
 
@@ -656,9 +536,7 @@ Get a set of TmpFile objects corresponding to files with output role.
 (output-fileset fileset)
 ```
 
-```
 FIXME: document
-```
 
 ### [`post-env!`](../boot/core/src/boot/core.clj#L586)
 
@@ -666,12 +544,10 @@ FIXME: document
 
 ```
 
-```
 Event handler called when the env atom is modified. This handler is for
 performing side-effects associated with maintaining the application state in
 the env atom. For example, when `:src-paths` is modified the handler adds
 the new directories to the classpath.
-```
 
 ### [`pre-env!`](../boot/core/src/boot/core.clj#L600)
 
@@ -679,11 +555,9 @@ the new directories to the classpath.
 
 ```
 
-```
 This multimethod is used to modify how new values are merged into the boot
 atom when `set-env!` is called. This function's result will become the new
 value associated with the given `key` in the env atom.
-```
 
 ### [`rebuild!`](../boot/core/src/boot/core.clj#L550)
 
@@ -691,9 +565,7 @@ value associated with the given `key` in the env atom.
 (rebuild!)
 ```
 
-```
 Manually trigger build watch.
-```
 
 ### [`replace-task!`](../boot/core/src/boot/core.clj#L882)
 
@@ -701,7 +573,6 @@ Manually trigger build watch.
 (replace-task! & replacements)
 ```
 
-```
 Given a number of binding form and function pairs, this macro alters the
 root bindings of task vars, replacing their values with the given functions.
 
@@ -710,7 +581,6 @@ Example:
 (replace-task!
   [r repl] (fn [& xs] (apply r :port 12345 xs))
   [j jar]  (fn [& xs] (apply j :manifest {"howdy" "world"} xs)))
-```
 
 ### [`reset-build!`](../boot/core/src/boot/core.clj#L737)
 
@@ -718,11 +588,9 @@ Example:
 (reset-build!)
 ```
 
-```
 Resets mutable build state to default values. This includes such things as
 warning counters etc., state that is relevant to a single build cycle. This
 function should be called before each build iteration.
-```
 
 ### [`reset-fileset`](../boot/core/src/boot/core.clj#L724)
 
@@ -730,11 +598,9 @@ function should be called before each build iteration.
 (reset-fileset & [fileset])
 ```
 
-```
 Updates the user directories in the fileset with the latest project files,
 returning a new immutable fileset. When called with no args returns a new
 fileset containing only the latest project files.
-```
 
 ### [`rm`](../boot/core/src/boot/core.clj#L385)
 
@@ -742,10 +608,8 @@ fileset containing only the latest project files.
 (rm fileset files)
 ```
 
-```
 Removes files from the fileset tree, returning a new fileset object. This
 does not affect the underlying filesystem in any way.
-```
 
 ### [`set-env!`](../boot/core/src/boot/core.clj#L648)
 
@@ -753,14 +617,12 @@ does not affect the underlying filesystem in any way.
 (set-env! & kvs)
 ```
 
-```
 Update the boot environment atom `this` with the given key-value pairs given
 in `kvs`. See also `post-env!` and `pre-env!`. The values in the env map must
 be both printable by the Clojure printer and readable by its reader. If the
 value for a key is a function, that function will be applied to the current
 value of that key and the result will become the new value (similar to how
 clojure.core/update-in works.
-```
 
 ### [`set-sys-env!`](../boot/core/src/boot/core.clj#L685)
 
@@ -768,11 +630,9 @@ clojure.core/update-in works.
 (set-sys-env! & kvs)
 ```
 
-```
 For each key value pair in kvs the system property corresponding to the key
 is set. Keys and values must be strings, but the value can be nil or false
 to remove the system property.
-```
 
 ### [`sync!`](../boot/core/src/boot/core.clj#L514)
 
@@ -780,12 +640,10 @@ to remove the system property.
 (sync! dest & srcs)
 ```
 
-```
 Given a dest directory and one or more srcs directories, overlays srcs on
 dest, removing files in dest that are not in srcs. Uses file modification
 timestamps to decide which version of files to emit to dest. Uses hardlinks
 instead of copying file contents. File modification times are preserved.
-```
 
 ### [`task-options!`](../boot/core/src/boot/core.clj#L905)
 
@@ -793,7 +651,6 @@ instead of copying file contents. File modification times are preserved.
 (task-options! & task-option-pairs)
 ```
 
-```
 Given a number of task/map-of-curried-arguments pairs, replaces the root
 bindings of the tasks with their curried values. For example:
 
@@ -808,7 +665,6 @@ be used as the new one. For example:
     (task-options!
       repl #(update-in % [:port] (fnil inc 1234))
       jar  #(assoc-in % [:manifest "ILike"] "Turtles"))
-```
 
 ### [`temp-dir!`](../boot/core/src/boot/core.clj#L277)
 
@@ -816,9 +672,7 @@ be used as the new one. For example:
 (temp-dir! & args__594__auto__)
 ```
 
-```
 #'boot.core/temp-dir! was deprecated, please use #'boot.core/tmp-dir! instead
-```
 
 ### [`tmp-dir`](../boot/core/src/boot/core.clj#L304)
 
@@ -826,9 +680,7 @@ be used as the new one. For example:
 (tmp-dir tmpfile)
 ```
 
-```
 Returns the temporary directory containing the tmpfile.
-```
 
 ### [`tmp-dir!`](../boot/core/src/boot/core.clj#L273)
 
@@ -836,9 +688,7 @@ Returns the temporary directory containing the tmpfile.
 (tmp-dir!)
 ```
 
-```
 Creates a boot-managed temporary directory, returning a java.io.File.
-```
 
 ### [`tmp-file`](../boot/core/src/boot/core.clj#L310)
 
@@ -846,9 +696,7 @@ Creates a boot-managed temporary directory, returning a java.io.File.
 (tmp-file tmpfile)
 ```
 
-```
 Returns the java.io.File object for the tmpfile.
-```
 
 ### [`tmp-get`](../boot/core/src/boot/core.clj#L324)
 
@@ -856,11 +704,9 @@ Returns the java.io.File object for the tmpfile.
 (tmp-get fileset path & [not-found])
 ```
 
-```
 Given a fileset and a path, returns the associated TmpFile record. If the
 not-found argument is specified and the TmpFile is not in the fileset then
 not-found is returned, otherwise nil.
-```
 
 ### [`tmp-path`](../boot/core/src/boot/core.clj#L298)
 
@@ -868,9 +714,7 @@ not-found is returned, otherwise nil.
 (tmp-path tmpfile)
 ```
 
-```
 Returns the tmpfile's path relative to the fileset root.
-```
 
 ### [`tmp-time`](../boot/core/src/boot/core.clj#L316)
 
@@ -878,9 +722,7 @@ Returns the tmpfile's path relative to the fileset root.
 (tmp-time tmpfile)
 ```
 
-```
 Returns the last modified timestamp for the tmpfile.
-```
 
 ### [`tmpdir`](../boot/core/src/boot/core.clj#L308)
 
@@ -888,9 +730,7 @@ Returns the last modified timestamp for the tmpfile.
 (tmpdir & args__594__auto__)
 ```
 
-```
 #'boot.core/tmpdir was deprecated, please use #'boot.core/tmp-dir instead
-```
 
 ### [`tmpfile`](../boot/core/src/boot/core.clj#L314)
 
@@ -898,9 +738,7 @@ Returns the last modified timestamp for the tmpfile.
 (tmpfile & args__594__auto__)
 ```
 
-```
 #'boot.core/tmpfile was deprecated, please use #'boot.core/tmp-file instead
-```
 
 ### [`tmpget`](../boot/core/src/boot/core.clj#L330)
 
@@ -908,9 +746,7 @@ Returns the last modified timestamp for the tmpfile.
 (tmpget & args__594__auto__)
 ```
 
-```
 #'boot.core/tmpget was deprecated, please use #'boot.core/tmp-get instead
-```
 
 ### [`tmppath`](../boot/core/src/boot/core.clj#L302)
 
@@ -918,9 +754,7 @@ Returns the last modified timestamp for the tmpfile.
 (tmppath & args__594__auto__)
 ```
 
-```
 #'boot.core/tmppath was deprecated, please use #'boot.core/tmp-path instead
-```
 
 ### [`tmptime`](../boot/core/src/boot/core.clj#L320)
 
@@ -928,9 +762,7 @@ Returns the last modified timestamp for the tmpfile.
 (tmptime & args__594__auto__)
 ```
 
-```
 #'boot.core/tmptime was deprecated, please use #'boot.core/tmp-time instead
-```
 
 ### [`touch`](../boot/core/src/boot/core.clj#L963)
 
@@ -938,9 +770,7 @@ Returns the last modified timestamp for the tmpfile.
 (touch f)
 ```
 
-```
 Same as the Unix touch(1) program.
-```
 
 ### [`user-dirs`](../boot/core/src/boot/core.clj#L332)
 
@@ -948,10 +778,8 @@ Same as the Unix touch(1) program.
 (user-dirs fileset)
 ```
 
-```
 Get a list of directories containing files that originated in the project's
 source, resource, or asset paths.
-```
 
 ### [`user-files`](../boot/core/src/boot/core.clj#L347)
 
@@ -959,10 +787,8 @@ source, resource, or asset paths.
 (user-files fileset)
 ```
 
-```
 Get a set of TmpFile objects corresponding to files that originated in
 the project's source, resource, or asset paths.
-```
 
 ### [`watch-dirs`](../boot/core/src/boot/core.clj#L524)
 
@@ -970,7 +796,6 @@ the project's source, resource, or asset paths.
 (watch-dirs callback dirs & {:keys [debounce]})
 ```
 
-```
 Watches dirs for changes and calls callback with set of changed files
 when file(s) in these directories are modified. Returns a thunk which
 will stop the watcher.
@@ -978,7 +803,6 @@ will stop the watcher.
 The watcher uses the somewhat quirky native filesystem event APIs. A
 debounce option is provided (in ms, default 10) which can be used to
 tune the watcher sensitivity.
-```
 
 ### [`with-pass-thru`](../boot/core/src/boot/core.clj#L859)
 
@@ -986,12 +810,10 @@ tune the watcher sensitivity.
 (with-pass-thru bind & body)
 ```
 
-```
 Given a binding and body expressions, constructs a task handler. The body
 expressions are evaluated for side effects with the current fileset bound
 to binding. The current fileset is then passed to the next handler and the
 result is then returned up the handler stack.
-```
 
 ### [`with-post-wrap`](../boot/core/src/boot/core.clj#L833)
 
@@ -999,7 +821,6 @@ result is then returned up the handler stack.
 (with-post-wrap bind & body)
 ```
 
-```
 Given a binding and body expressions, constructs a task handler. The next
 handler is called with the current fileset, and the result is bound to
 binding. The body expressions are then evaluated for side effects and the
@@ -1012,7 +833,6 @@ bound fileset is returned up the handler stack. Roughly equivalent to:
           binding)))
 
 where ... are the given body expressions.
-```
 
 ### [`with-pre-wrap`](../boot/core/src/boot/core.clj#L809)
 
@@ -1020,7 +840,6 @@ where ... are the given body expressions.
 (with-pre-wrap bind & body)
 ```
 
-```
 Given a binding and body expressions, constructs a task handler. The body
 expressions are evaluated with the current fileset bound to binding, and the
 result is passed to the next handler in the pipeline. The fileset obtained
@@ -1032,7 +851,6 @@ evaluate to a fileset object. Roughly equivalent to:
         (next-handler (do ... ...))))
 
 where ... are the given body expressions.
-```
 
 ### [`yaml-generate`](../boot/core/src/boot/core.clj#L951)
 
@@ -1040,9 +858,7 @@ where ... are the given body expressions.
 (yaml-generate x)
 ```
 
-```
 Same as clj-yaml.core/generate-string.
-```
 
 ### [`yaml-parse`](../boot/core/src/boot/core.clj#L957)
 
@@ -1050,7 +866,5 @@ Same as clj-yaml.core/generate-string.
 (yaml-parse x)
 ```
 
-```
 Same as clj-yaml.core/parse-string.
-```
 
