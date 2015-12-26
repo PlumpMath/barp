@@ -66,7 +66,7 @@
        (apply str)))
 
 (defn emit-toc [xs]
-  (->> xs (keep #(when-let [item (emit-toc-section %)] (li item)))))
+  (->> xs (keep #(when-let [item (emit-toc-section %)] (prn :item item) (li item)))))
 
 (defn sections [x]
   (->> (assoc (:doc/toc x) nil {})
