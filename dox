@@ -192,11 +192,17 @@
       new-fileset)
 
     (section
-      "Query Fileset For Files"
+      "Query Fileset For TmpFiles"
       tmp-get
       user-files
       input-files
       output-files)
+
+    (section
+      "Filter Sequences Of TmpFiles"
+      file-filter
+      by-ext by-name by-path by-re
+      not-by-ext not-by-name not-by-path not-by-re)
 
     (section
       "Query Fileset For Directories"
@@ -251,6 +257,8 @@
       "Deprecated"
       tmppath
       tmpdir
+      tmpget
+      tmpfile
       tmptime
       temp-dir!
       fileset-reduce)
