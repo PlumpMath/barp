@@ -167,7 +167,11 @@
 
     (section
       "Define Tasks"
-      deftask)
+      deftask
+      cleanup
+      with-pre-wrap
+      with-pass-thru
+      with-post-wrap)
 
     (section
       "Manipulate Task Options"
