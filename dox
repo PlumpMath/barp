@@ -60,9 +60,9 @@
 (defn emit-toc [xs]
   (->> xs (mapcat (fn [{:keys [title vars]}]
                     (-> (->> (map (fn [[x _]] (link (code x) (fmt-link x))) vars)
+                             (interpose " ")
                              (cons (when title (h5 title)))
-                             (remove nil?)
-                             (join " "))
+                             (remove nil?))
                         (concat ["\n\n"]))))))
 
 (defn sections [x]
