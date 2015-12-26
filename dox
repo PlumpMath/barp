@@ -62,11 +62,13 @@
 
 (defn emit-toc [xs]
   (->> xs (keep (fn [{:keys [title vars]}]
-                  (->> (map (fn [[x _]] (link (code x) (fmt-link x))) vars)
-                       (cons (when title (h5 title)))
-                       (remove nil?)
-                       (interpose " ")
-                       (apply str))))))
+                  (some->> (map (fn [[x _]] (link (code x) (fmt-link x))) vars)
+                           (cons (when title (h5 title)))
+                           (remove nil?)
+                           seq
+                           (interpose " ")
+                           (apply str)
+                           p)))))
 
 (defn sections [x]
   (->> (assoc (:doc/toc x) nil {})
