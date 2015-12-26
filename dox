@@ -62,7 +62,7 @@
   [link-path obj {:keys [name doc arglists argspecs file line] :as meta}]
   (let [src-link (format "%s%s#L%d" link-path file line)]
     (str (h3 (link (code name) src-link))
-         (em (typeof obj meta))
+         (p (em (typeof obj meta)))
          (emit-arglists name arglists)
          (block (strip-indent doc))
          (hr))))
