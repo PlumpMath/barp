@@ -2,7 +2,7 @@
 
 The Boot core namespace, containing most of Boot's public API.
 
-[`boot`](#boot) [`empty-dir!`](#empty-dir) [`init!`](#init) [`launch-nrepl`](#launch-nrepl) [`rebuild!`](#rebuild) [`reset-build!`](#reset-build) [`reset-fileset`](#reset-fileset) [`sync!`](#sync) [`watch-dirs`](#watch-dirs) 
+[`boot`](#boot) [`reset-build!`](#reset-build) [`reset-fileset`](#reset-fileset) 
 
 #### Boot Settings (read-only)
 
@@ -32,10 +32,6 @@ The Boot core namespace, containing most of Boot's public API.
 
 [`tmp-dir`](#tmp-dir) [`tmp-file`](#tmp-file) [`tmp-path`](#tmp-path) [`tmp-time`](#tmp-time) 
 
-#### Create Fileset
-
-
-
 #### Query Fileset For TmpFiles
 
 [`input-files`](#input-files) [`output-files`](#output-files) [`tmp-get`](#tmp-get) [`user-files`](#user-files) 
@@ -58,11 +54,11 @@ The Boot core namespace, containing most of Boot's public API.
 
 #### Misc. Helpers
 
-[`git-files`](#git-files) [`gpg-decrypt`](#gpg-decrypt) [`json-generate`](#json-generate) [`json-parse`](#json-parse) [`touch`](#touch) [`yaml-generate`](#yaml-generate) [`yaml-parse`](#yaml-parse) 
+[`empty-dir!`](#empty-dir) [`git-files`](#git-files) [`gpg-decrypt`](#gpg-decrypt) [`json-generate`](#json-generate) [`json-parse`](#json-parse) [`launch-nrepl`](#launch-nrepl) [`rebuild!`](#rebuild) [`sync!`](#sync) [`touch`](#touch) [`watch-dirs`](#watch-dirs) [`yaml-generate`](#yaml-generate) [`yaml-parse`](#yaml-parse) 
 
-#### Deprecated
+#### Deprecated / Internal
 
-[`fileset-reduce`](#fileset-reduce) [`temp-dir!`](#temp-dir) [`tmpdir`](#tmpdir) [`tmpfile`](#tmpfile) [`tmpget`](#tmpget) [`tmppath`](#tmppath) [`tmptime`](#tmptime) 
+[`fileset-reduce`](#fileset-reduce) [`init!`](#init) [`temp-dir!`](#temp-dir) [`tmpdir`](#tmpdir) [`tmpfile`](#tmpfile) [`tmpget`](#tmpget) [`tmppath`](#tmppath) [`tmptime`](#tmptime) 
 
 <hr>
 

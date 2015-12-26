@@ -192,10 +192,6 @@
       tmp-time)
 
     (section
-      "Create Fileset"
-      )
-
-    (section
       "Query Fileset For TmpFiles"
       tmp-get
       user-files
@@ -216,8 +212,7 @@
       output-fileset
       user-dirs
       input-dirs
-      output-dirs
-      )
+      output-dirs)
 
     (section
       "Manipulate Fileset"
@@ -230,8 +225,7 @@
       add-resource add-cached-resource
       mv-asset
       mv-source
-      mv-resource
-      )
+      mv-resource)
 
     (section
       "Fileset Diffs"
@@ -246,17 +240,23 @@
       json-generate json-parse
       yaml-generate yaml-parse
       touch
-      git-files)
+      git-files
+      empty-dir!
+      launch-nrepl
+      rebuild!
+      sync!
+      watch-dirs)
 
     (section
-      "Deprecated"
+      "Deprecated / Internal"
       tmppath
       tmpdir
       tmpget
       tmpfile
       tmptime
       temp-dir!
-      fileset-reduce)
+      fileset-reduce
+      init!)
 
     )
 
