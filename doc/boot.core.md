@@ -81,17 +81,20 @@ The Boot core namespace, containing most of Boot's public API.
 
 #### Query Fileset
 
-* [`fileset-namespaces`](#fileset-namespaces)
 * [`input-dirs`](#input-dirs)
 * [`input-files`](#input-files)
 * [`input-fileset`](#input-fileset)
-* [`ls`](#ls)
 * [`output-dirs`](#output-dirs)
 * [`output-files`](#output-files)
 * [`output-fileset`](#output-fileset)
 * [`tmp-get`](#tmp-get)
 * [`user-dirs`](#user-dirs)
 * [`user-files`](#user-files)
+
+#### Other Fileset Queries
+
+* [`fileset-namespaces`](#fileset-namespaces)
+* [`ls`](#ls)
 
 #### Manipulate Fileset
 

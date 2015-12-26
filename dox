@@ -179,9 +179,12 @@
       input-files
       input-fileset
       output-files
-      output-fileset
-      fileset-namespaces
-      ls)
+      output-fileset)
+
+    (section
+      "Other Fileset Queries"
+      ls
+      fileset-namespaces)
 
     (section
       "Manipulate Fileset"
