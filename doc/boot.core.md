@@ -2,7 +2,7 @@
 
 The Boot core namespace, containing most of Boot's public API.
 
-[`boot`](#boot) [`reset-build!`](#reset-build) [`reset-fileset`](#reset-fileset) 
+[`reset-build!`](#reset-build) [`reset-fileset`](#reset-fileset) 
 
 #### Boot Settings (read-only)
 
@@ -23,6 +23,10 @@ The Boot core namespace, containing most of Boot's public API.
 #### Manipulate Task Options
 
 [`disable-task!`](#disable-task) [`replace-task!`](#replace-task) [`task-options!`](#task-options) 
+
+#### Boot REPL Integration
+
+[`boot`](#boot) [`launch-nrepl`](#launch-nrepl) [`rebuild!`](#rebuild) 
 
 #### Create Temp Directories
 
@@ -54,7 +58,7 @@ The Boot core namespace, containing most of Boot's public API.
 
 #### Misc. Helpers
 
-[`empty-dir!`](#empty-dir) [`git-files`](#git-files) [`gpg-decrypt`](#gpg-decrypt) [`json-generate`](#json-generate) [`json-parse`](#json-parse) [`launch-nrepl`](#launch-nrepl) [`rebuild!`](#rebuild) [`sync!`](#sync) [`touch`](#touch) [`watch-dirs`](#watch-dirs) [`yaml-generate`](#yaml-generate) [`yaml-parse`](#yaml-parse) 
+[`empty-dir!`](#empty-dir) [`git-files`](#git-files) [`gpg-decrypt`](#gpg-decrypt) [`json-generate`](#json-generate) [`json-parse`](#json-parse) [`sync!`](#sync) [`touch`](#touch) [`watch-dirs`](#watch-dirs) [`yaml-generate`](#yaml-generate) [`yaml-parse`](#yaml-parse) 
 
 #### Deprecated / Internal
 
