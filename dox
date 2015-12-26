@@ -61,7 +61,7 @@
 
 (defn emit-toc-section [{:keys [title vars]}]
   (->> (map (fn [[x _]] (link (code x) (fmt-link x))) vars)
-       (concat (when title (list (b title) "\n ")))
+       (concat (when title (list (b title) "\n  ")))
        (interpose " ")
        (apply str)))
 
