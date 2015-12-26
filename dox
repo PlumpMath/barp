@@ -35,7 +35,9 @@
 (defn link
   [sym]
   (-> (str sym)
-      (.replaceAll "\\*" "")))
+      (.replaceAll "\\*" "")
+      (.replaceAll " " "-")
+      (.replaceAll "!" "")))
 
 (defn emit-arglists
   [name arglists]

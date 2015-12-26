@@ -2,15 +2,15 @@
 
 The Boot core namespace, containing most of Boot's public API.
 
-[`boot`](#boot) [`by-ext`](#by-ext) [`by-name`](#by-name) [`by-path`](#by-path) [`by-re`](#by-re) [`cleanup`](#cleanup) [`configure-repositories!`](#configure-repositories!) [`deftask`](#deftask) [`disable-task!`](#disable-task!) [`empty-dir!`](#empty-dir!) [`file-filter`](#file-filter) [`fileset-reduce`](#fileset-reduce) [`get-env`](#get-env) [`get-sys-env`](#get-sys-env) [`git-files`](#git-files) [`gpg-decrypt`](#gpg-decrypt) [`init!`](#init!) [`json-generate`](#json-generate) [`json-parse`](#json-parse) [`launch-nrepl`](#launch-nrepl) [`merge-env!`](#merge-env!) [`not-by-ext`](#not-by-ext) [`not-by-name`](#not-by-name) [`not-by-path`](#not-by-path) [`not-by-re`](#not-by-re) [`post-env!`](#post-env!) [`pre-env!`](#pre-env!) [`rebuild!`](#rebuild!) [`replace-task!`](#replace-task!) [`reset-build!`](#reset-build!) [`reset-fileset`](#reset-fileset) [`set-env!`](#set-env!) [`set-sys-env!`](#set-sys-env!) [`sync!`](#sync!) [`task-options!`](#task-options!) [`temp-dir!`](#temp-dir!) [`tmpdir`](#tmpdir) [`tmpfile`](#tmpfile) [`tmpget`](#tmpget) [`tmppath`](#tmppath) [`tmptime`](#tmptime) [`touch`](#touch) [`watch-dirs`](#watch-dirs) [`with-pass-thru`](#with-pass-thru) [`with-post-wrap`](#with-post-wrap) [`with-pre-wrap`](#with-pre-wrap) [`yaml-generate`](#yaml-generate) [`yaml-parse`](#yaml-parse) 
+[`boot`](#boot) [`by-ext`](#by-ext) [`by-name`](#by-name) [`by-path`](#by-path) [`by-re`](#by-re) [`cleanup`](#cleanup) [`configure-repositories!`](#configure-repositories) [`deftask`](#deftask) [`disable-task!`](#disable-task) [`empty-dir!`](#empty-dir) [`file-filter`](#file-filter) [`fileset-reduce`](#fileset-reduce) [`get-env`](#get-env) [`get-sys-env`](#get-sys-env) [`git-files`](#git-files) [`gpg-decrypt`](#gpg-decrypt) [`init!`](#init) [`json-generate`](#json-generate) [`json-parse`](#json-parse) [`launch-nrepl`](#launch-nrepl) [`merge-env!`](#merge-env) [`not-by-ext`](#not-by-ext) [`not-by-name`](#not-by-name) [`not-by-path`](#not-by-path) [`not-by-re`](#not-by-re) [`post-env!`](#post-env) [`pre-env!`](#pre-env) [`rebuild!`](#rebuild) [`replace-task!`](#replace-task) [`reset-build!`](#reset-build) [`reset-fileset`](#reset-fileset) [`set-env!`](#set-env) [`set-sys-env!`](#set-sys-env) [`sync!`](#sync) [`task-options!`](#task-options) [`temp-dir!`](#temp-dir) [`tmpdir`](#tmpdir) [`tmpfile`](#tmpfile) [`tmpget`](#tmpget) [`tmppath`](#tmppath) [`tmptime`](#tmptime) [`touch`](#touch) [`watch-dirs`](#watch-dirs) [`with-pass-thru`](#with-pass-thru) [`with-post-wrap`](#with-post-wrap) [`with-pre-wrap`](#with-pre-wrap) [`yaml-generate`](#yaml-generate) [`yaml-parse`](#yaml-parse) 
 
 #### Configure Boot
 
-[`*app-version*`](#app-version) [`*boot-opts*`](#boot-opts) [`*boot-script*`](#boot-script) [`*boot-version*`](#boot-version) [`*warnings*`](#warnings) [`bootignore`](#bootignore) [`last-file-change`](#last-file-change) [`load-data-readers!`](#load-data-readers!) [`new-build-at`](#new-build-at) 
+[`*app-version*`](#app-version) [`*boot-opts*`](#boot-opts) [`*boot-script*`](#boot-script) [`*boot-version*`](#boot-version) [`*warnings*`](#warnings) [`bootignore`](#bootignore) [`last-file-change`](#last-file-change) [`load-data-readers!`](#load-data-readers) [`new-build-at`](#new-build-at) 
 
 #### Create Temp Directories
 
-[`cache-dir!`](#cache-dir!) [`tmp-dir!`](#tmp-dir!) 
+[`cache-dir!`](#cache-dir) [`tmp-dir!`](#tmp-dir) 
 
 #### TmpFile API
 
@@ -38,7 +38,7 @@ The Boot core namespace, containing most of Boot's public API.
 
 #### Manipulate Fileset
 
-[`add-meta`](#add-meta) [`commit!`](#commit!) [`cp`](#cp) [`mv`](#mv) [`rm`](#rm) 
+[`add-meta`](#add-meta) [`commit!`](#commit) [`cp`](#cp) [`mv`](#mv) [`rm`](#rm) 
 
 #### Add To Fileset
 
