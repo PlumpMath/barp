@@ -82,7 +82,7 @@
                  :vars (->> (ns-publics n)
                             (reduce-kv #(assoc %1 %2 (e %2 %3)) {})))
         s (by-section m)]
-    (->> [(emit-vars s) [(hr)] (emit-toc s) (emit-ns m)] (reduce concat) (apply str))))
+    (->> [(emit-ns m) (emit-toc s) [(hr)] (emit-vars s)] (reduce concat) (apply str))))
 
 (defn section* [title & syms]
   (let [id (gensym)
