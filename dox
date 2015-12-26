@@ -32,6 +32,11 @@
         (multifn? obj) "multimethod"
         :else          "var"))
 
+(defn link
+  [sym]
+  (-> (str sym)
+      (.replaceAll "\\*" "")))
+
 (defn emit-arglists
   [name arglists]
   (some->> arglists
@@ -53,6 +58,10 @@
         i (when intro (format "%s\n\n" (trimr (strip-indent intro))))]
     (remove nil? (list* t i (map (comp :md second) vars)))))
 
+(defn emit-vars
+  [sections]
+  (->> sections (map :vars) (reduce merge) vals (keep :md)))
+
 (defn emit-ns
   [{:keys [name doc]}]
   (remove nil? [(when name (format "# %s\n\n" name))
@@ -62,7 +71,7 @@
   [xs]
   (->> xs (mapcat (fn [{:keys [title vars]}]
                     (-> (->> vars
-                             (map #(format "* [`%s`](#%s)\n" (first %) (first %)))
+                             (map #(format "* [`%s`](#%s)\n" (first %) (link (first %))))
                              (cons (when title (format "#### %s\n\n" title)))
                              (remove nil?))
                         (concat ["\n"]))))))
@@ -89,7 +98,7 @@
                  :vars (->> (ns-publics n)
                             (reduce-kv #(assoc %1 %2 (e (var-get (ns-resolve n %2)) %3)) {})))
         s (sections m)]
-    (->> (mapcat emit-section s)
+    (->> (emit-vars s)
          (concat (emit-toc s))
          (concat (emit-ns m))
          (apply str))))
@@ -148,7 +157,12 @@
       *warnings*
       new-build-at
       last-file-change
-      bootignore))
+      bootignore)
+    (section
+      "Fileset Construction"
+      nil
+      new-fileset)
+    )
 
   (print test-str)
 
