@@ -7,18 +7,29 @@
   '[clojure.java.io :as io]
   '[clojure.string :as string :refer [join split trimr]])
 
+(def ^:dynamic *doc-ns-sym*)
+(def fixme "FIXME: document this")
+
+(defn hr    [ ]   "<hr>\n\n")
+(defn code  [x]   (format "`%s`" x))
+(defn em    [x]   (format "_%s_" x))
+(defn p     [x]   (format "%s\n\n" x))
+(defn h1    [x]   (format "# %s\n\n" x))
+(defn h3    [x]   (format "### %s\n\n" x))
+(defn h5    [x]   (format "##### %s\n\n" x))
+(defn link  [x y] (format "[%s](%s)" x y))
+(defn block [x y] (format "```%s\n%s\n```\n\n" x y))
+
 (defn filter-vals
   [pred m]
   (reduce-kv #(if-not (pred %3) %1 (assoc %1 %2 %3)) {} m))
-
-(def fixme "FIXME: document this")
 
 (defn strip-indent
   [x]
   (let [[head & [z & _ :as tail]] (split (or x fixme) #"\n")
         indent (or (some->> z (re-find #"^ *") count) 0)
         strip  #(try (subs % indent) (catch Throwable _))]
-    (->> tail (map strip) (list* head) (join "\n"))))
+    (->> tail (map strip) (list* head) (join "\n") trimr)))
 
 (defn multifn?
   [obj]
@@ -32,27 +43,28 @@
         (multifn? obj) "multimethod"
         :else          "var"))
 
-(defn link
+(defn fmt-link
   [sym]
-  (-> (str sym)
+  (-> (str "#" sym)
       (.replaceAll "\\*" "")
       (.replaceAll " " "-")
       (.replaceAll "!" "")))
 
 (defn emit-arglists
   [name arglists]
-  (some->> arglists
+  (some->> (sort-by count arglists)
            (map #(pr-str (list* name %)))
            (join " ")
-           (format "```clojure\n%s\n```\n\n")))
+           (block "clojure")))
 
 (defn emit-var
   [link-path obj {:keys [name doc arglists argspecs file line] :as meta}]
   (let [src-link (format "%s%s#L%d" link-path file line)]
-    (str (format "### [`%s`](%s)\n\n" name src-link)
-         (format "_%s_\n\n" (typeof obj meta))
+    (str (h3 (link (code name) src-link))
+         (em (typeof obj meta))
          (emit-arglists name arglists)
-         (format "```\n%s\n```\n\n<hr>\n\n" (trimr (strip-indent doc))))))
+         (block nil (strip-indent doc))
+         (hr))))
 
 (defn emit-vars
   [sections]
@@ -60,15 +72,13 @@
 
 (defn emit-ns
   [{:keys [name doc]}]
-  (remove nil? [(when name (format "# %s\n\n" name))
-                (when doc  (format "%s\n\n" (trimr (strip-indent doc))))]))
+  (remove nil? [(when name (h1 name)) (when doc (p (strip-indent doc)))]))
 
 (defn emit-toc
   [xs]
   (->> xs (mapcat (fn [{:keys [title vars]}]
-                    (-> (->> vars
-                             (map #(format "[`%s`](#%s) " (first %) (link (first %))))
-                             (cons (when title (format "##### %s\n\n" title)))
+                    (-> (->> (map (fn [[x _]] (link (code x) (fmt-link x))) vars)
+                             (cons (when title (h5 title)))
                              (remove nil?))
                         (concat ["\n\n"]))))))
 
@@ -84,23 +94,22 @@
                       (conj xs)))
                [])))
 
-(defn parse-ns
+(defn ns-docs
   [link-path x]
   (let [n (the-ns x)
-        e #(let [m (meta %2)]
-             (assoc m :md (emit-var link-path %1 m)))
+        e #(let [m (meta %2)
+                 v (var-get (ns-resolve n %1))]
+             (assoc m :md (emit-var link-path v m)))
         m (assoc (meta n)
                  :name x
                  :vars (->> (ns-publics n)
-                            (reduce-kv #(assoc %1 %2 (e (var-get (ns-resolve n %2)) %3)) {})))
+                            (reduce-kv #(assoc %1 %2 (e %2 %3)) {})))
         s (sections m)]
     (->> (emit-vars s)
-         (concat (list "<hr>\n\n"))
+         (concat (list (hr)))
          (concat (emit-toc s))
          (concat (emit-ns m))
          (apply str))))
-
-(def ^:dynamic *doc-ns-sym*)
 
 (defn section*
   [title & syms]
@@ -123,7 +132,7 @@
     (spit out (-> (.getParent (io/file out))
                   (file/relative-to src-path)
                   (str "/")
-                  (parse-ns ns)))))
+                  (ns-docs ns)))))
 
 (defmacro namespace
   [ns ns-doc out src-path & sections]
@@ -136,6 +145,20 @@
 
   (def test-str  "asdf qwer
                  zxcv poiu")
+
+  (namespace
+    boot.util
+    "Namespace containing various utility functions and macros to make
+    life easier in Boot scripts."
+    "doc/boot.util.md"
+    (format "../%s/boot/pod/src/" boot.core/*boot-version*))
+
+  (namespace
+    boot.pod
+    "Namespace containing various utility functions and macros to make
+    life easier in Boot scripts."
+    "doc/boot.pod.md"
+    (format "../%s/boot/pod/src/" boot.core/*boot-version*))
 
   (namespace
     boot.core
@@ -283,10 +306,10 @@
 
   (require 'boot.core)
   (clojure.repl/pst)
-  (->> 'foo.bar (parse-ns "../boot/core/src/") emit-toc (apply str) print)
-  (->> 'foo.bar (parse-ns "../boot/core/src/") (spit "doc/foo.md"))
-  (->> 'boot.core (parse-ns "../../2.5.2/boot/core/src/") (spit "doc/foo.md"))
-  (->> 'boot.task.built-in (parse-ns "../../2.5.2/boot/core/src/") (spit "doc/foo.md"))
+  (->> 'foo.bar (ns-docs "../boot/core/src/") emit-toc (apply str) print)
+  (->> 'foo.bar (ns-docs "../boot/core/src/") (spit "doc/foo.md"))
+  (->> 'boot.core (ns-docs "../../2.5.2/boot/core/src/") (spit "doc/foo.md"))
+  (->> 'boot.task.built-in (ns-docs "../../2.5.2/boot/core/src/") (spit "doc/foo.md"))
 
   (print (emit-var "../" "boot/pod/src/" a))
   (->> a :md print)
