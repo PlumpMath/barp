@@ -161,9 +161,19 @@
 
     (section
       "Boot Environment"
-      get-env set-env!
+      get-env set-env! merge-env!
       get-sys-env set-sys-env!
       pre-env! post-env!)
+
+    (section
+      "Define Tasks"
+      deftask)
+
+    (section
+      "Manipulate Task Options"
+      task-options!
+      replace-task!
+      disable-task!)
 
     (section
       "Create Temp Directories"
