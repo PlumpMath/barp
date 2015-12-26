@@ -2,7 +2,7 @@
 
 The Boot core namespace, containing most of Boot's public API.
 
-[`boot`](#boot) [`by-ext`](#by-ext) [`by-name`](#by-name) [`by-path`](#by-path) [`by-re`](#by-re) [`cleanup`](#cleanup) [`empty-dir!`](#empty-dir) [`file-filter`](#file-filter) [`fileset-reduce`](#fileset-reduce) [`init!`](#init) [`launch-nrepl`](#launch-nrepl) [`not-by-ext`](#not-by-ext) [`not-by-name`](#not-by-name) [`not-by-path`](#not-by-path) [`not-by-re`](#not-by-re) [`rebuild!`](#rebuild) [`reset-build!`](#reset-build) [`reset-fileset`](#reset-fileset) [`sync!`](#sync) [`temp-dir!`](#temp-dir) [`tmpdir`](#tmpdir) [`tmpfile`](#tmpfile) [`tmpget`](#tmpget) [`tmppath`](#tmppath) [`tmptime`](#tmptime) [`watch-dirs`](#watch-dirs) [`with-pass-thru`](#with-pass-thru) [`with-post-wrap`](#with-post-wrap) [`with-pre-wrap`](#with-pre-wrap) 
+[`boot`](#boot) [`by-ext`](#by-ext) [`by-name`](#by-name) [`by-path`](#by-path) [`by-re`](#by-re) [`cleanup`](#cleanup) [`empty-dir!`](#empty-dir) [`file-filter`](#file-filter) [`init!`](#init) [`launch-nrepl`](#launch-nrepl) [`not-by-ext`](#not-by-ext) [`not-by-name`](#not-by-name) [`not-by-path`](#not-by-path) [`not-by-re`](#not-by-re) [`rebuild!`](#rebuild) [`reset-build!`](#reset-build) [`reset-fileset`](#reset-fileset) [`sync!`](#sync) [`tmpfile`](#tmpfile) [`tmpget`](#tmpget) [`watch-dirs`](#watch-dirs) [`with-pass-thru`](#with-pass-thru) [`with-post-wrap`](#with-post-wrap) [`with-pre-wrap`](#with-pre-wrap) 
 
 #### Boot Settings (read-only)
 
@@ -71,6 +71,10 @@ The Boot core namespace, containing most of Boot's public API.
 #### Misc. Helpers
 
 [`git-files`](#git-files) [`gpg-decrypt`](#gpg-decrypt) [`json-generate`](#json-generate) [`json-parse`](#json-parse) [`touch`](#touch) [`yaml-generate`](#yaml-generate) [`yaml-parse`](#yaml-parse) 
+
+#### Deprecated
+
+[`fileset-reduce`](#fileset-reduce) [`temp-dir!`](#temp-dir) [`tmpdir`](#tmpdir) [`tmppath`](#tmppath) [`tmptime`](#tmptime) 
 
 <hr>
 

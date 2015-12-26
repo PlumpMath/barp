@@ -247,6 +247,14 @@
       touch
       git-files)
 
+    (section
+      "Deprecated"
+      tmppath
+      tmpdir
+      tmptime
+      temp-dir!
+      fileset-reduce)
+
     )
 
   (print test-str)
