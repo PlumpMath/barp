@@ -2,36 +2,36 @@
 
 The Boot core namespace, containing most of Boot's public API.
 
-# # # # #   B o o t   S e t t i n g s   ( r e a d - o n l y ) 
- 
- [`*app-version*`](#app-version) [`*boot-opts*`](#boot-opts) [`*boot-script*`](#boot-script) [`*boot-version*`](#boot-version) [`*warnings*`](#warnings) [`bootignore`](#bootignore) [`last-file-change`](#last-file-change) [`new-build-at`](#new-build-at)# # # # #   C o n f i g u r a t i o n   H e l p e r s 
- 
- [`configure-repositories!`](#configure-repositories) [`load-data-readers!`](#load-data-readers)# # # # #   B o o t   E n v i r o n m e n t 
- 
- [`get-env`](#get-env) [`get-sys-env`](#get-sys-env) [`merge-env!`](#merge-env) [`post-env!`](#post-env) [`pre-env!`](#pre-env) [`set-env!`](#set-env) [`set-sys-env!`](#set-sys-env)# # # # #   D e f i n e   T a s k s 
- 
- [`cleanup`](#cleanup) [`deftask`](#deftask) [`reset-build!`](#reset-build) [`reset-fileset`](#reset-fileset) [`with-pass-thru`](#with-pass-thru) [`with-post-wrap`](#with-post-wrap) [`with-pre-wrap`](#with-pre-wrap)# # # # #   M a n i p u l a t e   T a s k   O p t i o n s 
- 
- [`disable-task!`](#disable-task) [`replace-task!`](#replace-task) [`task-options!`](#task-options)# # # # #   R E P L   I n t e g r a t i o n 
- 
- [`boot`](#boot) [`launch-nrepl`](#launch-nrepl) [`rebuild!`](#rebuild)# # # # #   C r e a t e   T e m p   D i r e c t o r i e s 
- 
- [`cache-dir!`](#cache-dir) [`tmp-dir!`](#tmp-dir)# # # # #   T m p F i l e   A P I 
- 
- [`tmp-dir`](#tmp-dir) [`tmp-file`](#tmp-file) [`tmp-path`](#tmp-path) [`tmp-time`](#tmp-time)# # # # #   Q u e r y   F i l e s e t   F o r   T m p F i l e s 
- 
- [`input-files`](#input-files) [`output-files`](#output-files) [`tmp-get`](#tmp-get) [`user-files`](#user-files)# # # # #   F i l t e r   S e q u e n c e s   O f   T m p F i l e s 
- 
- [`by-ext`](#by-ext) [`by-name`](#by-name) [`by-path`](#by-path) [`by-re`](#by-re) [`file-filter`](#file-filter) [`not-by-ext`](#not-by-ext) [`not-by-name`](#not-by-name) [`not-by-path`](#not-by-path) [`not-by-re`](#not-by-re)# # # # #   O t h e r   F i l e s e t   Q u e r i e s 
- 
- [`fileset-namespaces`](#fileset-namespaces) [`input-dirs`](#input-dirs) [`input-fileset`](#input-fileset) [`ls`](#ls) [`output-dirs`](#output-dirs) [`output-fileset`](#output-fileset) [`user-dirs`](#user-dirs)# # # # #   M a n i p u l a t e   F i l e s e t 
- 
- [`add-asset`](#add-asset) [`add-cached-asset`](#add-cached-asset) [`add-cached-resource`](#add-cached-resource) [`add-cached-source`](#add-cached-source) [`add-meta`](#add-meta) [`add-resource`](#add-resource) [`add-source`](#add-source) [`commit!`](#commit) [`cp`](#cp) [`mv`](#mv) [`mv-asset`](#mv-asset) [`mv-resource`](#mv-resource) [`mv-source`](#mv-source) [`new-fileset`](#new-fileset) [`rm`](#rm)# # # # #   F i l e s e t   D i f f s 
- 
- [`fileset-added`](#fileset-added) [`fileset-changed`](#fileset-changed) [`fileset-diff`](#fileset-diff) [`fileset-removed`](#fileset-removed)# # # # #   M i s c .   H e l p e r s 
- 
- [`empty-dir!`](#empty-dir) [`git-files`](#git-files) [`gpg-decrypt`](#gpg-decrypt) [`json-generate`](#json-generate) [`json-parse`](#json-parse) [`sync!`](#sync) [`touch`](#touch) [`watch-dirs`](#watch-dirs) [`yaml-generate`](#yaml-generate) [`yaml-parse`](#yaml-parse)# # # # #   D e p r e c a t e d   /   I n t e r n a l 
- 
+##### Boot Settings (read-only)
+
+ [`*app-version*`](#app-version) [`*boot-opts*`](#boot-opts) [`*boot-script*`](#boot-script) [`*boot-version*`](#boot-version) [`*warnings*`](#warnings) [`bootignore`](#bootignore) [`last-file-change`](#last-file-change) [`new-build-at`](#new-build-at)##### Configuration Helpers
+
+ [`configure-repositories!`](#configure-repositories) [`load-data-readers!`](#load-data-readers)##### Boot Environment
+
+ [`get-env`](#get-env) [`get-sys-env`](#get-sys-env) [`merge-env!`](#merge-env) [`post-env!`](#post-env) [`pre-env!`](#pre-env) [`set-env!`](#set-env) [`set-sys-env!`](#set-sys-env)##### Define Tasks
+
+ [`cleanup`](#cleanup) [`deftask`](#deftask) [`reset-build!`](#reset-build) [`reset-fileset`](#reset-fileset) [`with-pass-thru`](#with-pass-thru) [`with-post-wrap`](#with-post-wrap) [`with-pre-wrap`](#with-pre-wrap)##### Manipulate Task Options
+
+ [`disable-task!`](#disable-task) [`replace-task!`](#replace-task) [`task-options!`](#task-options)##### REPL Integration
+
+ [`boot`](#boot) [`launch-nrepl`](#launch-nrepl) [`rebuild!`](#rebuild)##### Create Temp Directories
+
+ [`cache-dir!`](#cache-dir) [`tmp-dir!`](#tmp-dir)##### TmpFile API
+
+ [`tmp-dir`](#tmp-dir) [`tmp-file`](#tmp-file) [`tmp-path`](#tmp-path) [`tmp-time`](#tmp-time)##### Query Fileset For TmpFiles
+
+ [`input-files`](#input-files) [`output-files`](#output-files) [`tmp-get`](#tmp-get) [`user-files`](#user-files)##### Filter Sequences Of TmpFiles
+
+ [`by-ext`](#by-ext) [`by-name`](#by-name) [`by-path`](#by-path) [`by-re`](#by-re) [`file-filter`](#file-filter) [`not-by-ext`](#not-by-ext) [`not-by-name`](#not-by-name) [`not-by-path`](#not-by-path) [`not-by-re`](#not-by-re)##### Other Fileset Queries
+
+ [`fileset-namespaces`](#fileset-namespaces) [`input-dirs`](#input-dirs) [`input-fileset`](#input-fileset) [`ls`](#ls) [`output-dirs`](#output-dirs) [`output-fileset`](#output-fileset) [`user-dirs`](#user-dirs)##### Manipulate Fileset
+
+ [`add-asset`](#add-asset) [`add-cached-asset`](#add-cached-asset) [`add-cached-resource`](#add-cached-resource) [`add-cached-source`](#add-cached-source) [`add-meta`](#add-meta) [`add-resource`](#add-resource) [`add-source`](#add-source) [`commit!`](#commit) [`cp`](#cp) [`mv`](#mv) [`mv-asset`](#mv-asset) [`mv-resource`](#mv-resource) [`mv-source`](#mv-source) [`new-fileset`](#new-fileset) [`rm`](#rm)##### Fileset Diffs
+
+ [`fileset-added`](#fileset-added) [`fileset-changed`](#fileset-changed) [`fileset-diff`](#fileset-diff) [`fileset-removed`](#fileset-removed)##### Misc. Helpers
+
+ [`empty-dir!`](#empty-dir) [`git-files`](#git-files) [`gpg-decrypt`](#gpg-decrypt) [`json-generate`](#json-generate) [`json-parse`](#json-parse) [`sync!`](#sync) [`touch`](#touch) [`watch-dirs`](#watch-dirs) [`yaml-generate`](#yaml-generate) [`yaml-parse`](#yaml-parse)##### Deprecated / Internal
+
  [`fileset-reduce`](#fileset-reduce) [`init!`](#init) [`temp-dir!`](#temp-dir) [`tmpdir`](#tmpdir) [`tmpfile`](#tmpfile) [`tmpget`](#tmpget) [`tmppath`](#tmppath) [`tmptime`](#tmptime)<hr>
 
 ### [`*app-version*`](../../2.5.2/boot/core/src/boot/core.clj#L29)
