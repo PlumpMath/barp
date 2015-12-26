@@ -4,63 +4,63 @@ The Boot core namespace, containing most of Boot's public API.
 
 
 
-##### Boot Settings (read-only)
+* Boot Settings (read-only)
 
 [`*app-version*`](#app-version) [`*boot-opts*`](#boot-opts) [`*boot-script*`](#boot-script) [`*boot-version*`](#boot-version) [`*warnings*`](#warnings) [`bootignore`](#bootignore) [`last-file-change`](#last-file-change) [`new-build-at`](#new-build-at)
 
-##### Configuration Helpers
+* Configuration Helpers
 
 [`configure-repositories!`](#configure-repositories) [`load-data-readers!`](#load-data-readers)
 
-##### Boot Environment
+* Boot Environment
 
 [`get-env`](#get-env) [`get-sys-env`](#get-sys-env) [`merge-env!`](#merge-env) [`post-env!`](#post-env) [`pre-env!`](#pre-env) [`set-env!`](#set-env) [`set-sys-env!`](#set-sys-env)
 
-##### Define Tasks
+* Define Tasks
 
 [`cleanup`](#cleanup) [`deftask`](#deftask) [`reset-build!`](#reset-build) [`reset-fileset`](#reset-fileset) [`with-pass-thru`](#with-pass-thru) [`with-post-wrap`](#with-post-wrap) [`with-pre-wrap`](#with-pre-wrap)
 
-##### Manipulate Task Options
+* Manipulate Task Options
 
 [`disable-task!`](#disable-task) [`replace-task!`](#replace-task) [`task-options!`](#task-options)
 
-##### REPL Integration
+* REPL Integration
 
 [`boot`](#boot) [`launch-nrepl`](#launch-nrepl) [`rebuild!`](#rebuild)
 
-##### Create Temp Directories
+* Create Temp Directories
 
 [`cache-dir!`](#cache-dir) [`tmp-dir!`](#tmp-dir)
 
-##### TmpFile API
+* TmpFile API
 
 [`tmp-dir`](#tmp-dir) [`tmp-file`](#tmp-file) [`tmp-path`](#tmp-path) [`tmp-time`](#tmp-time)
 
-##### Query Fileset For TmpFiles
+* Query Fileset For TmpFiles
 
 [`input-files`](#input-files) [`output-files`](#output-files) [`tmp-get`](#tmp-get) [`user-files`](#user-files)
 
-##### Filter Sequences Of TmpFiles
+* Filter Sequences Of TmpFiles
 
 [`by-ext`](#by-ext) [`by-name`](#by-name) [`by-path`](#by-path) [`by-re`](#by-re) [`file-filter`](#file-filter) [`not-by-ext`](#not-by-ext) [`not-by-name`](#not-by-name) [`not-by-path`](#not-by-path) [`not-by-re`](#not-by-re)
 
-##### Other Fileset Queries
+* Other Fileset Queries
 
 [`fileset-namespaces`](#fileset-namespaces) [`input-dirs`](#input-dirs) [`input-fileset`](#input-fileset) [`ls`](#ls) [`output-dirs`](#output-dirs) [`output-fileset`](#output-fileset) [`user-dirs`](#user-dirs)
 
-##### Manipulate Fileset
+* Manipulate Fileset
 
 [`add-asset`](#add-asset) [`add-cached-asset`](#add-cached-asset) [`add-cached-resource`](#add-cached-resource) [`add-cached-source`](#add-cached-source) [`add-meta`](#add-meta) [`add-resource`](#add-resource) [`add-source`](#add-source) [`commit!`](#commit) [`cp`](#cp) [`mv`](#mv) [`mv-asset`](#mv-asset) [`mv-resource`](#mv-resource) [`mv-source`](#mv-source) [`new-fileset`](#new-fileset) [`rm`](#rm)
 
-##### Fileset Diffs
+* Fileset Diffs
 
 [`fileset-added`](#fileset-added) [`fileset-changed`](#fileset-changed) [`fileset-diff`](#fileset-diff) [`fileset-removed`](#fileset-removed)
 
-##### Misc. Helpers
+* Misc. Helpers
 
 [`empty-dir!`](#empty-dir) [`git-files`](#git-files) [`gpg-decrypt`](#gpg-decrypt) [`json-generate`](#json-generate) [`json-parse`](#json-parse) [`sync!`](#sync) [`touch`](#touch) [`watch-dirs`](#watch-dirs) [`yaml-generate`](#yaml-generate) [`yaml-parse`](#yaml-parse)
 
-##### Deprecated / Internal
+* Deprecated / Internal
 
 [`fileset-reduce`](#fileset-reduce) [`init!`](#init) [`temp-dir!`](#temp-dir) [`tmpdir`](#tmpdir) [`tmpfile`](#tmpfile) [`tmpget`](#tmpget) [`tmppath`](#tmppath) [`tmptime`](#tmptime)
 

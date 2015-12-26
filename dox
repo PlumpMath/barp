@@ -16,7 +16,7 @@
 (defn hr           [ ]   (p "<hr>"))
 (defn code         [x]   (format "`%s`" x))
 (defn em           [x]   (format "_%s_" x))
-(defn li           [x]   (p (format "* %s")))
+(defn li           [x]   (p (format "* %s" x)))
 (defn h1           [x]   (p (format "# %s" x)))
 (defn h3           [x]   (p (format "### %s" x)))
 (defn h5           [x]   (p (format "##### %s" x)))
