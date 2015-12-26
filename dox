@@ -10,49 +10,38 @@
 (def ^:dynamic *doc-ns-sym*)
 (def fixme "FIXME: document this")
 
-(defn hr     [ ]   "<hr>\n\n")
-(defn code   [x]   (format "`%s`" x))
-(defn em     [x]   (format "_%s_" x))
-(defn p      [x]   (format "%s\n\n" x))
-(defn h1     [x]   (format "# %s\n\n" x))
-(defn h3     [x]   (format "### %s\n\n" x))
-(defn h5     [x]   (format "##### %s\n\n" x))
-(defn link   [x y] (format "[%s](%s)" x y))
-(defn block ([x]   (format "```\n%s\n```\n\n" x))
-            ([x y] (format "```%s\n%s\n```\n\n" x y)))
+(defn hr           [ ]   "<hr>\n\n")
+(defn code         [x]   (format "`%s`" x))
+(defn em           [x]   (format "_%s_" x))
+(defn p            [x]   (format "%s\n\n" x))
+(defn h1           [x]   (format "# %s\n\n" x))
+(defn h3           [x]   (format "### %s\n\n" x))
+(defn h5           [x]   (format "##### %s\n\n" x))
+(defn link         [x y] (format "[%s](%s)" x y))
+(defn block       ([x]   (format "```\n%s\n```\n\n" x))
+                  ([x y] (format "```%s\n%s\n```\n\n" x y)))
+(defn filter-vals  [p m] (reduce-kv #(if-not (p %3) %1 (assoc %1 %2 %3)) {} m))
 
-(defn filter-vals
-  [pred m]
-  (reduce-kv #(if-not (pred %3) %1 (assoc %1 %2 %3)) {} m))
-
-(defn strip-indent
-  [x]
+(defn strip-indent [x]
   (let [[head & [z & _ :as tail]] (split (or x fixme) #"\n")
         indent (or (some->> z (re-find #"^ *") count) 0)
         strip  #(try (subs % indent) (catch Throwable _))]
     (->> tail (map strip) (list* head) (join "\n") trimr)))
 
-(defn multifn?
-  [obj]
-  (instance? clojure.lang.MultiFn obj))
+(defn typeof [obj {:keys [dynamic macro]}]
+  (cond dynamic                               "dynamic"
+        macro                                 "macro"
+        (fn? obj)                             "function"
+        (instance? clojure.lang.MultiFn obj)  "multimethod"
+        :else                                 "var"))
 
-(defn typeof
-  [obj {:keys [dynamic macro]}]
-  (cond dynamic        "dynamic"
-        macro          "macro"
-        (fn? obj)      "function"
-        (multifn? obj) "multimethod"
-        :else          "var"))
-
-(defn fmt-link
-  [sym]
+(defn fmt-link [sym]
   (-> (str "#" sym)
       (.replaceAll "\\*" "")
       (.replaceAll " " "-")
       (.replaceAll "!" "")))
 
-(defn emit-arglists
-  [name arglists]
+(defn emit-arglists [name arglists]
   (some->> (sort-by count arglists)
            (map #(pr-str (list* name %)))
            (join " ")
@@ -67,24 +56,20 @@
          (block (strip-indent doc))
          (hr))))
 
-(defn emit-vars
-  [sections]
+(defn emit-vars [sections]
   (->> sections (map :vars) (reduce merge) vals (keep :md)))
 
-(defn emit-ns
-  [{:keys [name doc]}]
+(defn emit-ns [{:keys [name doc]}]
   (remove nil? [(when name (h1 name)) (when doc (p (strip-indent doc)))]))
 
-(defn emit-toc
-  [xs]
+(defn emit-toc [xs]
   (->> xs (mapcat (fn [{:keys [title vars]}]
                     (-> (->> (map (fn [[x _]] (link (code x) (fmt-link x))) vars)
                              (cons (when title (h5 title)))
                              (remove nil?))
                         (concat ["\n\n"]))))))
 
-(defn sections
-  [x]
+(defn sections [x]
   (->> (assoc (:doc/toc x) nil {})
        (into (sorted-map))
        (reduce (fn [xs [k v]]
@@ -95,8 +80,7 @@
                       (conj xs)))
                [])))
 
-(defn ns-docs
-  [link-path ns-sym]
+(defn ns-docs [link-path ns-sym]
   (let [n (the-ns ns-sym)
         e #(let [m (meta %2)
                  v (var-get (ns-resolve n %1))]
@@ -112,8 +96,7 @@
          (concat (emit-ns m))
          (apply str))))
 
-(defn section*
-  [title & syms]
+(defn section* [title & syms]
   (let [id (gensym)
         ns *doc-ns-sym*
         n  (find-ns ns)]
@@ -121,12 +104,7 @@
     (doseq [s syms]
       (alter-meta! (ns-resolve n s) assoc :doc/section id))))
 
-(defmacro section
-  [title & syms]
-  `(section* ~title ~@(map (partial list 'quote) syms)))
-
-(defn generate-docs
-  [ns src-path ns-doc]
+(defn generate-docs [ns src-path ns-doc]
   (let [ns  *doc-ns-sym*
         n   (find-ns ns)
         out (str "doc/" ns ".md")]
@@ -136,8 +114,10 @@
                   (str "/")
                   (ns-docs ns)))))
 
-(defmacro namespace
-  [ns ns-doc src-path & sections]
+(defmacro section [title & syms]
+  `(section* ~title ~@(map (partial list 'quote) syms)))
+
+(defmacro namespace [ns ns-doc src-path & sections]
   `(binding [*doc-ns-sym* '~ns]
      (alter-meta! (find-ns '~ns) assoc :doc/toc nil)
      (do ~@sections)
