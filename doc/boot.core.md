@@ -72,7 +72,7 @@ _dynamic_```clojure
 
 ```
 
-```null
+```
 The running version of boot app.
 ```
 
@@ -84,7 +84,7 @@ _dynamic_```clojure
 
 ```
 
-```null
+```
 Command line options for boot itself.
 ```
 
@@ -96,7 +96,7 @@ _dynamic_```clojure
 
 ```
 
-```null
+```
 The script's name (when run as script).
 ```
 
@@ -108,7 +108,7 @@ _dynamic_```clojure
 
 ```
 
-```null
+```
 The running version of boot core.
 ```
 
@@ -120,7 +120,7 @@ _dynamic_```clojure
 
 ```
 
-```null
+```
 Count of warnings during build.
 ```
 
@@ -132,7 +132,7 @@ _function_```clojure
 (add-asset fileset dir & {:keys [mergers include exclude], :as opts})
 ```
 
-```null
+```
 Add the contents of the java.io.File dir to the fileset's assets.
 ```
 
@@ -144,7 +144,7 @@ _function_```clojure
 (add-cached-asset fileset cache-key cache-fn & {:keys [mergers include exclude], :as opts})
 ```
 
-```null
+```
 FIXME: document
 ```
 
@@ -156,7 +156,7 @@ _function_```clojure
 (add-cached-resource fileset cache-key cache-fn & {:keys [mergers include exclude], :as opts})
 ```
 
-```null
+```
 FIXME: document
 ```
 
@@ -168,7 +168,7 @@ _function_```clojure
 (add-cached-source fileset cache-key cache-fn & {:keys [mergers include exclude], :as opts})
 ```
 
-```null
+```
 FIXME: document
 ```
 
@@ -180,7 +180,7 @@ _function_```clojure
 (add-meta fileset meta-map)
 ```
 
-```null
+```
 Adds metadata about the files in the filesystem to their corresponding
 TmpFile objects in the fileset. The meta-map is expected to be a map with
 string paths as keys and maps of metadata as values. These metadata maps
@@ -195,7 +195,7 @@ _function_```clojure
 (add-resource fileset dir & {:keys [mergers include exclude], :as opts})
 ```
 
-```null
+```
 Add the contents of the java.io.File dir to the fileset's resources.
 ```
 
@@ -207,7 +207,7 @@ _function_```clojure
 (add-source fileset dir & {:keys [mergers include exclude], :as opts})
 ```
 
-```null
+```
 Add the contents of the java.io.File dir to the fileset's sources.
 ```
 
@@ -219,7 +219,7 @@ _function_```clojure
 (boot & argv)
 ```
 
-```null
+```
 The REPL equivalent to the command line 'boot'. If all arguments are
 strings then they are treated as if they were given on the command line.
 Otherwise they are assumed to evaluate to task middleware.
@@ -233,7 +233,7 @@ _var_```clojure
 
 ```
 
-```null
+```
 Set of regexes source file paths must not match.
 ```
 
@@ -245,7 +245,7 @@ _function_```clojure
 (by-ext exts files & [negate?])
 ```
 
-```null
+```
 This function takes two arguments: `exts` and `files`, where `exts` is a seq
 of file extension strings like `[".clj" ".cljs"]` and `files` is a seq of
 file objects. Returns a seq of the files in `files` which have file extensions
@@ -260,7 +260,7 @@ _function_```clojure
 (by-name names files & [negate?])
 ```
 
-```null
+```
 This function takes two arguments: `names` and `files`, where `names` is
 a seq of file name strings like `["foo.clj" "bar.xml"]` and `files` is
 a seq of file objects. Returns a seq of the files in `files` which have file
@@ -275,7 +275,7 @@ _function_```clojure
 (by-path paths files & [negate?])
 ```
 
-```null
+```
 This function takes two arguments: `paths` and `files`, where `path` is
 a seq of path strings like `["a/b/c/foo.clj" "bar.xml"]` and `files` is
 a seq of file objects. Returns a seq of the files in `files` which have file
@@ -290,7 +290,7 @@ _function_```clojure
 (by-re res files & [negate?])
 ```
 
-```null
+```
 This function takes two arguments: `res` and `files`, where `res` is a seq
 of regex patterns like `[#"clj$" #"cljs$"]` and `files` is a seq of
 file objects. Returns a seq of the files in `files` whose paths match one of
@@ -305,7 +305,7 @@ _function_```clojure
 (cache-dir! key & {:keys [global]})
 ```
 
-```null
+```
 Returns a directory which is managed by boot but whose contents will not be
 deleted after the build is complete. The :global option specifies that the
 directory is shared by all projects. The default behavior returns different
@@ -320,7 +320,7 @@ _macro_```clojure
 (cleanup & body)
 ```
 
-```null
+```
 Evaluate body after tasks have been run. This macro is meant to be called
 from inside a task definition, and is provided as a means to shutdown or
 clean up persistent resources created by the task (eg. threads, files, etc.)
@@ -334,7 +334,7 @@ _function_```clojure
 (commit! fileset)
 ```
 
-```null
+```
 Make the underlying temp directories correspond to the immutable fileset
 tree structure.
 ```
@@ -347,7 +347,7 @@ _function_```clojure
 (configure-repositories!) (configure-repositories! f)
 ```
 
-```null
+```
 Get or set the repository configuration callback function. The function
 will be applied to all repositories added to the boot env, it should return
 the repository map with any additional configuration (like credentials, for
@@ -362,7 +362,7 @@ _function_```clojure
 (cp fileset src-file dest-tmpfile)
 ```
 
-```null
+```
 Given a fileset and a dest-tmpfile from that fileset, overwrites the dest
 tmpfile with the contents of the java.io.File src-file.
 ```
@@ -375,7 +375,7 @@ _macro_```clojure
 (deftask sym & forms)
 ```
 
-```null
+```
 Define a boot task.
 ```
 
@@ -387,7 +387,7 @@ _macro_```clojure
 (disable-task! & tasks)
 ```
 
-```null
+```
 Disables the given tasks by replacing them with the identity task.
 
   Example:
@@ -403,7 +403,7 @@ _function_```clojure
 (empty-dir! & dirs)
 ```
 
-```null
+```
 For each directory in dirs, recursively deletes all files and subdirectories.
 The directories in dirs themselves are not deleted.
 ```
@@ -416,7 +416,7 @@ _function_```clojure
 (file-filter mkpred)
 ```
 
-```null
+```
 A file filtering function factory. FIXME: more documenting here.
 ```
 
@@ -428,7 +428,7 @@ _function_```clojure
 (fileset-added before after & props)
 ```
 
-```null
+```
 Returns a new fileset containing only files that were added.
 ```
 
@@ -440,7 +440,7 @@ _function_```clojure
 (fileset-changed before after & props)
 ```
 
-```null
+```
 Returns a new fileset containing only files that were changed.
 ```
 
@@ -452,7 +452,7 @@ _function_```clojure
 (fileset-diff before after & props)
 ```
 
-```null
+```
 Returns a new fileset containing files that were added or modified. Removed
 files are not considered. The optional props arguments can be any of :time,
 :hash, or both, specifying whether to consider changes to last modified time
@@ -467,7 +467,7 @@ _function_```clojure
 (fileset-namespaces fileset)
 ```
 
-```null
+```
 Returns a set of symbols: the namespaces defined in this fileset.
 ```
 
@@ -479,7 +479,7 @@ _macro_```clojure
 (fileset-reduce fileset get-files & reducers)
 ```
 
-```null
+```
 Given a fileset, a function get-files that selects files from the fileset,
 and a number of reducing functions, composes the reductions. The result of
 the previous reduction and the result of get-files applied to it are passed
@@ -494,7 +494,7 @@ _function_```clojure
 (fileset-removed before after & props)
 ```
 
-```null
+```
 Returns a new fileset containing only files that were removed.
 ```
 
@@ -506,7 +506,7 @@ _function_```clojure
 (get-env & [k not-found])
 ```
 
-```null
+```
 Returns the value associated with the key `k` in the boot environment, or
 `not-found` if the environment doesn't contain key `k` and `not-found` was
 given. Calling this function with no arguments returns the environment map.
@@ -520,7 +520,7 @@ _function_```clojure
 (get-sys-env) (get-sys-env k) (get-sys-env k not-found)
 ```
 
-```null
+```
 Returns the value associated with the system property k, the environment
 variable k, or not-found if neither of those are set. If not-found is the
 keyword :required, an exception will be thrown when there is no value for
@@ -535,7 +535,7 @@ _function_```clojure
 (git-files & {:keys [untracked]})
 ```
 
-```null
+```
 Returns a list of files roughly equivalent to what you'd get with the git
 command line `git ls-files`. The :untracked option includes untracked files.
 ```
@@ -548,7 +548,7 @@ _function_```clojure
 (gpg-decrypt path-or-file & {:keys [as]})
 ```
 
-```null
+```
 Uses gpg(1) to decrypt a file and returns its contents as a string. The
 :as :edn option can be passed to read the contents as an EDN form.
 ```
@@ -561,7 +561,7 @@ _function_```clojure
 (init!)
 ```
 
-```null
+```
 Initialize the boot environment. This is normally run once by boot at
 startup. There should be no need to call this function directly.
 ```
@@ -574,7 +574,7 @@ _function_```clojure
 (input-dirs fileset)
 ```
 
-```null
+```
 Get a list of directories containing files with input roles.
 ```
 
@@ -586,7 +586,7 @@ _function_```clojure
 (input-files fileset)
 ```
 
-```null
+```
 Get a set of TmpFile objects corresponding to files with input role.
 ```
 
@@ -598,7 +598,7 @@ _function_```clojure
 (input-fileset fileset)
 ```
 
-```null
+```
 FIXME: document
 ```
 
@@ -610,7 +610,7 @@ _function_```clojure
 (json-generate x & [opt-map])
 ```
 
-```null
+```
 Same as cheshire.core/generate-string.
 ```
 
@@ -622,7 +622,7 @@ _function_```clojure
 (json-parse x & [key-fn])
 ```
 
-```null
+```
 Same as cheshire.core/parse-string.
 ```
 
@@ -634,7 +634,7 @@ _var_```clojure
 
 ```
 
-```null
+```
 Last source file watcher update time.
 ```
 
@@ -646,7 +646,7 @@ _function_```clojure
 (launch-nrepl & {:keys [pod], :as opts})
 ```
 
-```null
+```
 Launches an nREPL server in a pod. See the repl task for options.
 ```
 
@@ -658,7 +658,7 @@ _function_```clojure
 (load-data-readers!)
 ```
 
-```null
+```
 Refresh *data-readers* with readers from newly acquired dependencies.
 ```
 
@@ -670,7 +670,7 @@ _function_```clojure
 (ls fileset)
 ```
 
-```null
+```
 Get a set of TmpFile objects for all files in the fileset.
 ```
 
@@ -682,7 +682,7 @@ _function_```clojure
 (merge-env! & kvs)
 ```
 
-```null
+```
 Merges the new values into the current values for the given keys in the env
 map. Uses a merging strategy that is appropriate for the given key (eg. uses
 clojure.core/into for keys whose values are collections and simply replaces
@@ -697,7 +697,7 @@ _function_```clojure
 (mv fileset from-path to-path)
 ```
 
-```null
+```
 Given a fileset and two paths in the fileset, from-path and to-path, moves
 the tmpfile at from-path to to-path, returning a new fileset.
 ```
@@ -710,7 +710,7 @@ _function_```clojure
 (mv-asset fileset tmpfiles)
 ```
 
-```null
+```
 FIXME: document
 ```
 
@@ -722,7 +722,7 @@ _function_```clojure
 (mv-resource fileset tmpfiles)
 ```
 
-```null
+```
 FIXME: document
 ```
 
@@ -734,7 +734,7 @@ _function_```clojure
 (mv-source fileset tmpfiles)
 ```
 
-```null
+```
 FIXME: document
 ```
 
@@ -746,7 +746,7 @@ _var_```clojure
 
 ```
 
-```null
+```
 Latest build occured at time.
 ```
 
@@ -758,7 +758,7 @@ _function_```clojure
 
 ```
 
-```null
+```
 FIXME: document this
 ```
 
@@ -770,7 +770,7 @@ _function_```clojure
 (not-by-ext exts files)
 ```
 
-```null
+```
 This function is the same as `by-ext` but negated.
 ```
 
@@ -782,7 +782,7 @@ _function_```clojure
 (not-by-name names files)
 ```
 
-```null
+```
 This function is the same as `by-name` but negated.
 ```
 
@@ -794,7 +794,7 @@ _function_```clojure
 (not-by-path paths files)
 ```
 
-```null
+```
 This function is the same as `by-path` but negated.
 ```
 
@@ -806,7 +806,7 @@ _function_```clojure
 (not-by-re res files)
 ```
 
-```null
+```
 This function is the same as `by-re` but negated.
 ```
 
@@ -818,7 +818,7 @@ _function_```clojure
 (output-dirs fileset)
 ```
 
-```null
+```
 FIXME: document this
 ```
 
@@ -830,7 +830,7 @@ _function_```clojure
 (output-files fileset)
 ```
 
-```null
+```
 Get a set of TmpFile objects corresponding to files with output role.
 ```
 
@@ -842,7 +842,7 @@ _function_```clojure
 (output-fileset fileset)
 ```
 
-```null
+```
 FIXME: document
 ```
 
@@ -854,7 +854,7 @@ _multimethod_```clojure
 
 ```
 
-```null
+```
 Event handler called when the env atom is modified. This handler is for
 performing side-effects associated with maintaining the application state in
 the env atom. For example, when `:src-paths` is modified the handler adds
@@ -869,7 +869,7 @@ _multimethod_```clojure
 
 ```
 
-```null
+```
 This multimethod is used to modify how new values are merged into the boot
 atom when `set-env!` is called. This function's result will become the new
 value associated with the given `key` in the env atom.
@@ -883,7 +883,7 @@ _function_```clojure
 (rebuild!)
 ```
 
-```null
+```
 Manually trigger build watch.
 ```
 
@@ -895,7 +895,7 @@ _macro_```clojure
 (replace-task! & replacements)
 ```
 
-```null
+```
 Given a number of binding form and function pairs, this macro alters the
 root bindings of task vars, replacing their values with the given functions.
 
@@ -914,7 +914,7 @@ _function_```clojure
 (reset-build!)
 ```
 
-```null
+```
 Resets mutable build state to default values. This includes such things as
 warning counters etc., state that is relevant to a single build cycle. This
 function should be called before each build iteration.
@@ -928,7 +928,7 @@ _function_```clojure
 (reset-fileset & [fileset])
 ```
 
-```null
+```
 Updates the user directories in the fileset with the latest project files,
 returning a new immutable fileset. When called with no args returns a new
 fileset containing only the latest project files.
@@ -942,7 +942,7 @@ _function_```clojure
 (rm fileset files)
 ```
 
-```null
+```
 Removes files from the fileset tree, returning a new fileset object. This
 does not affect the underlying filesystem in any way.
 ```
@@ -955,7 +955,7 @@ _function_```clojure
 (set-env! & kvs)
 ```
 
-```null
+```
 Update the boot environment atom `this` with the given key-value pairs given
 in `kvs`. See also `post-env!` and `pre-env!`. The values in the env map must
 be both printable by the Clojure printer and readable by its reader. If the
@@ -972,7 +972,7 @@ _function_```clojure
 (set-sys-env! & kvs)
 ```
 
-```null
+```
 For each key value pair in kvs the system property corresponding to the key
 is set. Keys and values must be strings, but the value can be nil or false
 to remove the system property.
@@ -986,7 +986,7 @@ _function_```clojure
 (sync! dest & srcs)
 ```
 
-```null
+```
 Given a dest directory and one or more srcs directories, overlays srcs on
 dest, removing files in dest that are not in srcs. Uses file modification
 timestamps to decide which version of files to emit to dest. Uses hardlinks
@@ -1001,7 +1001,7 @@ _macro_```clojure
 (task-options! & task-option-pairs)
 ```
 
-```null
+```
 Given a number of task/map-of-curried-arguments pairs, replaces the root
 bindings of the tasks with their curried values. For example:
 
@@ -1026,7 +1026,7 @@ _function_```clojure
 (temp-dir! & args__594__auto__)
 ```
 
-```null
+```
 #'boot.core/temp-dir! was deprecated, please use #'boot.core/tmp-dir! instead
 ```
 
@@ -1038,7 +1038,7 @@ _function_```clojure
 (tmp-dir tmpfile)
 ```
 
-```null
+```
 Returns the temporary directory containing the tmpfile.
 ```
 
@@ -1050,7 +1050,7 @@ _function_```clojure
 (tmp-dir!)
 ```
 
-```null
+```
 Creates a boot-managed temporary directory, returning a java.io.File.
 ```
 
@@ -1062,7 +1062,7 @@ _function_```clojure
 (tmp-file tmpfile)
 ```
 
-```null
+```
 Returns the java.io.File object for the tmpfile.
 ```
 
@@ -1074,7 +1074,7 @@ _function_```clojure
 (tmp-get fileset path & [not-found])
 ```
 
-```null
+```
 Given a fileset and a path, returns the associated TmpFile record. If the
 not-found argument is specified and the TmpFile is not in the fileset then
 not-found is returned, otherwise nil.
@@ -1088,7 +1088,7 @@ _function_```clojure
 (tmp-path tmpfile)
 ```
 
-```null
+```
 Returns the tmpfile's path relative to the fileset root.
 ```
 
@@ -1100,7 +1100,7 @@ _function_```clojure
 (tmp-time tmpfile)
 ```
 
-```null
+```
 Returns the last modified timestamp for the tmpfile.
 ```
 
@@ -1112,7 +1112,7 @@ _function_```clojure
 (tmpdir & args__594__auto__)
 ```
 
-```null
+```
 #'boot.core/tmpdir was deprecated, please use #'boot.core/tmp-dir instead
 ```
 
@@ -1124,7 +1124,7 @@ _function_```clojure
 (tmpfile & args__594__auto__)
 ```
 
-```null
+```
 #'boot.core/tmpfile was deprecated, please use #'boot.core/tmp-file instead
 ```
 
@@ -1136,7 +1136,7 @@ _function_```clojure
 (tmpget & args__594__auto__)
 ```
 
-```null
+```
 #'boot.core/tmpget was deprecated, please use #'boot.core/tmp-get instead
 ```
 
@@ -1148,7 +1148,7 @@ _function_```clojure
 (tmppath & args__594__auto__)
 ```
 
-```null
+```
 #'boot.core/tmppath was deprecated, please use #'boot.core/tmp-path instead
 ```
 
@@ -1160,7 +1160,7 @@ _function_```clojure
 (tmptime & args__594__auto__)
 ```
 
-```null
+```
 #'boot.core/tmptime was deprecated, please use #'boot.core/tmp-time instead
 ```
 
@@ -1172,7 +1172,7 @@ _function_```clojure
 (touch f)
 ```
 
-```null
+```
 Same as the Unix touch(1) program.
 ```
 
@@ -1184,7 +1184,7 @@ _function_```clojure
 (user-dirs fileset)
 ```
 
-```null
+```
 Get a list of directories containing files that originated in the project's
 source, resource, or asset paths.
 ```
@@ -1197,7 +1197,7 @@ _function_```clojure
 (user-files fileset)
 ```
 
-```null
+```
 Get a set of TmpFile objects corresponding to files that originated in
 the project's source, resource, or asset paths.
 ```
@@ -1210,7 +1210,7 @@ _function_```clojure
 (watch-dirs callback dirs & {:keys [debounce]})
 ```
 
-```null
+```
 Watches dirs for changes and calls callback with set of changed files
 when file(s) in these directories are modified. Returns a thunk which
 will stop the watcher.
@@ -1228,7 +1228,7 @@ _macro_```clojure
 (with-pass-thru bind & body)
 ```
 
-```null
+```
 Given a binding and body expressions, constructs a task handler. The body
 expressions are evaluated for side effects with the current fileset bound
 to binding. The current fileset is then passed to the next handler and the
@@ -1243,7 +1243,7 @@ _macro_```clojure
 (with-post-wrap bind & body)
 ```
 
-```null
+```
 Given a binding and body expressions, constructs a task handler. The next
 handler is called with the current fileset, and the result is bound to
 binding. The body expressions are then evaluated for side effects and the
@@ -1266,7 +1266,7 @@ _macro_```clojure
 (with-pre-wrap bind & body)
 ```
 
-```null
+```
 Given a binding and body expressions, constructs a task handler. The body
 expressions are evaluated with the current fileset bound to binding, and the
 result is passed to the next handler in the pipeline. The fileset obtained
@@ -1288,7 +1288,7 @@ _function_```clojure
 (yaml-generate x)
 ```
 
-```null
+```
 Same as clj-yaml.core/generate-string.
 ```
 
@@ -1300,7 +1300,7 @@ _function_```clojure
 (yaml-parse x)
 ```
 
-```null
+```
 Same as clj-yaml.core/parse-string.
 ```
 

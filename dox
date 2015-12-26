@@ -63,7 +63,7 @@
     (str (h3 (link (code name) src-link))
          (em (typeof obj meta))
          (emit-arglists name arglists)
-         (block nil (strip-indent doc))
+         (block "" (strip-indent doc))
          (hr))))
 
 (defn emit-vars
