@@ -42,7 +42,11 @@ The Boot core namespace, containing most of Boot's public API.
 
 #### Add To Fileset
 
-[`add-asset`](#add-asset) [`add-cached-asset`](#add-cached-asset) [`add-cached-resource`](#add-cached-resource) [`add-cached-source`](#add-cached-source) [`add-resource`](#add-resource) [`add-source`](#add-source) [`mv-asset`](#mv-asset) [`mv-resource`](#mv-resource) [`mv-source`](#mv-source) 
+[`add-asset`](#add-asset) [`add-cached-asset`](#add-cached-asset) [`add-cached-resource`](#add-cached-resource) [`add-cached-source`](#add-cached-source) [`add-resource`](#add-resource) [`add-source`](#add-source) 
+
+#### Change Roles Of Files In Fileset
+
+[`mv-asset`](#mv-asset) [`mv-resource`](#mv-resource) [`mv-source`](#mv-source) 
 
 #### Fileset Diffs
 

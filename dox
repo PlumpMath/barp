@@ -200,9 +200,15 @@
 
     (section
       "Add To Fileset"
-      add-asset add-cached-asset mv-asset
-      add-source add-cached-source mv-source
-      add-resource add-cached-resource mv-resource)
+      add-asset add-cached-asset
+      add-source add-cached-source
+      add-resource add-cached-resource)
+
+    (section
+      "Change Roles Of Files In Fileset"
+      mv-asset
+      mv-source
+      mv-resource)
 
     (section
       "Fileset Diffs"
