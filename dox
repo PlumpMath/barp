@@ -59,15 +59,13 @@
 (defn emit-ns [{:keys [name doc]}]
   (remove nil? [(when name (h1 name)) (when doc (p (strip-indent doc)))]))
 
-(defn emit-toc-section [{:keys [title vars]}]
-  (->> (map (fn [[x _]] (link (code x) (fmt-link x))) vars)
-       (concat (when title (list (b title) "\n  ")))
-       (interpose " ")
-       (apply str)))
 
 (defn emit-toc [xs]
-  (->> xs (keep #(let [item (emit-toc-section %)]
-                   (when (not (blank? item)) (li item))))))
+  (->> xs (keep (fn [{:keys [title vars]}]
+                  (->> (map (fn [[x _]] (link (code x) (fmt-link x))) vars)
+                       (concat (when title (h5 title)))
+                       (interpose " ")
+                       (apply str))))))
 
 (defn sections [x]
   (->> (assoc (:doc/toc x) nil {})
