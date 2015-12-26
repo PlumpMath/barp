@@ -9,43 +9,43 @@
   '[clojure.java.io :as io]
   '[clojure.string :as string :refer [blank? join split trimr]])
 
-(def ^:dynamic *doc-ns-sym*)
-(def fixme "FIXME: document this")
+(def ^:private ^:dynamic *doc-ns-sym*)
+(def ^:private fixme "FIXME: document this")
 
-(defn p            [x]   (format "%s\n\n" x))
-(defn hr           [ ]   (p "<hr>"))
-(defn code         [x]   (format "`%s`" x))
-(defn em           [x]   (format "_%s_" x))
-(defn b            [x]   (format "**%s**" x))
-(defn li           [x]   (p (format "* %s" x)))
-(defn h1           [x]   (p (format "# %s" x)))
-(defn h3           [x]   (p (format "### %s" x)))
-(defn h5           [x]   (p (format "##### %s" x)))
-(defn link         [x y] (format "[%s](%s)" x y))
-(defn block       ([x]   (p (format "```\n%s\n```" x)))
-                  ([x y] (p (format "```%s\n%s\n```" x y))))
-(defn filter-vals  [p m] (reduce-kv #(if-not (p %3) %1 (assoc %1 %2 %3)) {} m))
+(defn- p       [x]   (format "%s\n\n" x))
+(defn- hr      [ ]   (p "<hr>"))
+(defn- code    [x]   (format "`%s`" x))
+(defn- b       [x]   (format "**%s**" x))
+(defn- h1      [x]   (p (format "# %s" x)))
+(defn- h3      [x]   (p (format "### %s" x)))
+(defn- h5      [x]   (p (format "##### %s" x)))
+(defn- link    [x y] (format "[%s](%s)" x y))
+(defn- block  ([x]   (p (format "```\n%s\n```" x)))
+              ([x y] (p (format "```%s\n%s\n```" x y))))
 
-(defn strip-indent [x]
+(defn- filter-vals [p m]
+  (reduce-kv #(if-not (p %3) %1 (assoc %1 %2 %3)) {} m))
+
+(defn- strip-indent [x]
   (let [[head & [z & _ :as tail]] (split (or x fixme) #"\n")
         indent (or (some->> z (re-find #"^ *") count) 0)
         strip  #(try (subs % indent) (catch Throwable _))]
     (->> tail (map strip) (list* head) (join "\n") trimr)))
 
-(defn fmt-link [sym]
+(defn- fmt-link [sym]
   (-> (str "#" sym)
       (.replaceAll "\\*" "")
       (.replaceAll " " "-")
       (.replaceAll "!" "")))
 
-(defn emit-arglists [name arglists]
+(defn- emit-arglists [name arglists]
   (some->> arglists
            (sort-by count)
            (map #(pr-str (list* name %)))
            (join " ")
            (block "clojure")))
 
-(defn emit-var
+(defn- emit-var
   [link-path obj {:keys [name doc arglists argspecs file line] :as meta}]
   (let [src-link (format "%s%s#L%d" link-path file line)]
     (str (h3 (link (code name) src-link))
@@ -53,33 +53,24 @@
          (block (strip-indent doc))
          (hr))))
 
-(defn emit-vars [sections]
+(defn- emit-vars [sections]
   (->> sections (map :vars) (reduce merge) vals (keep :md)))
 
-(defn emit-ns [{:keys [name doc]}]
+(defn- emit-ns [{:keys [name doc]}]
   (remove nil? [(when name (h1 name)) (when doc (p (strip-indent doc)))]))
 
-
-(defn emit-toc [xs]
+(defn- emit-toc [xs]
   (->> xs (keep (fn [{:keys [title vars]}]
                   (some->> (map (fn [[x _]] (link (code x) (fmt-link x))) vars)
-                           (cons (when title (h5 title)))
-                           (remove nil?)
-                           seq
-                           (interpose " ")
-                           (apply str)
-                           p)))))
+                           (cons (some-> title h5)) (remove nil?) seq
+                           (interpose " ") (apply str) p)))))
 
-(defn sections [x]
+(defn- by-section [x]
   (->> (assoc (:doc/toc x) nil {})
        (into (sorted-map))
        (reduce (fn [xs [k v]]
-                 (->> (:vars x)
-                      (filter-vals #(= k (:doc/section %)))
-                      (into (sorted-map))
-                      (assoc v :vars)
-                      (conj xs)))
-               [])))
+                 (->> (filter-vals #(= k (:doc/section %)) (:vars x))
+                      (into (sorted-map)) (assoc v :vars) (conj xs))) [])))
 
 (defn ns-docs [link-path ns-sym]
   (let [n (the-ns ns-sym)
@@ -90,12 +81,8 @@
                  :name ns-sym
                  :vars (->> (ns-publics n)
                             (reduce-kv #(assoc %1 %2 (e %2 %3)) {})))
-        s (sections m)]
-    (->> (emit-vars s)
-         (concat (list (hr)))
-         (concat (emit-toc s))
-         (concat (emit-ns m))
-         (apply str))))
+        s (by-section m)]
+    (->> [(emit-var s) [(hr)] (emit-toc s) (emit-ns m)] (reduce concat) (apply str))))
 
 (defn section* [title & syms]
   (let [id (gensym)
@@ -119,7 +106,7 @@
 (defmacro section [title & syms]
   `(~'section* ~title ~@(map (partial list 'quote) syms)))
 
-(defmacro namespace [ns ns-doc src-path & sections]
+(defmacro write-docs [ns ns-doc src-path & sections]
   `(binding [~'*doc-ns-sym* '~ns]
      (alter-meta! (find-ns '~ns) assoc :doc/toc nil)
      (do ~@sections)
@@ -127,19 +114,19 @@
 
 (defn -main [& args]
 
-  (namespace
+  (write-docs
     boot.util
     "Namespace containing various utility functions and macros to make
     life easier in Boot scripts."
     (format "../%s/boot/pod/src/" boot.core/*boot-version*))
 
-  (namespace
+  (write-docs
     boot.pod
     "Namespace containing various utility functions and macros to make
     life easier in Boot scripts."
     (format "../%s/boot/pod/src/" boot.core/*boot-version*))
 
-  (namespace
+  (write-docs
     boot.core
     "The Boot core namespace, containing most of Boot's public API."
     (format "../%s/boot/core/src/" boot.core/*boot-version*)
