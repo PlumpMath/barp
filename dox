@@ -16,6 +16,7 @@
 (defn hr           [ ]   (p "<hr>"))
 (defn code         [x]   (format "`%s`" x))
 (defn em           [x]   (format "_%s_" x))
+(defn b            [x]   (format "**%s**" x))
 (defn li           [x]   (p (format "* %s" x)))
 (defn h1           [x]   (p (format "# %s" x)))
 (defn h3           [x]   (p (format "### %s" x)))
@@ -58,12 +59,14 @@
 (defn emit-ns [{:keys [name doc]}]
   (remove nil? [(when name (h1 name)) (when doc (p (strip-indent doc)))]))
 
+(defn emit-toc-section [{:keys [title vars]}]
+  (->> (map (fn [[x _]] (link (code x) (fmt-link x))) vars)
+       (concat (when title (list (b title) "&mdash;")))
+       (interpose " ")
+       (apply str)))
+
 (defn emit-toc [xs]
-  (->> xs (map (fn [{:keys [title vars]}]
-                 (li (->> (map (fn [[x _]] (link (code x) (fmt-link x))) vars)
-                          (interpose " ")
-                          (cons title)
-                          (apply str)))))))
+  (->> xs (keep #(when-let [item (emit-toc-section %)] (li item)))))
 
 (defn sections [x]
   (->> (assoc (:doc/toc x) nil {})
@@ -90,7 +93,6 @@
          (concat (list (hr)))
          (concat (emit-toc s))
          (concat (emit-ns m))
-         (remove string/blank?)
          (apply str))))
 
 (defn section* [title & syms]
