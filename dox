@@ -144,7 +144,7 @@
     (format "../%s/boot/core/src/" boot.core/*boot-version*)
 
     (section
-      "Configure Boot"
+      "Boot Settings (read-only)"
       *app-version*
       *boot-script*
       *boot-version*
@@ -152,8 +152,18 @@
       *warnings*
       new-build-at
       last-file-change
-      bootignore
-      load-data-readers!)
+      bootignore)
+
+    (section
+      "Configuration Helpers"
+      load-data-readers!
+      configure-repositories!)
+
+    (section
+      "Boot Environment"
+      get-env set-env!
+      get-sys-env set-sys-env!
+      pre-env! post-env!)
 
     (section
       "Create Temp Directories"
@@ -219,11 +229,6 @@
       fileset-removed
       fileset-changed)
 
-    (section
-      "Boot Environment"
-      get-env set-env!
-      get-sys-env set-sys-env!
-      pre-env! post-env!)
     )
 
   (print test-str)
