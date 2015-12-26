@@ -30,13 +30,6 @@
         strip  #(try (subs % indent) (catch Throwable _))]
     (->> tail (map strip) (list* head) (join "\n") trimr)))
 
-(defn typeof [obj {:keys [dynamic macro]}]
-  (cond dynamic                               "dynamic"
-        macro                                 "macro"
-        (fn? obj)                             "function"
-        (instance? clojure.lang.MultiFn obj)  "multimethod"
-        :else                                 "var"))
-
 (defn fmt-link [sym]
   (-> (str "#" sym)
       (.replaceAll "\\*" "")
@@ -54,7 +47,6 @@
   [link-path obj {:keys [name doc arglists argspecs file line] :as meta}]
   (let [src-link (format "%s%s#L%d" link-path file line)]
     (str (h3 (link (code name) src-link))
-         (p (em (typeof obj meta)))
          (emit-arglists name arglists)
          (block (strip-indent doc))
          (hr))))

@@ -9,8 +9,6 @@ life easier in Boot scripts.
 
 ### [`add-classpath`](../../2.5.2/boot/pod/src/boot/pod.clj#L50)
 
-_function_
-
 ```clojure
 (add-classpath jar-or-dir) (add-classpath jar-or-dir classloader)
 ```
@@ -26,8 +24,6 @@ thread's context classloader).
 
 ### [`add-dependencies`](../../2.5.2/boot/pod/src/boot/pod.clj#L335)
 
-_function_
-
 ```clojure
 (add-dependencies env)
 ```
@@ -39,8 +35,6 @@ FIXME: document this
 <hr>
 
 ### [`add-dependencies-in`](../../2.5.2/boot/pod/src/boot/pod.clj#L339)
-
-_function_
 
 ```clojure
 (add-dependencies-in pod env)
@@ -54,8 +48,6 @@ FIXME: document this
 
 ### [`add-dependencies-worker`](../../2.5.2/boot/pod/src/boot/pod.clj#L344)
 
-_function_
-
 ```clojure
 (add-dependencies-worker env)
 ```
@@ -67,8 +59,6 @@ FIXME: document this
 <hr>
 
 ### [`add-shutdown-hook!`](../../2.5.2/boot/pod/src/boot/pod.clj#L207)
-
-_function_
 
 ```clojure
 (add-shutdown-hook! f)
@@ -82,8 +72,6 @@ FIXME: document this
 
 ### [`apply-exclusions`](../../2.5.2/boot/pod/src/boot/pod.clj#L320)
 
-_function_
-
 ```clojure
 (apply-exclusions excl [p v & opts :as dep])
 ```
@@ -95,8 +83,6 @@ FIXME: document this
 <hr>
 
 ### [`apply-global-exclusions`](../../2.5.2/boot/pod/src/boot/pod.clj#L331)
-
-_function_
 
 ```clojure
 (apply-global-exclusions excl deps)
@@ -110,8 +96,6 @@ FIXME: document this
 
 ### [`call-in*`](../../2.5.2/boot/pod/src/boot/pod.clj#L226)
 
-_function_
-
 ```clojure
 (call-in* expr) (call-in* pod expr)
 ```
@@ -123,8 +107,6 @@ FIXME: document this
 <hr>
 
 ### [`caller-namespace`](../../2.5.2/boot/pod/src/boot/pod.clj#L483)
-
-_macro_
 
 ```clojure
 (caller-namespace)
@@ -138,8 +120,6 @@ FIXME: document this
 
 ### [`canonical-coord`](../../2.5.2/boot/pod/src/boot/pod.clj#L280)
 
-_function_
-
 ```clojure
 (canonical-coord [id & more :as coord])
 ```
@@ -151,8 +131,6 @@ FIXME: document this
 <hr>
 
 ### [`classloader-hierarchy`](../../2.5.2/boot/pod/src/boot/pod.clj#L36)
-
-_function_
 
 ```clojure
 (classloader-hierarchy) (classloader-hierarchy tip)
@@ -167,8 +145,6 @@ if one is not provided.
 <hr>
 
 ### [`classloader-resources`](../../2.5.2/boot/pod/src/boot/pod.clj#L80)
-
-_function_
 
 ```clojure
 (classloader-resources resource-name) (classloader-resources classloaders resource-name)
@@ -187,8 +163,6 @@ what clojure.java.io/resource returns.
 
 ### [`concat-merger`](../../2.5.2/boot/pod/src/boot/pod.clj#L383)
 
-_function_
-
 ```clojure
 (concat-merger prev new out)
 ```
@@ -200,8 +174,6 @@ FIXME: document this
 <hr>
 
 ### [`copy-dependency-jar-entries`](../../2.5.2/boot/pod/src/boot/pod.clj#L420)
-
-_function_
 
 ```clojure
 (copy-dependency-jar-entries env outdir coord & regexes)
@@ -215,8 +187,6 @@ FIXME: document this
 
 ### [`copy-resource`](../../2.5.2/boot/pod/src/boot/pod.clj#L165)
 
-_function_
-
 ```clojure
 (copy-resource resource-path out-path)
 ```
@@ -228,8 +198,6 @@ FIXME: document this
 <hr>
 
 ### [`copy-url`](../../2.5.2/boot/pod/src/boot/pod.clj#L175)
-
-_function_
 
 ```clojure
 (copy-url url-str out-path & {:keys [cache], :or {cache true}})
@@ -243,8 +211,6 @@ FIXME: document this
 
 ### [`data`](../../2.5.2/boot/pod/src/boot/pod.clj#L182)
 
-_var_
-
 ```
 FIXME: document this
 ```
@@ -252,8 +218,6 @@ FIXME: document this
 <hr>
 
 ### [`default-dependencies`](../../2.5.2/boot/pod/src/boot/pod.clj#L476)
-
-_function_
 
 ```clojure
 (default-dependencies deps {:keys [dependencies], :as env})
@@ -267,8 +231,6 @@ FIXME: document this
 
 ### [`dependency-loaded?`](../../2.5.2/boot/pod/src/boot/pod.clj#L128)
 
-_function_
-
 ```clojure
 (dependency-loaded? [project & _])
 ```
@@ -280,8 +242,6 @@ FIXME: document this
 <hr>
 
 ### [`dependency-pom-properties`](../../2.5.2/boot/pod/src/boot/pod.clj#L133)
-
-_function_
 
 ```clojure
 (dependency-pom-properties coord)
@@ -295,8 +255,6 @@ FIXME: document this
 
 ### [`dependency-pom-properties-map`](../../2.5.2/boot/pod/src/boot/pod.clj#L138)
 
-_function_
-
 ```clojure
 (dependency-pom-properties-map coord)
 ```
@@ -308,8 +266,6 @@ FIXME: document this
 <hr>
 
 ### [`destroy-pod`](../../2.5.2/boot/pod/src/boot/pod.clj#L507)
-
-_function_
 
 ```clojure
 (destroy-pod pod)
@@ -323,8 +279,6 @@ FIXME: document this
 
 ### [`env`](../../2.5.2/boot/pod/src/boot/pod.clj#L181)
 
-_var_
-
 ```
 FIXME: document this
 ```
@@ -332,8 +286,6 @@ FIXME: document this
 <hr>
 
 ### [`eval-fn-call`](../../2.5.2/boot/pod/src/boot/pod.clj#L219)
-
-_function_
 
 ```clojure
 (eval-fn-call [f & args])
@@ -347,8 +299,6 @@ FIXME: document this
 
 ### [`eval-in*`](../../2.5.2/boot/pod/src/boot/pod.clj#L254)
 
-_function_
-
 ```clojure
 (eval-in* expr) (eval-in* pod expr)
 ```
@@ -360,8 +310,6 @@ FIXME: document this
 <hr>
 
 ### [`extract-ids`](../../2.5.2/boot/pod/src/boot/pod.clj#L22)
-
-_function_
 
 ```clojure
 (extract-ids sym)
@@ -375,8 +323,6 @@ FIXME: document this
 
 ### [`first-wins-merger`](../../2.5.2/boot/pod/src/boot/pod.clj#L389)
 
-_function_
-
 ```clojure
 (first-wins-merger prev _ out)
 ```
@@ -388,8 +334,6 @@ FIXME: document this
 <hr>
 
 ### [`get-classpath`](../../2.5.2/boot/pod/src/boot/pod.clj#L65)
-
-_function_
 
 ```clojure
 (get-classpath) (get-classpath classloaders)
@@ -410,8 +354,6 @@ at subsets of the current classloader hierarchy, e.g.:
 
 ### [`get-pods`](../../2.5.2/boot/pod/src/boot/pod.clj#L193)
 
-_function_
-
 ```clojure
 (get-pods name-or-pattern) (get-pods name-or-pattern unique?)
 ```
@@ -424,8 +366,6 @@ FIXME: document this
 
 ### [`into-merger`](../../2.5.2/boot/pod/src/boot/pod.clj#L376)
 
-_function_
-
 ```clojure
 (into-merger prev new out)
 ```
@@ -437,8 +377,6 @@ FIXME: document this
 <hr>
 
 ### [`jar-entries`](../../2.5.2/boot/pod/src/boot/pod.clj#L366)
-
-_function_
 
 ```clojure
 (jar-entries path-or-jarfile & {:keys [cache], :or {cache true}})
@@ -453,8 +391,6 @@ string pairs corresponding to all entries contained the jar contains.
 
 ### [`jar-entries*`](../../2.5.2/boot/pod/src/boot/pod.clj#L348)
 
-_function_
-
 ```clojure
 (jar-entries* path-or-jarfile)
 ```
@@ -467,8 +403,6 @@ FIXME: document this
 
 ### [`jar-entries-memoized*`](../../2.5.2/boot/pod/src/boot/pod.clj#L364)
 
-_function_
-
 ```
 FIXME: document this
 ```
@@ -476,8 +410,6 @@ FIXME: document this
 <hr>
 
 ### [`jars-dep-graph`](../../2.5.2/boot/pod/src/boot/pod.clj#L412)
-
-_function_
 
 ```clojure
 (jars-dep-graph env)
@@ -491,8 +423,6 @@ FIXME: document this
 
 ### [`jars-in-dep-order`](../../2.5.2/boot/pod/src/boot/pod.clj#L416)
 
-_function_
-
 ```clojure
 (jars-in-dep-order env)
 ```
@@ -504,8 +434,6 @@ FIXME: document this
 <hr>
 
 ### [`lifecycle-pool`](../../2.5.2/boot/pod/src/boot/pod.clj#L435)
-
-_function_
 
 ```clojure
 (lifecycle-pool size create destroy & {:keys [priority]})
@@ -519,8 +447,6 @@ FIXME: document this
 
 ### [`make-pod`](../../2.5.2/boot/pod/src/boot/pod.clj#L492)
 
-_function_
-
 ```clojure
 (make-pod) (make-pod {:keys [directories dependencies], :as env})
 ```
@@ -532,8 +458,6 @@ FIXME: document this
 <hr>
 
 ### [`modifiable-classloader?`](../../2.5.2/boot/pod/src/boot/pod.clj#L43)
-
-_function_
 
 ```clojure
 (modifiable-classloader? cl)
@@ -549,8 +473,6 @@ be modified.
 
 ### [`non-caching-url-input-stream`](../../2.5.2/boot/pod/src/boot/pod.clj#L171)
 
-_function_
-
 ```clojure
 (non-caching-url-input-stream url-str)
 ```
@@ -562,8 +484,6 @@ FIXME: document this
 <hr>
 
 ### [`outdated`](../../2.5.2/boot/pod/src/boot/pod.clj#L307)
-
-_function_
 
 ```clojure
 (outdated env & {:keys [snapshots]})
@@ -577,8 +497,6 @@ FIXME: document this
 
 ### [`pod-id`](../../2.5.2/boot/pod/src/boot/pod.clj#L184)
 
-_var_
-
 ```
 FIXME: document this
 ```
@@ -586,8 +504,6 @@ FIXME: document this
 <hr>
 
 ### [`pod-pool`](../../2.5.2/boot/pod/src/boot/pod.clj#L513)
-
-_function_
 
 ```clojure
 (pod-pool env & {:keys [size init destroy]})
@@ -631,8 +547,6 @@ Options:
 
 ### [`pods`](../../2.5.2/boot/pod/src/boot/pod.clj#L183)
 
-_var_
-
 ```
 FIXME: document this
 ```
@@ -640,8 +554,6 @@ FIXME: document this
 <hr>
 
 ### [`pom-properties`](../../2.5.2/boot/pod/src/boot/pod.clj#L110)
-
-_function_
 
 ```clojure
 (pom-properties jarpath)
@@ -655,8 +567,6 @@ FIXME: document this
 
 ### [`pom-properties-map`](../../2.5.2/boot/pod/src/boot/pod.clj#L142)
 
-_function_
-
 ```clojure
 (pom-properties-map prop-or-jarpath)
 ```
@@ -668,8 +578,6 @@ FIXME: document this
 <hr>
 
 ### [`pom-xml`](../../2.5.2/boot/pod/src/boot/pod.clj#L150)
-
-_function_
 
 ```clojure
 (pom-xml jarpath) (pom-xml jarpath pompath)
@@ -683,8 +591,6 @@ FIXME: document this
 
 ### [`pom-xml-map`](../../2.5.2/boot/pod/src/boot/pod.clj#L246)
 
-_function_
-
 ```clojure
 (pom-xml-map jarpath) (pom-xml-map jarpath pompath)
 ```
@@ -696,8 +602,6 @@ FIXME: document this
 <hr>
 
 ### [`require-in`](../../2.5.2/boot/pod/src/boot/pod.clj#L274)
-
-_function_
 
 ```clojure
 (require-in pod ns)
@@ -711,8 +615,6 @@ FIXME: document this
 
 ### [`resolve-dependencies`](../../2.5.2/boot/pod/src/boot/pod.clj#L285)
 
-_function_
-
 ```clojure
 (resolve-dependencies env)
 ```
@@ -724,8 +626,6 @@ FIXME: document this
 <hr>
 
 ### [`resolve-dependency-jar`](../../2.5.2/boot/pod/src/boot/pod.clj#L301)
-
-_function_
 
 ```clojure
 (resolve-dependency-jar env coord)
@@ -739,8 +639,6 @@ FIXME: document this
 
 ### [`resolve-dependency-jars`](../../2.5.2/boot/pod/src/boot/pod.clj#L289)
 
-_function_
-
 ```clojure
 (resolve-dependency-jars env & [ignore-clj?])
 ```
@@ -753,8 +651,6 @@ FIXME: document this
 
 ### [`resolve-nontransitive-dependencies`](../../2.5.2/boot/pod/src/boot/pod.clj#L297)
 
-_function_
-
 ```clojure
 (resolve-nontransitive-dependencies env dep)
 ```
@@ -766,8 +662,6 @@ FIXME: document this
 <hr>
 
 ### [`resources`](../../2.5.2/boot/pod/src/boot/pod.clj#L93)
-
-_function_
 
 ```clojure
 (resources resource-name) (resources classloaders resource-name)
@@ -785,8 +679,6 @@ as what clojure.java.io/resource returns.
 
 ### [`seal-app-classloader`](../../2.5.2/boot/pod/src/boot/pod.clj#L27)
 
-_function_
-
 ```clojure
 (seal-app-classloader)
 ```
@@ -798,8 +690,6 @@ see https://github.com/clojure-emacs/cider-nrepl#with-immutant
 <hr>
 
 ### [`send!`](../../2.5.2/boot/pod/src/boot/pod.clj#L213)
-
-_function_
 
 ```clojure
 (send! form)
@@ -813,8 +703,6 @@ This is ALPHA status, it may change, be renamed, or removed.
 
 ### [`set-data!`](../../2.5.2/boot/pod/src/boot/pod.clj#L189)
 
-_function_
-
 ```clojure
 (set-data! x)
 ```
@@ -826,8 +714,6 @@ FIXME: document this
 <hr>
 
 ### [`set-pod-id!`](../../2.5.2/boot/pod/src/boot/pod.clj#L190)
-
-_function_
 
 ```clojure
 (set-pod-id! x)
@@ -841,8 +727,6 @@ FIXME: document this
 
 ### [`set-pods!`](../../2.5.2/boot/pod/src/boot/pod.clj#L188)
 
-_function_
-
 ```clojure
 (set-pods! x)
 ```
@@ -854,8 +738,6 @@ FIXME: document this
 <hr>
 
 ### [`set-worker-pod!`](../../2.5.2/boot/pod/src/boot/pod.clj#L191)
-
-_function_
 
 ```clojure
 (set-worker-pod! x)
@@ -869,8 +751,6 @@ FIXME: document this
 
 ### [`shutdown-hooks`](../../2.5.2/boot/pod/src/boot/pod.clj#L186)
 
-_var_
-
 ```
 FIXME: document this
 ```
@@ -878,8 +758,6 @@ FIXME: document this
 <hr>
 
 ### [`standard-jar-exclusions`](../../2.5.2/boot/pod/src/boot/pod.clj#L372)
-
-_var_
 
 ```
 FIXME: document this
@@ -889,8 +767,6 @@ FIXME: document this
 
 ### [`standard-jar-mergers`](../../2.5.2/boot/pod/src/boot/pod.clj#L392)
 
-_var_
-
 ```
 FIXME: document this
 ```
@@ -898,8 +774,6 @@ FIXME: document this
 <hr>
 
 ### [`unpack-jar`](../../2.5.2/boot/pod/src/boot/pod.clj#L397)
-
-_function_
 
 ```clojure
 (unpack-jar jar-path dest-dir & opts)
@@ -913,8 +787,6 @@ FIXME: document this
 
 ### [`with-call-in`](../../2.5.2/boot/pod/src/boot/pod.clj#L236)
 
-_macro_
-
 ```clojure
 (with-call-in pod expr)
 ```
@@ -926,8 +798,6 @@ FIXME: document this
 <hr>
 
 ### [`with-call-worker`](../../2.5.2/boot/pod/src/boot/pod.clj#L242)
-
-_macro_
 
 ```clojure
 (with-call-worker expr)
@@ -941,8 +811,6 @@ FIXME: document this
 
 ### [`with-eval-in`](../../2.5.2/boot/pod/src/boot/pod.clj#L264)
 
-_macro_
-
 ```clojure
 (with-eval-in pod & body)
 ```
@@ -955,8 +823,6 @@ FIXME: document this
 
 ### [`with-eval-worker`](../../2.5.2/boot/pod/src/boot/pod.clj#L270)
 
-_macro_
-
 ```clojure
 (with-eval-worker & body)
 ```
@@ -968,8 +834,6 @@ FIXME: document this
 <hr>
 
 ### [`worker-pod`](../../2.5.2/boot/pod/src/boot/pod.clj#L185)
-
-_var_
 
 ```
 FIXME: document this

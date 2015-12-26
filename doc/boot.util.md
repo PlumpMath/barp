@@ -9,8 +9,6 @@ life easier in Boot scripts.
 
 ### [`*colorize?*`](../../2.5.2/boot/pod/src/boot/util.clj#L32)
 
-_dynamic_
-
 ```
 FIXME: document this
 ```
@@ -18,8 +16,6 @@ FIXME: document this
 <hr>
 
 ### [`*sh-dir*`](../../2.5.2/boot/pod/src/boot/util.clj#L212)
-
-_dynamic_
 
 ```
 FIXME: document this
@@ -29,8 +25,6 @@ FIXME: document this
 
 ### [`*verbosity*`](../../2.5.2/boot/pod/src/boot/util.clj#L31)
 
-_dynamic_
-
 ```
 FIXME: document this
 ```
@@ -38,8 +32,6 @@ FIXME: document this
 <hr>
 
 ### [`auto-flush`](../../2.5.2/boot/pod/src/boot/util.clj#L171)
-
-_function_
 
 ```clojure
 (auto-flush writer)
@@ -53,8 +45,6 @@ FIXME: document this
 
 ### [`bind-syms`](../../2.5.2/boot/pod/src/boot/util.clj#L203)
 
-_function_
-
 ```clojure
 (bind-syms form)
 ```
@@ -66,8 +56,6 @@ FIXME: document this
 <hr>
 
 ### [`colorize?-system-default`](../../2.5.2/boot/pod/src/boot/util.clj#L21)
-
-_function_
 
 ```clojure
 (colorize?-system-default)
@@ -86,8 +74,6 @@ turn it off.
 
 ### [`dbug`](../../2.5.2/boot/pod/src/boot/util.clj#L41)
 
-_function_
-
 ```clojure
 (dbug & more)
 ```
@@ -99,8 +85,6 @@ FIXME: document this
 <hr>
 
 ### [`dep-as-map`](../../2.5.2/boot/pod/src/boot/util.clj#L189)
-
-_function_
 
 ```clojure
 (dep-as-map [project version & kvs])
@@ -114,8 +98,6 @@ FIXME: document this
 
 ### [`do-while-let`](../../2.5.2/boot/pod/src/boot/util.clj#L82)
 
-_macro_
-
 ```clojure
 (do-while-let [binding test] & body)
 ```
@@ -127,8 +109,6 @@ Like while-let, except that the body is executed at least once.
 <hr>
 
 ### [`dosh`](../../2.5.2/boot/pod/src/boot/util.clj#L222)
-
-_function_
 
 ```clojure
 (dosh & args)
@@ -142,8 +122,6 @@ FIXME: document this
 
 ### [`dotoseq`](../../2.5.2/boot/pod/src/boot/util.clj#L89)
 
-_macro_
-
 ```clojure
 (dotoseq obj seq-exprs & body)
 ```
@@ -155,8 +133,6 @@ FIXME: document this
 <hr>
 
 ### [`exit-error`](../../2.5.2/boot/pod/src/boot/util.clj#L118)
-
-_macro_
 
 ```clojure
 (exit-error & body)
@@ -170,8 +146,6 @@ FIXME: document this
 
 ### [`exit-ok`](../../2.5.2/boot/pod/src/boot/util.clj#L124)
 
-_macro_
-
 ```clojure
 (exit-ok & body)
 ```
@@ -183,8 +157,6 @@ FIXME: document this
 <hr>
 
 ### [`extract-ids`](../../2.5.2/boot/pod/src/boot/util.clj#L184)
-
-_function_
 
 ```clojure
 (extract-ids sym)
@@ -198,8 +170,6 @@ FIXME: document this
 
 ### [`fail`](../../2.5.2/boot/pod/src/boot/util.clj#L44)
 
-_function_
-
 ```clojure
 (fail & more)
 ```
@@ -211,8 +181,6 @@ FIXME: document this
 <hr>
 
 ### [`guard`](../../2.5.2/boot/pod/src/boot/util.clj#L108)
-
-_macro_
 
 ```clojure
 (guard expr & [default])
@@ -226,8 +194,6 @@ Returns nil instead of throwing exceptions.
 
 ### [`index-of`](../../2.5.2/boot/pod/src/boot/util.clj#L199)
 
-_function_
-
 ```clojure
 (index-of v val)
 ```
@@ -239,8 +205,6 @@ FIXME: document this
 <hr>
 
 ### [`info`](../../2.5.2/boot/pod/src/boot/util.clj#L42)
-
-_function_
 
 ```clojure
 (info & more)
@@ -254,8 +218,6 @@ FIXME: document this
 
 ### [`jarname`](../../2.5.2/boot/pod/src/boot/util.clj#L195)
 
-_function_
-
 ```clojure
 (jarname project version)
 ```
@@ -267,8 +229,6 @@ FIXME: document this
 <hr>
 
 ### [`let-assert-keys`](../../2.5.2/boot/pod/src/boot/util.clj#L98)
-
-_macro_
 
 ```clojure
 (let-assert-keys binding & body)
@@ -283,8 +243,6 @@ is missing.
 
 ### [`path->ns`](../../2.5.2/boot/pod/src/boot/util.clj#L166)
 
-_function_
-
 ```clojure
 (path->ns path)
 ```
@@ -296,8 +254,6 @@ FIXME: document this
 <hr>
 
 ### [`pp*`](../../2.5.2/boot/pod/src/boot/util.clj#L208)
-
-_function_
 
 ```clojure
 (pp* expr)
@@ -311,8 +267,6 @@ FIXME: document this
 
 ### [`pp-str`](../../2.5.2/boot/pod/src/boot/util.clj#L209)
 
-_function_
-
 ```clojure
 (pp-str expr)
 ```
@@ -324,8 +278,6 @@ FIXME: document this
 <hr>
 
 ### [`print-ex`](../../2.5.2/boot/pod/src/boot/util.clj#L145)
-
-_function_
 
 ```clojure
 (print-ex ex)
@@ -339,8 +291,6 @@ FIXME: document this
 
 ### [`print-tree`](../../2.5.2/boot/pod/src/boot/util.clj#L154)
 
-_function_
-
 ```clojure
 (print-tree tree & [prefixes])
 ```
@@ -352,8 +302,6 @@ FIXME: document this
 <hr>
 
 ### [`read-string-all`](../../2.5.2/boot/pod/src/boot/util.clj#L210)
-
-_function_
 
 ```clojure
 (read-string-all s)
@@ -367,8 +315,6 @@ FIXME: document this
 
 ### [`sh`](../../2.5.2/boot/pod/src/boot/util.clj#L214)
 
-_function_
-
 ```clojure
 (sh & args)
 ```
@@ -380,8 +326,6 @@ FIXME: document this
 <hr>
 
 ### [`warn`](../../2.5.2/boot/pod/src/boot/util.clj#L43)
-
-_function_
 
 ```clojure
 (warn & more)
@@ -395,8 +339,6 @@ FIXME: document this
 
 ### [`warn-deprecated`](../../2.5.2/boot/pod/src/boot/util.clj#L46)
 
-_function_
-
 ```clojure
 (warn-deprecated & args)
 ```
@@ -408,8 +350,6 @@ FIXME: document this
 <hr>
 
 ### [`while-let`](../../2.5.2/boot/pod/src/boot/util.clj#L75)
-
-_macro_
 
 ```clojure
 (while-let [binding test] & body)
@@ -423,8 +363,6 @@ expression is bound to binding.
 <hr>
 
 ### [`with-err-str`](../../2.5.2/boot/pod/src/boot/util.clj#L134)
-
-_macro_
 
 ```clojure
 (with-err-str & body)
@@ -441,8 +379,6 @@ http://stackoverflow.com/questions/17314128/get-stacktrace-as-string
 
 ### [`with-let`](../../2.5.2/boot/pod/src/boot/util.clj#L69)
 
-_macro_
-
 ```clojure
 (with-let [binding resource] & body)
 ```
@@ -456,8 +392,6 @@ resource.  It's a cross between doto and with-open.
 
 ### [`with-resolve`](../../2.5.2/boot/pod/src/boot/util.clj#L93)
 
-_macro_
-
 ```clojure
 (with-resolve bindings & body)
 ```
@@ -469,8 +403,6 @@ FIXME: document this
 <hr>
 
 ### [`with-rethrow`](../../2.5.2/boot/pod/src/boot/util.clj#L113)
-
-_macro_
 
 ```clojure
 (with-rethrow expr message)
@@ -484,8 +416,6 @@ Evaluates expr and rethrows any thrown exceptions with the given message.
 
 ### [`with-semaphore`](../../2.5.2/boot/pod/src/boot/util.clj#L51)
 
-_macro_
-
 ```clojure
 (with-semaphore sem & body)
 ```
@@ -498,8 +428,6 @@ FIXME: document this
 
 ### [`with-semaphore-noblock`](../../2.5.2/boot/pod/src/boot/util.clj#L60)
 
-_macro_
-
 ```clojure
 (with-semaphore-noblock sem & body)
 ```
@@ -511,8 +439,6 @@ FIXME: document this
 <hr>
 
 ### [`without-exiting`](../../2.5.2/boot/pod/src/boot/util.clj#L230)
-
-_macro_
 
 ```clojure
 (without-exiting & body)
