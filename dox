@@ -59,12 +59,11 @@
   (remove nil? [(when name (h1 name)) (when doc (p (strip-indent doc)))]))
 
 (defn emit-toc [xs]
-  (->> xs (mapcat (fn [{:keys [title vars]}]
-                    (-> (->> (map (fn [[x _]] (link (code x) (fmt-link x))) vars)
-                             (interpose " ")
-                             (cons (when title (li title)))
-                             (remove nil?))
-                        (concat ["\n\n"]))))))
+  (->> xs (map (fn [{:keys [title vars]}]
+                 (li (->> (map (fn [[x _]] (link (code x) (fmt-link x))) vars)
+                          (interpose " ")
+                          (cons title)
+                          (apply str)))))))
 
 (defn sections [x]
   (->> (assoc (:doc/toc x) nil {})
