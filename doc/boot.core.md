@@ -2,7 +2,7 @@
 
 The Boot core namespace, containing most of Boot's public API.
 
-[`boot`](#boot) [`by-ext`](#by-ext) [`by-name`](#by-name) [`by-path`](#by-path) [`by-re`](#by-re) [`cleanup`](#cleanup) [`configure-repositories!`](#configure-repositories) [`deftask`](#deftask) [`disable-task!`](#disable-task) [`empty-dir!`](#empty-dir) [`file-filter`](#file-filter) [`fileset-reduce`](#fileset-reduce) [`git-files`](#git-files) [`gpg-decrypt`](#gpg-decrypt) [`init!`](#init) [`json-generate`](#json-generate) [`json-parse`](#json-parse) [`launch-nrepl`](#launch-nrepl) [`merge-env!`](#merge-env) [`not-by-ext`](#not-by-ext) [`not-by-name`](#not-by-name) [`not-by-path`](#not-by-path) [`not-by-re`](#not-by-re) [`post-env!`](#post-env) [`pre-env!`](#pre-env) [`rebuild!`](#rebuild) [`replace-task!`](#replace-task) [`reset-build!`](#reset-build) [`reset-fileset`](#reset-fileset) [`sync!`](#sync) [`task-options!`](#task-options) [`temp-dir!`](#temp-dir) [`tmpdir`](#tmpdir) [`tmpfile`](#tmpfile) [`tmpget`](#tmpget) [`tmppath`](#tmppath) [`tmptime`](#tmptime) [`touch`](#touch) [`watch-dirs`](#watch-dirs) [`with-pass-thru`](#with-pass-thru) [`with-post-wrap`](#with-post-wrap) [`with-pre-wrap`](#with-pre-wrap) [`yaml-generate`](#yaml-generate) [`yaml-parse`](#yaml-parse) 
+[`boot`](#boot) [`by-ext`](#by-ext) [`by-name`](#by-name) [`by-path`](#by-path) [`by-re`](#by-re) [`cleanup`](#cleanup) [`configure-repositories!`](#configure-repositories) [`deftask`](#deftask) [`disable-task!`](#disable-task) [`empty-dir!`](#empty-dir) [`file-filter`](#file-filter) [`fileset-reduce`](#fileset-reduce) [`git-files`](#git-files) [`gpg-decrypt`](#gpg-decrypt) [`init!`](#init) [`json-generate`](#json-generate) [`json-parse`](#json-parse) [`launch-nrepl`](#launch-nrepl) [`merge-env!`](#merge-env) [`not-by-ext`](#not-by-ext) [`not-by-name`](#not-by-name) [`not-by-path`](#not-by-path) [`not-by-re`](#not-by-re) [`rebuild!`](#rebuild) [`replace-task!`](#replace-task) [`reset-build!`](#reset-build) [`reset-fileset`](#reset-fileset) [`sync!`](#sync) [`task-options!`](#task-options) [`temp-dir!`](#temp-dir) [`tmpdir`](#tmpdir) [`tmpfile`](#tmpfile) [`tmpget`](#tmpget) [`tmppath`](#tmppath) [`tmptime`](#tmptime) [`touch`](#touch) [`watch-dirs`](#watch-dirs) [`with-pass-thru`](#with-pass-thru) [`with-post-wrap`](#with-post-wrap) [`with-pre-wrap`](#with-pre-wrap) [`yaml-generate`](#yaml-generate) [`yaml-parse`](#yaml-parse) 
 
 #### Configure Boot
 
@@ -52,9 +52,9 @@ The Boot core namespace, containing most of Boot's public API.
 
 [`fileset-added`](#fileset-added) [`fileset-changed`](#fileset-changed) [`fileset-diff`](#fileset-diff) [`fileset-removed`](#fileset-removed) 
 
-#### Environment
+#### Boot Environment
 
-[`get-env`](#get-env) [`get-sys-env`](#get-sys-env) [`set-env!`](#set-env) [`set-sys-env!`](#set-sys-env) 
+[`get-env`](#get-env) [`get-sys-env`](#get-sys-env) [`post-env!`](#post-env) [`pre-env!`](#pre-env) [`set-env!`](#set-env) [`set-sys-env!`](#set-sys-env) 
 
 <hr>
 

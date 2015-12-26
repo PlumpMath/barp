@@ -218,6 +218,12 @@
       fileset-added
       fileset-removed
       fileset-changed)
+
+    (section
+      "Boot Environment"
+      get-env set-env!
+      get-sys-env set-sys-env!
+      pre-env! post-env!)
     )
 
   (print test-str)
