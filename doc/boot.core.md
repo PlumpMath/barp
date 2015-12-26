@@ -70,10 +70,6 @@ The Boot core namespace, containing most of Boot's public API.
 
 _dynamic_
 
-```clojure
-
-```
-
 ```
 The running version of boot app.
 ```
@@ -83,10 +79,6 @@ The running version of boot app.
 ### [`*boot-opts*`](../../2.5.2/boot/core/src/boot/core.clj#L32)
 
 _dynamic_
-
-```clojure
-
-```
 
 ```
 Command line options for boot itself.
@@ -98,10 +90,6 @@ Command line options for boot itself.
 
 _dynamic_
 
-```clojure
-
-```
-
 ```
 The script's name (when run as script).
 ```
@@ -112,10 +100,6 @@ The script's name (when run as script).
 
 _dynamic_
 
-```clojure
-
-```
-
 ```
 The running version of boot core.
 ```
@@ -125,10 +109,6 @@ The running version of boot core.
 ### [`*warnings*`](../../2.5.2/boot/core/src/boot/core.clj#L33)
 
 _dynamic_
-
-```clojure
-
-```
 
 ```
 Count of warnings during build.
@@ -256,10 +236,6 @@ Otherwise they are assumed to evaluate to task middleware.
 ### [`bootignore`](../../2.5.2/boot/core/src/boot/core.clj#L37)
 
 _var_
-
-```clojure
-
-```
 
 ```
 Set of regexes source file paths must not match.
@@ -718,10 +694,6 @@ Same as cheshire.core/parse-string.
 
 _var_
 
-```clojure
-
-```
-
 ```
 Last source file watcher update time.
 ```
@@ -848,10 +820,6 @@ FIXME: document
 
 _var_
 
-```clojure
-
-```
-
 ```
 Latest build occured at time.
 ```
@@ -861,10 +829,6 @@ Latest build occured at time.
 ### [`new-fileset`](../../2.5.2/boot/core/src/boot/core.clj#L80)
 
 _function_
-
-```clojure
-
-```
 
 ```
 FIXME: document this
@@ -974,10 +938,6 @@ FIXME: document
 
 _multimethod_
 
-```clojure
-
-```
-
 ```
 Event handler called when the env atom is modified. This handler is for
 performing side-effects associated with maintaining the application state in
@@ -990,10 +950,6 @@ the new directories to the classpath.
 ### [`pre-env!`](../../2.5.2/boot/core/src/boot/core.clj#L600)
 
 _multimethod_
-
-```clojure
-
-```
 
 ```
 This multimethod is used to modify how new values are merged into the boot

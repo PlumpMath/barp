@@ -11,10 +11,6 @@ life easier in Boot scripts.
 
 _dynamic_
 
-```clojure
-
-```
-
 ```
 FIXME: document this
 ```
@@ -25,10 +21,6 @@ FIXME: document this
 
 _dynamic_
 
-```clojure
-
-```
-
 ```
 FIXME: document this
 ```
@@ -38,10 +30,6 @@ FIXME: document this
 ### [`*verbosity*`](../../2.5.2/boot/pod/src/boot/util.clj#L31)
 
 _dynamic_
-
-```clojure
-
-```
 
 ```
 FIXME: document this

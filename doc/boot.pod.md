@@ -245,10 +245,6 @@ FIXME: document this
 
 _var_
 
-```clojure
-
-```
-
 ```
 FIXME: document this
 ```
@@ -328,10 +324,6 @@ FIXME: document this
 ### [`env`](../../2.5.2/boot/pod/src/boot/pod.clj#L181)
 
 _var_
-
-```clojure
-
-```
 
 ```
 FIXME: document this
@@ -477,10 +469,6 @@ FIXME: document this
 
 _function_
 
-```clojure
-
-```
-
 ```
 FIXME: document this
 ```
@@ -591,10 +579,6 @@ FIXME: document this
 
 _var_
 
-```clojure
-
-```
-
 ```
 FIXME: document this
 ```
@@ -648,10 +632,6 @@ Options:
 ### [`pods`](../../2.5.2/boot/pod/src/boot/pod.clj#L183)
 
 _var_
-
-```clojure
-
-```
 
 ```
 FIXME: document this
@@ -891,10 +871,6 @@ FIXME: document this
 
 _var_
 
-```clojure
-
-```
-
 ```
 FIXME: document this
 ```
@@ -905,10 +881,6 @@ FIXME: document this
 
 _var_
 
-```clojure
-
-```
-
 ```
 FIXME: document this
 ```
@@ -918,10 +890,6 @@ FIXME: document this
 ### [`standard-jar-mergers`](../../2.5.2/boot/pod/src/boot/pod.clj#L392)
 
 _var_
-
-```clojure
-
-```
 
 ```
 FIXME: document this
@@ -1002,10 +970,6 @@ FIXME: document this
 ### [`worker-pod`](../../2.5.2/boot/pod/src/boot/pod.clj#L185)
 
 _var_
-
-```clojure
-
-```
 
 ```
 FIXME: document this

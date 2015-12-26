@@ -44,7 +44,8 @@
       (.replaceAll "!" "")))
 
 (defn emit-arglists [name arglists]
-  (some->> (sort-by count arglists)
+  (some->> arglists
+           (sort-by count)
            (map #(pr-str (list* name %)))
            (join " ")
            (block "clojure")))
