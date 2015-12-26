@@ -239,6 +239,14 @@
       fileset-removed
       fileset-changed)
 
+    (section
+      "Misc. Helpers"
+      gpg-decrypt
+      json-generate json-parse
+      yaml-generate yaml-parse
+      touch
+      git-files)
+
     )
 
   (print test-str)
