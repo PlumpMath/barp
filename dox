@@ -110,7 +110,7 @@
   [title intro & syms]
   `(section* ~title ~intro ~@(map (partial list 'quote) syms)))
 
-(defn write-docs
+(defn generate-docs
   [ns out src-path ns-doc]
   (let [ns *doc-ns-sym*
         n  (find-ns ns)]
@@ -125,7 +125,7 @@
   `(binding [*doc-ns-sym* '~ns]
      (alter-meta! (find-ns '~ns) assoc :doc/toc nil)
      (do ~@sections)
-     (write-docs '~ns ~out ~src-path ~ns-doc)))
+     (generate-docs '~ns ~out ~src-path ~ns-doc)))
 
 (comment
 
