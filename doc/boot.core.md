@@ -47,7 +47,6 @@ The Boot core namespace, containing most of Boot's public API.
 * [`mv-asset`](#mv-asset)
 * [`mv-resource`](#mv-resource)
 * [`mv-source`](#mv-source)
-* [`new-fileset`](#new-fileset)
 * [`not-by-ext`](#not-by-ext)
 * [`not-by-name`](#not-by-name)
 * [`not-by-path`](#not-by-path)
@@ -98,6 +97,10 @@ The Boot core namespace, containing most of Boot's public API.
 * [`bootignore`](#bootignore)
 * [`last-file-change`](#last-file-change)
 * [`new-build-at`](#new-build-at)
+
+#### Fileset Construction
+
+* [`new-fileset`](#new-fileset)
 
 ### [`add-asset`](../../2.5.2/boot/core/src/boot/core.clj#L419)
 
@@ -775,16 +778,6 @@ _function_
 
 ```
 FIXME: document
-```
-
-<hr>
-
-### [`new-fileset`](../../2.5.2/boot/core/src/boot/core.clj#L80)
-
-_function_
-
-```
-FIXME: document this
 ```
 
 <hr>
@@ -1482,6 +1475,18 @@ _var_
 
 ```
 Latest build occured at time.
+```
+
+<hr>
+
+## Fileset Construction
+
+### [`new-fileset`](../../2.5.2/boot/core/src/boot/core.clj#L80)
+
+_function_
+
+```
+FIXME: document this
 ```
 
 <hr>
