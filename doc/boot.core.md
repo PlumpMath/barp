@@ -102,6 +102,8 @@ The Boot core namespace, containing most of Boot's public API.
 
 * [`new-fileset`](#new-fileset)
 
+<hr>
+
 ### [`*app-version*`](../../2.5.2/boot/core/src/boot/core.clj#L29)
 
 _dynamic_

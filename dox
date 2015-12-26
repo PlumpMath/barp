@@ -99,6 +99,7 @@
                             (reduce-kv #(assoc %1 %2 (e (var-get (ns-resolve n %2)) %3)) {})))
         s (sections m)]
     (->> (emit-vars s)
+         (concat (list "<hr>\n\n"))
          (concat (emit-toc s))
          (concat (emit-ns m))
          (apply str))))
