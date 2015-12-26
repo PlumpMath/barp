@@ -7,7 +7,7 @@
 (require
   '[boot.file :as file]
   '[clojure.java.io :as io]
-  '[clojure.string :as string :refer [join split trimr]])
+  '[clojure.string :as string :refer [blank? join split trimr]])
 
 (def ^:dynamic *doc-ns-sym*)
 (def fixme "FIXME: document this")
@@ -66,7 +66,8 @@
        (apply str)))
 
 (defn emit-toc [xs]
-  (->> xs (keep #(when-let [item (emit-toc-section %)] (prn :item item) (li item)))))
+  (->> xs (keep #(let [item (emit-toc-section %)]
+                   (when (not (blank? item)) (li item))))))
 
 (defn sections [x]
   (->> (assoc (:doc/toc x) nil {})

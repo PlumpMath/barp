@@ -2,8 +2,6 @@
 
 The Boot core namespace, containing most of Boot's public API.
 
-* 
-
 * **Boot Settings (read-only)** &mdash; [`*app-version*`](#app-version) [`*boot-opts*`](#boot-opts) [`*boot-script*`](#boot-script) [`*boot-version*`](#boot-version) [`*warnings*`](#warnings) [`bootignore`](#bootignore) [`last-file-change`](#last-file-change) [`new-build-at`](#new-build-at)
 
 * **Configuration Helpers** &mdash; [`configure-repositories!`](#configure-repositories) [`load-data-readers!`](#load-data-readers)
