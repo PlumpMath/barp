@@ -34,7 +34,7 @@ The Boot core namespace, containing most of Boot's public API.
 
 #### Create Fileset
 
-[`new-fileset`](#new-fileset) 
+
 
 #### Query Fileset For TmpFiles
 
@@ -44,29 +44,13 @@ The Boot core namespace, containing most of Boot's public API.
 
 [`by-ext`](#by-ext) [`by-name`](#by-name) [`by-path`](#by-path) [`by-re`](#by-re) [`file-filter`](#file-filter) [`not-by-ext`](#not-by-ext) [`not-by-name`](#not-by-name) [`not-by-path`](#not-by-path) [`not-by-re`](#not-by-re) 
 
-#### Query Fileset For Directories
-
-[`input-dirs`](#input-dirs) [`output-dirs`](#output-dirs) [`user-dirs`](#user-dirs) 
-
-#### Filter Fileset
-
-[`input-fileset`](#input-fileset) [`output-fileset`](#output-fileset) 
-
 #### Other Fileset Queries
 
-[`fileset-namespaces`](#fileset-namespaces) [`ls`](#ls) 
+[`fileset-namespaces`](#fileset-namespaces) [`input-dirs`](#input-dirs) [`input-fileset`](#input-fileset) [`ls`](#ls) [`output-dirs`](#output-dirs) [`output-fileset`](#output-fileset) [`user-dirs`](#user-dirs) 
 
 #### Manipulate Fileset
 
-[`add-meta`](#add-meta) [`commit!`](#commit) [`cp`](#cp) [`mv`](#mv) [`rm`](#rm) 
-
-#### Add To Fileset
-
-[`add-asset`](#add-asset) [`add-cached-asset`](#add-cached-asset) [`add-cached-resource`](#add-cached-resource) [`add-cached-source`](#add-cached-source) [`add-resource`](#add-resource) [`add-source`](#add-source) 
-
-#### Change Roles Of Files In Fileset
-
-[`mv-asset`](#mv-asset) [`mv-resource`](#mv-resource) [`mv-source`](#mv-source) 
+[`add-asset`](#add-asset) [`add-cached-asset`](#add-cached-asset) [`add-cached-resource`](#add-cached-resource) [`add-cached-source`](#add-cached-source) [`add-meta`](#add-meta) [`add-resource`](#add-resource) [`add-source`](#add-source) [`commit!`](#commit) [`cp`](#cp) [`mv`](#mv) [`mv-asset`](#mv-asset) [`mv-resource`](#mv-resource) [`mv-source`](#mv-source) [`new-fileset`](#new-fileset) [`rm`](#rm) 
 
 #### Fileset Diffs
 

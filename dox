@@ -193,7 +193,7 @@
 
     (section
       "Create Fileset"
-      new-fileset)
+      )
 
     (section
       "Query Fileset For TmpFiles"
@@ -209,38 +209,29 @@
       not-by-ext not-by-name not-by-path not-by-re)
 
     (section
-      "Query Fileset For Directories"
-      user-dirs
-      input-dirs
-      output-dirs)
-
-    (section
-      "Filter Fileset"
-      input-fileset
-      output-fileset)
-
-    (section
       "Other Fileset Queries"
       ls
-      fileset-namespaces)
+      fileset-namespaces
+      input-fileset
+      output-fileset
+      user-dirs
+      input-dirs
+      output-dirs
+      )
 
     (section
       "Manipulate Fileset"
+      new-fileset
       commit!
       rm mv cp
-      add-meta)
-
-    (section
-      "Add To Fileset"
+      add-meta
       add-asset add-cached-asset
       add-source add-cached-source
-      add-resource add-cached-resource)
-
-    (section
-      "Change Roles Of Files In Fileset"
+      add-resource add-cached-resource
       mv-asset
       mv-source
-      mv-resource)
+      mv-resource
+      )
 
     (section
       "Fileset Diffs"
