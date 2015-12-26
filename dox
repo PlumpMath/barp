@@ -170,15 +170,21 @@
       new-fileset)
 
     (section
-      "Query Fileset"
+      "Query Fileset For Files"
       tmp-get
-      user-dirs
-      input-dirs
-      output-dirs
       user-files
       input-files
+      output-files)
+
+    (section
+      "Query Fileset For Directories"
+      user-dirs
+      input-dirs
+      output-dirs)
+
+    (section
+      "Filter Fileset"
       input-fileset
-      output-files
       output-fileset)
 
     (section

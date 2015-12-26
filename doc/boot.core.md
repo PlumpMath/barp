@@ -20,9 +20,17 @@ The Boot core namespace, containing most of Boot's public API.
 
 [`new-fileset`](#new-fileset) 
 
-#### Query Fileset
+#### Query Fileset For Files
 
-[`input-dirs`](#input-dirs) [`input-files`](#input-files) [`input-fileset`](#input-fileset) [`output-dirs`](#output-dirs) [`output-files`](#output-files) [`output-fileset`](#output-fileset) [`tmp-get`](#tmp-get) [`user-dirs`](#user-dirs) [`user-files`](#user-files) 
+[`input-files`](#input-files) [`output-files`](#output-files) [`tmp-get`](#tmp-get) [`user-files`](#user-files) 
+
+#### Query Fileset For Directories
+
+[`input-dirs`](#input-dirs) [`output-dirs`](#output-dirs) [`user-dirs`](#user-dirs) 
+
+#### Filter Fileset
+
+[`input-fileset`](#input-fileset) [`output-fileset`](#output-fileset) 
 
 #### Other Fileset Queries
 
