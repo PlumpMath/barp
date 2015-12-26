@@ -12,16 +12,17 @@
 (def ^:dynamic *doc-ns-sym*)
 (def fixme "FIXME: document this")
 
-(defn hr           [ ]   "<hr>\n\n")
+(defn p            [x]   (format "%s\n\n" x))
+(defn hr           [ ]   (p "<hr>"))
 (defn code         [x]   (format "`%s`" x))
 (defn em           [x]   (format "_%s_" x))
-(defn p            [x]   (format "%s\n\n" x))
-(defn h1           [x]   (format "# %s\n\n" x))
-(defn h3           [x]   (format "### %s\n\n" x))
-(defn h5           [x]   (format "##### %s\n\n" x))
+(defn li           [x]   (p (format "* %s")))
+(defn h1           [x]   (p (format "# %s" x)))
+(defn h3           [x]   (p (format "### %s" x)))
+(defn h5           [x]   (p (format "##### %s" x)))
 (defn link         [x y] (format "[%s](%s)" x y))
-(defn block       ([x]   (format "```\n%s\n```\n\n" x))
-                  ([x y] (format "```%s\n%s\n```\n\n" x y)))
+(defn block       ([x]   (p (format "```\n%s\n```" x)))
+                  ([x y] (p (format "```%s\n%s\n```" x y))))
 (defn filter-vals  [p m] (reduce-kv #(if-not (p %3) %1 (assoc %1 %2 %3)) {} m))
 
 (defn strip-indent [x]
@@ -61,7 +62,7 @@
   (->> xs (mapcat (fn [{:keys [title vars]}]
                     (-> (->> (map (fn [[x _]] (link (code x) (fmt-link x))) vars)
                              (interpose " ")
-                             (cons (when title (h5 title)))
+                             (cons (when title (li title)))
                              (remove nil?))
                         (concat ["\n\n"]))))))
 
