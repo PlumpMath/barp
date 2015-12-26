@@ -90,6 +90,7 @@
          (concat (list (hr)))
          (concat (emit-toc s))
          (concat (emit-ns m))
+         (remove string/blank?)
          (apply str))))
 
 (defn section* [title & syms]
