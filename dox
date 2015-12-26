@@ -96,13 +96,13 @@
                [])))
 
 (defn ns-docs
-  [link-path x]
-  (let [n (the-ns x)
+  [link-path ns-sym]
+  (let [n (the-ns ns-sym)
         e #(let [m (meta %2)
                  v (var-get (ns-resolve n %1))]
              (assoc m :md (emit-var link-path v m)))
         m (assoc (meta n)
-                 :name x
+                 :name ns-sym
                  :vars (->> (ns-publics n)
                             (reduce-kv #(assoc %1 %2 (e %2 %3)) {})))
         s (sections m)]
@@ -126,9 +126,10 @@
   `(section* ~title ~@(map (partial list 'quote) syms)))
 
 (defn generate-docs
-  [ns out src-path ns-doc]
-  (let [ns *doc-ns-sym*
-        n  (find-ns ns)]
+  [ns src-path ns-doc]
+  (let [ns  *doc-ns-sym*
+        n   (find-ns ns)
+        out (str "doc/" ns ".md")]
     (alter-meta! n assoc :doc ns-doc)
     (spit out (-> (.getParent (io/file out))
                   (file/relative-to src-path)
@@ -136,11 +137,11 @@
                   (ns-docs ns)))))
 
 (defmacro namespace
-  [ns ns-doc out src-path & sections]
+  [ns ns-doc src-path & sections]
   `(binding [*doc-ns-sym* '~ns]
      (alter-meta! (find-ns '~ns) assoc :doc/toc nil)
      (do ~@sections)
-     (generate-docs '~ns ~out ~src-path ~ns-doc)))
+     (generate-docs '~ns ~src-path ~ns-doc)))
 
 (comment
 
@@ -151,20 +152,17 @@
     boot.util
     "Namespace containing various utility functions and macros to make
     life easier in Boot scripts."
-    "doc/boot.util.md"
     (format "../%s/boot/pod/src/" boot.core/*boot-version*))
 
   (namespace
     boot.pod
     "Namespace containing various utility functions and macros to make
     life easier in Boot scripts."
-    "doc/boot.pod.md"
     (format "../%s/boot/pod/src/" boot.core/*boot-version*))
 
   (namespace
     boot.core
     "The Boot core namespace, containing most of Boot's public API."
-    "doc/boot.core.md"
     (format "../%s/boot/core/src/" boot.core/*boot-version*)
 
     (section
