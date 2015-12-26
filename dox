@@ -1,3 +1,5 @@
+#!/usr/bin/env boot
+
 ;; vim: set ft=clojure:
 
 (ns-unmap *ns* 'namespace)
@@ -108,6 +110,7 @@
   (let [ns  *doc-ns-sym*
         n   (find-ns ns)
         out (str "doc/" ns ".md")]
+    (println (format "Writing %s..." out))
     (alter-meta! n assoc :doc ns-doc)
     (spit out (-> (.getParent (io/file out))
                   (file/relative-to src-path)
@@ -115,18 +118,15 @@
                   (ns-docs ns)))))
 
 (defmacro section [title & syms]
-  `(section* ~title ~@(map (partial list 'quote) syms)))
+  `(~'section* ~title ~@(map (partial list 'quote) syms)))
 
 (defmacro namespace [ns ns-doc src-path & sections]
-  `(binding [*doc-ns-sym* '~ns]
+  `(binding [~'*doc-ns-sym* '~ns]
      (alter-meta! (find-ns '~ns) assoc :doc/toc nil)
      (do ~@sections)
-     (generate-docs '~ns ~src-path ~ns-doc)))
+     (~'generate-docs '~ns ~src-path ~ns-doc)))
 
-(comment
-
-  (def test-str  "asdf qwer
-                 zxcv poiu")
+(defn -main [& args]
 
   (namespace
     boot.util
@@ -264,34 +264,5 @@
       tmptime
       temp-dir!
       fileset-reduce
-      init!)
-
-    )
-
-  (print test-str)
-
-  (macroexpand '(section "asdf" "wqer" *boot-version*))
-  (macroexpand '(namespace boo.asdf "asdf" "wqer" "asdfqwer"))
-
-  (print (strip-indent test-str))
-
-  (use 'clojure.pprint)
-
-  (do (remove-ns 'foo.bar) (require 'foo.bar :reload))
-
-  (defn link-path
-    [src-path]
-    (format "../../%s/%s" *boot-version* src-path))
-
-  (require 'boot.core)
-  (clojure.repl/pst)
-  (->> 'foo.bar (ns-docs "../boot/core/src/") emit-toc (apply str) print)
-  (->> 'foo.bar (ns-docs "../boot/core/src/") (spit "doc/foo.md"))
-  (->> 'boot.core (ns-docs "../../2.5.2/boot/core/src/") (spit "doc/foo.md"))
-  (->> 'boot.task.built-in (ns-docs "../../2.5.2/boot/core/src/") (spit "doc/foo.md"))
-
-  (print (emit-var "../" "boot/pod/src/" a))
-  (->> a :md print)
-
-  )
+      init!)))
 

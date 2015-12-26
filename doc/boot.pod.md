@@ -3,7 +3,7 @@
 Namespace containing various utility functions and macros to make
 life easier in Boot scripts.
 
-[`add-classpath`](#add-classpath) [`add-dependencies`](#add-dependencies) [`add-dependencies-in`](#add-dependencies-in) [`add-dependencies-worker`](#add-dependencies-worker) [`add-shutdown-hook!`](#add-shutdown-hook) [`apply-exclusions`](#apply-exclusions) [`apply-global-exclusions`](#apply-global-exclusions) [`call-in*`](#call-in) [`caller-namespace`](#caller-namespace) [`canonical-coord`](#canonical-coord) [`classloader-hierarchy`](#classloader-hierarchy) [`classloader-resources`](#classloader-resources) [`concat-merger`](#concat-merger) [`copy-dependency-jar-entries`](#copy-dependency-jar-entries) [`copy-resource`](#copy-resource) [`copy-url`](#copy-url) [`data`](#data) [`default-dependencies`](#default-dependencies) [`dependency-loaded?`](#dependency-loaded?) [`dependency-pom-properties`](#dependency-pom-properties) [`dependency-pom-properties-map`](#dependency-pom-properties-map) [`destroy-pod`](#destroy-pod) [`env`](#env) [`eval-fn-call`](#eval-fn-call) [`eval-in*`](#eval-in) [`extract-ids`](#extract-ids) [`first-wins-merger`](#first-wins-merger) [`get-classpath`](#get-classpath) [`get-pods`](#get-pods) [`into-merger`](#into-merger) [`jar-entries`](#jar-entries) [`jar-entries*`](#jar-entries) [`jar-entries-memoized*`](#jar-entries-memoized) [`jars-dep-graph`](#jars-dep-graph) [`jars-in-dep-order`](#jars-in-dep-order) [`lifecycle-pool`](#lifecycle-pool) [`make-pod`](#make-pod) [`modifiable-classloader?`](#modifiable-classloader?) [`non-caching-url-input-stream`](#non-caching-url-input-stream) [`outdated`](#outdated) [`pod-id`](#pod-id) [`pod-pool`](#pod-pool) [`pods`](#pods) [`pom-properties`](#pom-properties) [`pom-properties-map`](#pom-properties-map) [`pom-xml`](#pom-xml) [`pom-xml-map`](#pom-xml-map) [`require-in`](#require-in) [`resolve-dependencies`](#resolve-dependencies) [`resolve-dependency-jar`](#resolve-dependency-jar) [`resolve-dependency-jars`](#resolve-dependency-jars) [`resolve-nontransitive-dependencies`](#resolve-nontransitive-dependencies) [`resources`](#resources) [`seal-app-classloader`](#seal-app-classloader) [`send!`](#send) [`set-data!`](#set-data) [`set-pod-id!`](#set-pod-id) [`set-pods!`](#set-pods) [`set-worker-pod!`](#set-worker-pod) [`shutdown-hooks`](#shutdown-hooks) [`standard-jar-exclusions`](#standard-jar-exclusions) [`standard-jar-mergers`](#standard-jar-mergers) [`unpack-jar`](#unpack-jar) [`with-call-in`](#with-call-in) [`with-call-worker`](#with-call-worker) [`with-eval-in`](#with-eval-in) [`with-eval-worker`](#with-eval-worker) [`worker-pod`](#worker-pod) 
+[`add-classpath`](#add-classpath)[`add-dependencies`](#add-dependencies)[`add-dependencies-in`](#add-dependencies-in)[`add-dependencies-worker`](#add-dependencies-worker)[`add-shutdown-hook!`](#add-shutdown-hook)[`apply-exclusions`](#apply-exclusions)[`apply-global-exclusions`](#apply-global-exclusions)[`call-in*`](#call-in)[`caller-namespace`](#caller-namespace)[`canonical-coord`](#canonical-coord)[`classloader-hierarchy`](#classloader-hierarchy)[`classloader-resources`](#classloader-resources)[`concat-merger`](#concat-merger)[`copy-dependency-jar-entries`](#copy-dependency-jar-entries)[`copy-resource`](#copy-resource)[`copy-url`](#copy-url)[`data`](#data)[`default-dependencies`](#default-dependencies)[`dependency-loaded?`](#dependency-loaded?)[`dependency-pom-properties`](#dependency-pom-properties)[`dependency-pom-properties-map`](#dependency-pom-properties-map)[`destroy-pod`](#destroy-pod)[`env`](#env)[`eval-fn-call`](#eval-fn-call)[`eval-in*`](#eval-in)[`extract-ids`](#extract-ids)[`first-wins-merger`](#first-wins-merger)[`get-classpath`](#get-classpath)[`get-pods`](#get-pods)[`into-merger`](#into-merger)[`jar-entries`](#jar-entries)[`jar-entries*`](#jar-entries)[`jar-entries-memoized*`](#jar-entries-memoized)[`jars-dep-graph`](#jars-dep-graph)[`jars-in-dep-order`](#jars-in-dep-order)[`lifecycle-pool`](#lifecycle-pool)[`make-pod`](#make-pod)[`modifiable-classloader?`](#modifiable-classloader?)[`non-caching-url-input-stream`](#non-caching-url-input-stream)[`outdated`](#outdated)[`pod-id`](#pod-id)[`pod-pool`](#pod-pool)[`pods`](#pods)[`pom-properties`](#pom-properties)[`pom-properties-map`](#pom-properties-map)[`pom-xml`](#pom-xml)[`pom-xml-map`](#pom-xml-map)[`require-in`](#require-in)[`resolve-dependencies`](#resolve-dependencies)[`resolve-dependency-jar`](#resolve-dependency-jar)[`resolve-dependency-jars`](#resolve-dependency-jars)[`resolve-nontransitive-dependencies`](#resolve-nontransitive-dependencies)[`resources`](#resources)[`seal-app-classloader`](#seal-app-classloader)[`send!`](#send)[`set-data!`](#set-data)[`set-pod-id!`](#set-pod-id)[`set-pods!`](#set-pods)[`set-worker-pod!`](#set-worker-pod)[`shutdown-hooks`](#shutdown-hooks)[`standard-jar-exclusions`](#standard-jar-exclusions)[`standard-jar-mergers`](#standard-jar-mergers)[`unpack-jar`](#unpack-jar)[`with-call-in`](#with-call-in)[`with-call-worker`](#with-call-worker)[`with-eval-in`](#with-eval-in)[`with-eval-worker`](#with-eval-worker)[`worker-pod`](#worker-pod)
 
 <hr>
 
@@ -12,7 +12,7 @@ life easier in Boot scripts.
 _function_
 
 ```clojure
-(add-classpath jar-or-dir classloader) (add-classpath jar-or-dir)
+(add-classpath jar-or-dir) (add-classpath jar-or-dir classloader)
 ```
 
 ```
@@ -171,7 +171,7 @@ if one is not provided.
 _function_
 
 ```clojure
-(classloader-resources classloaders resource-name) (classloader-resources resource-name)
+(classloader-resources resource-name) (classloader-resources classloaders resource-name)
 ```
 
 ```
@@ -244,6 +244,10 @@ FIXME: document this
 ### [`data`](../../2.5.2/boot/pod/src/boot/pod.clj#L182)
 
 _var_
+
+```clojure
+
+```
 
 ```
 FIXME: document this
@@ -325,6 +329,10 @@ FIXME: document this
 
 _var_
 
+```clojure
+
+```
+
 ```
 FIXME: document this
 ```
@@ -392,7 +400,7 @@ FIXME: document this
 _function_
 
 ```clojure
-(get-classpath classloaders) (get-classpath)
+(get-classpath) (get-classpath classloaders)
 ```
 
 ```
@@ -468,6 +476,10 @@ FIXME: document this
 ### [`jar-entries-memoized*`](../../2.5.2/boot/pod/src/boot/pod.clj#L364)
 
 _function_
+
+```clojure
+
+```
 
 ```
 FIXME: document this
@@ -579,6 +591,10 @@ FIXME: document this
 
 _var_
 
+```clojure
+
+```
+
 ```
 FIXME: document this
 ```
@@ -632,6 +648,10 @@ Options:
 ### [`pods`](../../2.5.2/boot/pod/src/boot/pod.clj#L183)
 
 _var_
+
+```clojure
+
+```
 
 ```
 FIXME: document this
@@ -770,7 +790,7 @@ FIXME: document this
 _function_
 
 ```clojure
-(resources classloaders resource-name) (resources resource-name)
+(resources resource-name) (resources classloaders resource-name)
 ```
 
 ```
@@ -871,6 +891,10 @@ FIXME: document this
 
 _var_
 
+```clojure
+
+```
+
 ```
 FIXME: document this
 ```
@@ -881,6 +905,10 @@ FIXME: document this
 
 _var_
 
+```clojure
+
+```
+
 ```
 FIXME: document this
 ```
@@ -890,6 +918,10 @@ FIXME: document this
 ### [`standard-jar-mergers`](../../2.5.2/boot/pod/src/boot/pod.clj#L392)
 
 _var_
+
+```clojure
+
+```
 
 ```
 FIXME: document this
@@ -970,6 +1002,10 @@ FIXME: document this
 ### [`worker-pod`](../../2.5.2/boot/pod/src/boot/pod.clj#L185)
 
 _var_
+
+```clojure
+
+```
 
 ```
 FIXME: document this

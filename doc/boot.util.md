@@ -3,13 +3,17 @@
 Namespace containing various utility functions and macros to make
 life easier in Boot scripts.
 
-[`*colorize?*`](#colorize?) [`*sh-dir*`](#sh-dir) [`*verbosity*`](#verbosity) [`auto-flush`](#auto-flush) [`bind-syms`](#bind-syms) [`colorize?-system-default`](#colorize?-system-default) [`dbug`](#dbug) [`dep-as-map`](#dep-as-map) [`do-while-let`](#do-while-let) [`dosh`](#dosh) [`dotoseq`](#dotoseq) [`exit-error`](#exit-error) [`exit-ok`](#exit-ok) [`extract-ids`](#extract-ids) [`fail`](#fail) [`guard`](#guard) [`index-of`](#index-of) [`info`](#info) [`jarname`](#jarname) [`let-assert-keys`](#let-assert-keys) [`path->ns`](#path->ns) [`pp*`](#pp) [`pp-str`](#pp-str) [`print-ex`](#print-ex) [`print-tree`](#print-tree) [`read-string-all`](#read-string-all) [`sh`](#sh) [`warn`](#warn) [`warn-deprecated`](#warn-deprecated) [`while-let`](#while-let) [`with-err-str`](#with-err-str) [`with-let`](#with-let) [`with-resolve`](#with-resolve) [`with-rethrow`](#with-rethrow) [`with-semaphore`](#with-semaphore) [`with-semaphore-noblock`](#with-semaphore-noblock) [`without-exiting`](#without-exiting) 
+[`*colorize?*`](#colorize?)[`*sh-dir*`](#sh-dir)[`*verbosity*`](#verbosity)[`auto-flush`](#auto-flush)[`bind-syms`](#bind-syms)[`colorize?-system-default`](#colorize?-system-default)[`dbug`](#dbug)[`dep-as-map`](#dep-as-map)[`do-while-let`](#do-while-let)[`dosh`](#dosh)[`dotoseq`](#dotoseq)[`exit-error`](#exit-error)[`exit-ok`](#exit-ok)[`extract-ids`](#extract-ids)[`fail`](#fail)[`guard`](#guard)[`index-of`](#index-of)[`info`](#info)[`jarname`](#jarname)[`let-assert-keys`](#let-assert-keys)[`path->ns`](#path->ns)[`pp*`](#pp)[`pp-str`](#pp-str)[`print-ex`](#print-ex)[`print-tree`](#print-tree)[`read-string-all`](#read-string-all)[`sh`](#sh)[`warn`](#warn)[`warn-deprecated`](#warn-deprecated)[`while-let`](#while-let)[`with-err-str`](#with-err-str)[`with-let`](#with-let)[`with-resolve`](#with-resolve)[`with-rethrow`](#with-rethrow)[`with-semaphore`](#with-semaphore)[`with-semaphore-noblock`](#with-semaphore-noblock)[`without-exiting`](#without-exiting)
 
 <hr>
 
 ### [`*colorize?*`](../../2.5.2/boot/pod/src/boot/util.clj#L32)
 
 _dynamic_
+
+```clojure
+
+```
 
 ```
 FIXME: document this
@@ -21,6 +25,10 @@ FIXME: document this
 
 _dynamic_
 
+```clojure
+
+```
+
 ```
 FIXME: document this
 ```
@@ -30,6 +38,10 @@ FIXME: document this
 ### [`*verbosity*`](../../2.5.2/boot/pod/src/boot/util.clj#L31)
 
 _dynamic_
+
+```clojure
+
+```
 
 ```
 FIXME: document this

@@ -1,3 +1,0 @@
-# hi there
-
-[go here](../src/foo/bar.clj#L9)...
