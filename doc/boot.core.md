@@ -2,7 +2,7 @@
 
 The Boot core namespace, containing most of Boot's public API.
 
-[`reset-build!`](#reset-build) [`reset-fileset`](#reset-fileset) 
+
 
 #### Boot Settings (read-only)
 
@@ -18,13 +18,13 @@ The Boot core namespace, containing most of Boot's public API.
 
 #### Define Tasks
 
-[`cleanup`](#cleanup) [`deftask`](#deftask) [`with-pass-thru`](#with-pass-thru) [`with-post-wrap`](#with-post-wrap) [`with-pre-wrap`](#with-pre-wrap) 
+[`cleanup`](#cleanup) [`deftask`](#deftask) [`reset-build!`](#reset-build) [`reset-fileset`](#reset-fileset) [`with-pass-thru`](#with-pass-thru) [`with-post-wrap`](#with-post-wrap) [`with-pre-wrap`](#with-pre-wrap) 
 
 #### Manipulate Task Options
 
 [`disable-task!`](#disable-task) [`replace-task!`](#replace-task) [`task-options!`](#task-options) 
 
-#### Boot REPL Integration
+#### REPL Integration
 
 [`boot`](#boot) [`launch-nrepl`](#launch-nrepl) [`rebuild!`](#rebuild) 
 

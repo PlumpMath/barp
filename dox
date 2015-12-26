@@ -169,6 +169,8 @@
       "Define Tasks"
       deftask
       cleanup
+      reset-build!
+      reset-fileset
       with-pre-wrap
       with-pass-thru
       with-post-wrap)
@@ -180,7 +182,7 @@
       disable-task!)
 
     (section
-      "Boot REPL Integration"
+      "REPL Integration"
       boot
       rebuild!
       launch-nrepl)
