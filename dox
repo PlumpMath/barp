@@ -142,7 +142,7 @@
     (format "../%s/boot/core/src/" boot.core/*boot-version*)
 
     (section
-      "Configuration"
+      "Configure Boot"
       *app-version*
       *boot-script*
       *boot-version*
@@ -154,11 +154,7 @@
       load-data-readers!)
 
     (section
-      "Fileset Construction"
-      new-fileset)
-
-    (section
-      "Temp Directories"
+      "Create Temp Directories"
       tmp-dir!
       cache-dir!)
 
@@ -170,7 +166,11 @@
       tmp-time)
 
     (section
-      "Fileset Queries"
+      "Create Fileset"
+      new-fileset)
+
+    (section
+      "Query Fileset"
       tmp-get
       user-dirs
       input-dirs
@@ -184,13 +184,16 @@
       ls)
 
     (section
-      "Fileset Manipulation"
+      "Manipulate Fileset"
       commit!
       rm mv cp
+      add-meta)
+
+    (section
+      "Add To Fileset"
       add-asset add-cached-asset mv-asset
       add-source add-cached-source mv-source
-      add-resource add-cached-resource mv-resource
-      add-meta)
+      add-resource add-cached-resource mv-resource)
 
     (section
       "Fileset Diffs"

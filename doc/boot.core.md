@@ -51,7 +51,7 @@ The Boot core namespace, containing most of Boot's public API.
 * [`yaml-generate`](#yaml-generate)
 * [`yaml-parse`](#yaml-parse)
 
-#### Configuration
+#### Configure Boot
 
 * [`*app-version*`](#app-version)
 * [`*boot-opts*`](#boot-opts)
@@ -63,11 +63,7 @@ The Boot core namespace, containing most of Boot's public API.
 * [`load-data-readers!`](#load-data-readers!)
 * [`new-build-at`](#new-build-at)
 
-#### Fileset Construction
-
-* [`new-fileset`](#new-fileset)
-
-#### Temp Directories
+#### Create Temp Directories
 
 * [`cache-dir!`](#cache-dir!)
 * [`tmp-dir!`](#tmp-dir!)
@@ -79,7 +75,11 @@ The Boot core namespace, containing most of Boot's public API.
 * [`tmp-path`](#tmp-path)
 * [`tmp-time`](#tmp-time)
 
-#### Fileset Queries
+#### Create Fileset
+
+* [`new-fileset`](#new-fileset)
+
+#### Query Fileset
 
 * [`fileset-namespaces`](#fileset-namespaces)
 * [`input-dirs`](#input-dirs)
@@ -93,22 +93,25 @@ The Boot core namespace, containing most of Boot's public API.
 * [`user-dirs`](#user-dirs)
 * [`user-files`](#user-files)
 
-#### Fileset Manipulation
+#### Manipulate Fileset
+
+* [`add-meta`](#add-meta)
+* [`commit!`](#commit!)
+* [`cp`](#cp)
+* [`mv`](#mv)
+* [`rm`](#rm)
+
+#### Add To Fileset
 
 * [`add-asset`](#add-asset)
 * [`add-cached-asset`](#add-cached-asset)
 * [`add-cached-resource`](#add-cached-resource)
 * [`add-cached-source`](#add-cached-source)
-* [`add-meta`](#add-meta)
 * [`add-resource`](#add-resource)
 * [`add-source`](#add-source)
-* [`commit!`](#commit!)
-* [`cp`](#cp)
-* [`mv`](#mv)
 * [`mv-asset`](#mv-asset)
 * [`mv-resource`](#mv-resource)
 * [`mv-source`](#mv-source)
-* [`rm`](#rm)
 
 #### Fileset Diffs
 
